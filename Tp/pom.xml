@@ -13,7 +13,7 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
-<!-- todo esto se agrego con lo visto en el video -->
+// todo esto se agrego con lo visto en el video
 
     <build>
         <plugins>
