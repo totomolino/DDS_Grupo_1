@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class register {
-    private List<String> usuarios= new ArrayList<String>();
-
     /*
     public static boolean existeUsuario(String usuario){
 
@@ -70,7 +68,7 @@ public static boolean validarContrasenia(String unaContrasenia, String unUsuario
     }
     */
 
-        
+
 }
 }
 
