@@ -1,4 +1,4 @@
-package domain.seguridad;
+package seguridad;
 
 import java.io.File;
 import java.io.FileNotFoundException;

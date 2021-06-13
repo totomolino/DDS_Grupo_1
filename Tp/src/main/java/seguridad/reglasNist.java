@@ -1,4 +1,4 @@
-package domain.seguridad;
+package seguridad;
 
 public class reglasNist {
 
