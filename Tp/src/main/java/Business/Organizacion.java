@@ -9,7 +9,7 @@ public class Organizacion {
     List<Mascota> listaMascotas = new ArrayList<>();
     List<Duenio> listaDuenios = new ArrayList<>();
     List<String> caracteristicas = new ArrayList<>();
-    Administrador miAdmin;
+    List<Administrador> misAdmins = new ArrayList<>();
 
 
     public void agregarMascota(int id, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, List<Foto> fotos, Duenio duenio, HashMap<String, String> caracteristicas) {
@@ -20,6 +20,16 @@ public class Organizacion {
 
     public void agregarCaracteristica(String unaCarateristica) {
         caracteristicas.add(unaCarateristica);
+    }
+
+    public void agregarAdmin(Administrador unAdmin) {
+        misAdmins.add(unAdmin);
+    }
+
+    public void mascotaPerdida(FormularioPerdida formulario){
+        if (formulario.tieneChapita()) {
+
+        }
     }
 
 

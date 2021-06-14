@@ -21,4 +21,17 @@ public class Usuario {
         this.contrasenia = contrasenia;
         this.email = email;
     }
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }

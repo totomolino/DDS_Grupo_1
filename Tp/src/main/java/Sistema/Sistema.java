@@ -19,10 +19,13 @@ public class Sistema {
     public static void validarContrasenia(String contrasenia, String usuario) throws FileNotFoundException {
         register.validarContrasenia(contrasenia, usuario);
     }
-    public void crearDuenio() {
+ /*   public void crearDuenio() {
         Duenio duenio = new Duenio();
-    }
+    }*/
     public void crearAdmin() {
 
     }
+
+
+
 }
