@@ -8,8 +8,8 @@ public class twilio {
 
 
     // Find your Account Sid and Token at twilio.com/user/account
-    public static final String ACCOUNT_SID = "ACcdadb7dc9f5b80578877b8d42d06c8da";
-    public static final String AUTH_TOKEN = "a66eaf999bac5350155ad65784a7b35b";
+    public static final String ACCOUNT_SID = System.getenv("TWILIO_ACCOUNT_SID");
+    public static final String AUTH_TOKEN = System.getenv("TWILIO_AUTH_TOKEN");
 
     public static void main(String[] args) {
         twilio.mandarSMS("+541166070996", "MASCOTA ENCONTRADA");

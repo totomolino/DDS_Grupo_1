@@ -13,7 +13,7 @@ public class Organizacion {
 
 
     public void agregarMascota(int id, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, List<Foto> fotos, Duenio duenio, HashMap<String, String> caracteristicas) {
-        Mascota unaMascota = new Mascota(id , fotos, especie, nombre, apodo, edad, sexo, descripcion, true, caracteristicas);
+        Mascota unaMascota = new Mascota(id , fotos, especie, nombre, apodo, edad, sexo, descripcion, true, caracteristicas, duenio);
         listaMascotas.add(unaMascota);
         duenio.agregarMascota(unaMascota);
     }

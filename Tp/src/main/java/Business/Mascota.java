@@ -15,11 +15,12 @@ public class Mascota {
     String sexo;
     String descripcion;
     boolean tieneChapita;
+    Duenio duenio;
     HashMap<String, String> caracteristicas;
 
 
 
-    public Mascota(int id, List<Foto> fotos, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, boolean tieneChapita, HashMap<String, String> caracteristicas) {
+    public Mascota(int id, List<Foto> fotos, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, boolean tieneChapita, HashMap<String, String> caracteristicas, Duenio duenio) {
         this.id = id;
         this.fotos = fotos;
         this.especie = especie;
@@ -30,6 +31,7 @@ public class Mascota {
         this.descripcion = descripcion;
         this.tieneChapita = tieneChapita;
         this.caracteristicas = caracteristicas;
+        this.duenio= duenio;
     }
 
     public int getId() {return id;}
