@@ -103,6 +103,10 @@ public class Mascota {
     public void setTieneChapita(boolean tieneChapita) {
         this.tieneChapita = tieneChapita;
     }
+
+    public void serRescatado() {
+        duenio.serNotificado();
+    }
 }
 
 /*import java.util.HashMap;

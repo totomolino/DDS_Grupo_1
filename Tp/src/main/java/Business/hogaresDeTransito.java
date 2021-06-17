@@ -14,14 +14,16 @@ public class hogaresDeTransito {
     HashMap<String, String> caracPuntuales;
 
     public boolean puedeAlojar(Especie tipoEspecie, String tamanioMascota  ){
-        return this.puedeAlojarEspecie(tipoEspecie) && this.puedeAlojarSegunTamanio(tamanioMascota)
+        return this.puedeAlojarEspecie(tipoEspecie) && this.puedeAlojarSegunTamanio(tamanioMascota);
     }
 
     public boolean puedeAlojarEspecie( Especie tipo){
         return aceptaEspecies.contains(tipo);
     }
 
-    public boolean (string )
+    public boolean (String tamanio){
+        return true;
+    }
 
 
 

@@ -3,6 +3,7 @@ package Business;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 public class Organizacion {
 
@@ -31,49 +32,16 @@ public class Organizacion {
 
         }
     }
+    public boolean tieneMascota(int idMascota) {
+
+        return listaMascotas.stream().anyMatch(mascota -> mascota.getId() == (idMascota));
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public Mascota buscarMascota(int idMascota) {
+        return listaMascotas.stream().filter(mascota -> mascota.getId() == idMascota).findFirst().orElse(null);
+    }
 }
+
+
+

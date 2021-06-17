@@ -34,13 +34,31 @@ public class Sistema {
     public void recibirForms(int idMascota, String nombreResc, String apellidoResc, String telefonoResc, String fechaNac, String tipoDocResc, int numeroDocResc, List<notificarStrategy> formaNotificacion, List<Contacto> contactos, List<Foto> fotos, String descripcionEncuentro, Float posX, Float posY){
         Rescate unRescate = new Rescate(idMascota, fotos, descripcionEncuentro, posX, posY);
         Rescatista unRescatista = new Rescatista(fechaNac, tipoDocResc, numeroDocResc, nombreResc, apellidoResc, telefonoResc, formaNotificacion, contactos);
-        if(idMascota) {
+
+        if(idMascota != 0) {
             //aca va rescate con chapita id != 0
+            Mascota mascota = buscarMascota(idMascota);//Se supone que la encuentra
+            mascota.serRescatado();
         }
         else
         {
             //rescate sin chapita id = 0
         }
     }
+    public Mascota buscarMascota(int idMascota) {
 
+        Mascota unaMascota;
+
+        int i = 0;
+
+        while(!listaDeOrganizaciones.get(i).tieneMascota(idMascota)){
+            i++;
+        }
+
+        unaMascota = listaDeOrganizaciones.get(i).buscarMascota(idMascota);
+
+        return unaMascota;
+    }
 }
+
+

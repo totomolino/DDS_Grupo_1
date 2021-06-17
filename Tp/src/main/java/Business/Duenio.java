@@ -35,6 +35,11 @@ public class Duenio extends Persona {
         mascotas.add(unaMascota);
     }
 
-
-
+    @Override
+    public void serNotificado() {
+        super.serNotificado();
+        for (Contacto c : contactos ) {
+            c.serNotificado();
+        }
+    }
 }
