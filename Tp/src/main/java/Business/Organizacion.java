@@ -27,11 +27,6 @@ public class Organizacion {
         misAdmins.add(unAdmin);
     }
 
-    public void mascotaPerdida(FormularioPerdida formulario){
-        if (formulario.tieneChapita()) {
-
-        }
-    }
     public boolean tieneMascota(int idMascota) {
 
         return listaMascotas.stream().anyMatch(mascota -> mascota.getId() == (idMascota));
