@@ -27,7 +27,7 @@ public class Usuario {
         return nombre;
     }
 
-    public String getContrasenia() {
+    private String getContrasenia() {
         return contrasenia;
     }
 

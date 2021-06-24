@@ -6,8 +6,8 @@ public class SMS extends notificarStrategy{
 
 
     @Override
-    public void serNotificado(Persona persona) {
-        twilio.mandarSMS(persona.getTelefono(), "Encontre a tu perro");
+    public void notificarA(String email, String telefono) {
+        twilio.mandarSMS(telefono, "Encontre a tu perro");
     }
 
 }

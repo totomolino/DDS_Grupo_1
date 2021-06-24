@@ -5,8 +5,8 @@ import Business.Persona;
 public class EMAIL extends notificarStrategy{
 
     @Override
-    public void serNotificado(Persona persona) {
-        twilio.mandarEmail(persona.getEmail(), "Encontre a tu perro");
+    public void notificarA(String email, String telefono) {
+        twilio.mandarEmail(email, "Encontre a tu perro");
     }
 
 

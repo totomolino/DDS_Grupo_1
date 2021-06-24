@@ -4,8 +4,6 @@ import Business.Persona;
 
 public abstract class notificarStrategy {
 
-    public abstract void serNotificado(Persona persona);
-
-
+    public abstract void notificarA(String email, String telefono);
 
 }

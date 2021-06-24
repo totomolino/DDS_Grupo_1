@@ -1,10 +1,10 @@
 package Business;
 
 public class Foto {
-    int tamanioFotos;
+    int tamanioFoto;
 
     public void setTamanioFoto(int tamanioNuevo) {
-        this.tamanioFotos = tamanioNuevo;
+        this.tamanioFoto = tamanioNuevo;
     }
 
 }

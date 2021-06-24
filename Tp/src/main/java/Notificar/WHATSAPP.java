@@ -5,9 +5,9 @@ import Business.Persona;
 public class WHATSAPP extends notificarStrategy{
 
     @Override
-    public void serNotificado(Persona persona) {
+    public void notificarA(String email, String telefono) {
 
-        twilio.mandarWhatsapp(persona.getTelefono(), "Encontre a tu perro");
+        twilio.mandarWhatsapp(telefono, "Encontre a tu perro");
 
 
     }

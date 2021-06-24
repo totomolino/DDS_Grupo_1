@@ -5,32 +5,106 @@ import Notificar.notificarStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Persona extends Usuario {
+public class Persona {
     String nombre;
     String apellido;
     String telefono;
+    String fechaNacimiento;
+    String tipoDocumento;
+    int numeroDocumento;
     List<notificarStrategy> formaNotificacion;
+    List<Contacto> contactos = new ArrayList<>();
+    Usuario usuario;
 
-    public Persona(String nombre, String apellido, String telefono, List<notificarStrategy> formaNotificacion, TipoDeUsuario tipoDeUsuario, String usuario, String contrasenia, String email) {
-        super(tipoDeUsuario, usuario, contrasenia, email);
+    public Persona(String nombre, String apellido, String telefono, String fechaNacimiento, String tipoDocumento, int numeroDocumento, List<notificarStrategy> formaNotificacion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
+        this.fechaNacimiento = fechaNacimiento;
+        this.tipoDocumento = tipoDocumento;
+        this.numeroDocumento = numeroDocumento;
         this.formaNotificacion = formaNotificacion;
     }
+    public void agregarContacto(Contacto unContacto){
+        contactos.add(unContacto);
+    }
 
-//formaNOtificacion: [WHATSAPP, EMAIL, SMS]
+    //formaNOtificacion: [WHATSAPP, EMAIL, SMS]
     public void serNotificado(){
 
-        for(int i = 0 ; i < formaNotificacion.size() ; i++){
+        for(int i = 0 ; i < formaNotificacion.size() ; i++) {
+            formaNotificacion.get(i).notificarA(usuario.email, telefono);
+        }
 
-            formaNotificacion.get(i).serNotificado(this);
-
+        for (Contacto c : contactos ) {
+            c.serNotificado();
         }
     }
 
+
     public String getTelefono() {
         return telefono;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public int getNumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public void setNumeroDocumento(int numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public List<notificarStrategy> getFormaNotificacion() {
+        return formaNotificacion;
+    }
+
+    public void setFormaNotificacion(List<notificarStrategy> formaNotificacion) {
+        this.formaNotificacion = formaNotificacion;
+    }
+
+    public List<Contacto> getContactos() {
+        return contactos;
+    }
+
+    public void setContactos(List<Contacto> contactos) {
+        this.contactos = contactos;
     }
 
 

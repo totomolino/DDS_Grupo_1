@@ -11,6 +11,8 @@ public class Organizacion {
     List<Duenio> listaDuenios = new ArrayList<>();
     List<String> caracteristicas = new ArrayList<>();
     List<Administrador> misAdmins = new ArrayList<>();
+    List<Publicacion> publicacionesEnRevision = new ArrayList<>();
+    List<Publicacion> publicacionesAprobadas = new ArrayList<>();
 
 
     public void agregarMascota(int id, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, List<Foto> fotos, Duenio duenio, HashMap<String, String> caracteristicas) {
@@ -36,6 +38,24 @@ public class Organizacion {
     public Mascota buscarMascota(int idMascota) {
         return listaMascotas.stream().filter(mascota -> mascota.getId() == idMascota).findFirst().orElse(null);
     }
+
+    public void agregarPublicacionEnRevision(Publicacion publicacion) {
+        publicacionesEnRevision.add(publicacion);
+    }
+
+    public void agregarPublicacionAprobada(Publicacion publicacion) {
+        publicacionesAprobadas.add(publicacion);
+    }
+
+    public Publicacion obtenerUnaPublicacionEnRevision() {//Agarra una publicacion y la saca de la lista
+        return publicacionesEnRevision.remove(0);
+    }
+
+    public void borrarPublicacionAprobada(Publicacion unaPublicacion){
+        publicacionesAprobadas.remove(unaPublicacion);
+    }
+
+
 }
 
 

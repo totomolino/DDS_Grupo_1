@@ -4,13 +4,16 @@ import Notificar.notificarStrategy;
 
 import java.util.List;
 
-public class Voluntario extends Usuario{
+public class Voluntario {
 
     public int tamanioFotos;
+    Usuario usuario;
+    Organizacion organizacion;
 
-    public Voluntario(TipoDeUsuario tipoDeUsuario, String nombre, String contrasenia, String email, int tamanioFotos) {
-        super(tipoDeUsuario, nombre, contrasenia, email);
+    public Voluntario(String nombre, String contrasenia, String email, int tamanioFotos, Organizacion organizacion) {
+        this.usuario = new Usuario(TipoDeUsuario.VOLUNTARIO, nombre, contrasenia, email);
         this.tamanioFotos = tamanioFotos;
+        this.organizacion = organizacion;
     }
 
     public void normalizarFoto(){}
@@ -18,9 +21,18 @@ public class Voluntario extends Usuario{
     public void ajustarCalidad(){}
 
     public void aprobarPublicacion(){
-
+        Publicacion miPublicacion = organizacion.obtenerUnaPublicacionEnRevision();
+        if(this.validarPublicacion(miPublicacion)){
+            organizacion.agregarPublicacionAprobada(miPublicacion);
+        }
     }
 
+    // VER COMO VALIDAR
+    public boolean validarPublicacion(Publicacion miPublicacion){
+        return true;
+    }
 
-
+    public void borrarPublicacion(Publicacion unaPublicacion) {
+        organizacion.borrarPublicacionAprobada(unaPublicacion);
+    }
 }
