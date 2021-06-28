@@ -14,7 +14,7 @@ public class Rescatista extends Persona {
     }
 
     public List<hogarDeTransito> getHogaresDeTransito() {
-        Sistema.getHogaresDeTransito();
+       return Sistema.getHogaresDeTransito();
     }
 
 }

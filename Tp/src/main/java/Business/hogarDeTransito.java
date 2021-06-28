@@ -14,7 +14,7 @@ public class hogarDeTransito {
     float posY;
     HashMap<String, String> caracPuntuales;
 
-    public boolean puedeAlojar(Especie tipoEspecie, Tamanio tamanioMascota  ){
+    public boolean puedeAlojar(Especie tipoEspecie, Tamanio tamanioMascota){
         return this.puedeAlojarEspecie(tipoEspecie) && this.puedeAlojarSegunTamanio(tamanioMascota) && this.hayLugar();
     }
 
@@ -40,11 +40,9 @@ public class hogarDeTransito {
         return this.cumpleFiltradoDistacia(posXDelRescate, posYDelRescate, radioBusqHogarEnM) && puedeAlojar(especie, tamanio);
     }
 
-
     public boolean cumpleFiltradoDistacia(float posXDelRescate, float posYDelRescate, float radioBusqHogarEnM) {
         float distanciaX = posXDelRescate - posX;
         float distanciaY = posYDelRescate - posY;
         return (radioBusqHogarEnM * radioBusqHogarEnM) <= ((distanciaX * distanciaX) + (distanciaY * distanciaY));
     }
-
 }

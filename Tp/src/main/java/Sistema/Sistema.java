@@ -34,7 +34,7 @@ public class Sistema {
         listaDeVoluntarios.add(unVoluntario);
     }
 
-    public void recibirForms(int idMascota, String nombreResc, String apellidoResc, String telefonoResc, String fechaNac, String tipoDocResc, int numeroDocResc, List<notificarStrategy> formaNotificacion, String email, String contra, String nombreUsuario, List<Contacto> contactos, List<Foto> fotos, String descripcionEncuentro, Float posX, Float posY, boolean seLoQueda, int radioBusqHogarEnM, Tamanio tamanio, Especie especi){
+    public void recibirForms(int idMascota, String nombreResc, String apellidoResc, String telefonoResc, String fechaNac, String tipoDocResc, int numeroDocResc, List<notificarStrategy> formaNotificacion, String email, String contra, String nombreUsuario, List<Contacto> contactos, List<Foto> fotos, String descripcionEncuentro, Float posX, Float posY, boolean seLoQueda, float radioBusqHogarEnM, Tamanio tamanio, Especie especie){
         Rescate unRescate = new Rescate(idMascota, fotos, descripcionEncuentro, posX, posY);
         Rescatista unRescatista = new Rescatista(nombreResc,apellidoResc,telefonoResc,fechaNac,tipoDocResc,numeroDocResc,formaNotificacion,email,contra,nombreUsuario);
         for(Contacto c : contactos) {
@@ -51,7 +51,10 @@ public class Sistema {
             } else {
                 // devolver las opciones y esperar a que elijan una
                 // COMO SE HACE PARA ESPERAR ?
-                this.hogaresDeTransitoPosibles(posX, posY, radioBusqHogarEnM, tamanio,especie);
+                this.hogaresDeTransitoPosibles(posX, posY, radioBusqHogarEnM, tamanio, especie);
+                // ESPERA RESPUESTA
+                hogarDeTransito respuesta;
+                // ACA HAY QUE LLEVAR AL PERRO AL HOGAR, CUANDO LLEGA AL HOGAR, SE "OCUPA EL LUGAR" EN EL HOGAR. SUPONEMOS QUE NO SE "QUEDA RESERVADO" HASTA QUE LLEGUE EL RESCATISTA CON EL PERRO
             }
         }
         else
@@ -80,10 +83,10 @@ public class Sistema {
         return hogaresDeTransito;
     }
 
-    public static List<hogarDeTransito> hogaresDeTransitoPosibles(float posXDelRescate, float posYDelRescate, int radioBusqHogarEnM, Tamanio tamanio) {
+    public static List<hogarDeTransito> hogaresDeTransitoPosibles(float posXDelRescate, float posYDelRescate, float radioBusqHogarEnM, Tamanio tamanio, Especie especie) {
         // FILTER DE LA LISTA DE HOGARES DE TRANSITO
         List<hogarDeTransito> hogaresDeTransitoPosibles = new ArrayList<hogarDeTransito>();
-        Sistema.getHogaresDeTransito().stream().filter(unHogar -> unHogar.pasaElFiltrado(posXDelRescate, posYDelRescate, radioBusqHogarEnM, tamanio, ))
+        Sistema.getHogaresDeTransito().stream().filter(unHogar -> unHogar.pasaElFiltrado(posXDelRescate, posYDelRescate, radioBusqHogarEnM, tamanio, especie));
         return hogaresDeTransitoPosibles;
     }
 }
