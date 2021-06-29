@@ -1,39 +1,36 @@
 package Business.services.apiHogares.entities;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.List;
 
 
 
 public class Hogar {
     public String id;
+    public String nombre;
     public Ubicacion ubicacion;
     public String telefono;
-    public List<Admision> admisiones;
+    public Admisiones admisiones;
     public int capacidad;
     public int lugaresDisponibles;
     public boolean patio;
-    public List<Caracteristica> caracteristicas;
+    public List <String> caracteristicas;;
 
 
-    private class Ubicacion {
+    public class Ubicacion {
 
         String direccion;
         float lat;
         float longitud;
     }
 
-    private class Admision {
+    public class Admisiones {
 
-        boolean gato;
-        boolean perro;
+        public boolean gato;
+        public boolean perro;
     }
 
-    private class Caracteristica {
 
-        List <String> caracteristicas;
-    }
 
 
 

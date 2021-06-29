@@ -14,12 +14,12 @@ public class mainTrucho {
 
         apiHogares api = apiHogares.getInstancia();
 
-        //List<Hogar> hogares = api.listadoDeHogaresPorOffset(1);
-        Response<hogaresDeTransito> hogares = api.pagina(1);
+        List<Hogar> hogares = api.listadoDeHogaresPorOffset(1);
 
-        /*for(Hogar hogar : hogares){
-            System.out.println(hogar.id + ")" + hogar.telefono);
-        }*/
+
+        for(Hogar hogar : hogares){
+            System.out.println(hogar.nombre + ")" + hogar.telefono);
+        }
 
 
 

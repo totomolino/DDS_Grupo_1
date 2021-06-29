@@ -7,7 +7,7 @@ public class hogaresDeTransito {
 
     public int total;
 
-    public int offset;
+    public String offset;
 
     public List<Hogar> hogares;
 
