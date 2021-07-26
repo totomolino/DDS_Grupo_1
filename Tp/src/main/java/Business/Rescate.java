@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Rescate {
 
-    List<Foto> listaDeFotos = new ArrayList<>();
-    String descripcionEstado;
-    Float lugarEncuentroX;
-    Float lugarEncuentroY;
-    int idMascota;
+    public List<Foto> listaDeFotos;
+    public String descripcionEstado;
+    public Float lugarEncuentroX;
+    public Float lugarEncuentroY;
+    public int idMascota;
 
     public Rescate(int idMascota, List<Foto> listaDeFotos, String descripcionEstado, Float lugarEncuentroX, Float lugarEncuentroY) {
         this.idMascota = idMascota;
@@ -18,4 +18,6 @@ public class Rescate {
         this.lugarEncuentroX = lugarEncuentroX;
         this.lugarEncuentroY = lugarEncuentroY;
     }
+
+
 }

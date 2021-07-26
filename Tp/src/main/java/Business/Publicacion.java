@@ -5,9 +5,13 @@ import java.util.List;
 
 public class Publicacion {
 
-    List<Foto>fotos = new ArrayList<>();
+    Rescate rescate;
+    Rescatista rescatista;
 
-
+    public Publicacion(Rescate rescate, Rescatista rescatista){
+        this.rescate = rescate;
+        this.rescatista = rescatista;
+    }
 
     public void serGenerada(){}
 

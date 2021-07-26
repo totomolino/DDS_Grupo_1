@@ -15,6 +15,7 @@ public class Sistema {
     List<Organizacion> listaDeOrganizaciones = new ArrayList<>();
     private static List<Usuario> listaDeUsuarios = new ArrayList<>();
     List<Voluntario> listaDeVoluntarios = new ArrayList<>();
+    List<Publicacion> publicaciones = new ArrayList<>();
 
     private static Sistema instancia = null;
 
@@ -92,8 +93,55 @@ public class Sistema {
         else
         {
             //rescate sin chapita id = 0
+            this.agregarPublicacion(unRescatista, unRescate);
         }
     }
+
+    private void agregarPublicacion(Rescatista unRescatista, Rescate unRescate) {
+        Publicacion unaPublicacion = new Publicacion(unRescate, unRescatista);
+        Organizacion orga = this.encontrarOrganizacionMasCercana(unRescate.lugarEncuentroX,unRescate.lugarEncuentroY);
+        orga.agregarPublicacionEnRevision(unaPublicacion);
+    }
+
+    private Organizacion encontrarOrganizacionMasCercana(Float lugarEncuentroX, Float lugarEncuentroY) {
+        int i=0;
+        int posicionElegido=0;
+        for (Organizacion organiz : listaDeOrganizaciones){
+            if(i==0 ){
+                posicionElegido=i;
+                i++;
+            }
+            Organizacion aComparar= listaDeOrganizaciones.get(posicionElegido);
+            float distanciaComparar= pasosAdar(aComparar.getX(),aComparar.getY(),lugarEncuentroX,lugarEncuentroY);
+            float distCandidato= pasosAdar(organiz.getX(),organiz.getY(),lugarEncuentroX,lugarEncuentroY);
+            if(distanciaComparar<distCandidato){
+                posicionElegido=i;
+
+            }
+            i++;
+        }
+        Organizacion orgElegidaPorElDestino = listaDeOrganizaciones.get(posicionElegido);
+        return orgElegidaPorElDestino;
+
+    }
+
+    private float pasosAdar(float x,float y,float xIr, float yIr){
+        float difX,difY,total;
+        if (x>xIr){
+            difX=x-xIr;
+        }else{
+            difX=xIr-x;
+        }
+        if(y>yIr){
+            difY=y-yIr;
+        }else{
+            difY=yIr-y;
+        }
+        total= difY+difX;
+        return total;
+
+    }
+
     public Mascota buscarMascota(int idMascota) {
 
         Mascota unaMascota;
@@ -130,6 +178,16 @@ public class Sistema {
     public void agregarDuenio(String nombre, String apellido, String telefono, String fechaNacimiento, String tipoDoc, int numDocumento, List<notificarStrategy> formasDeNotificacion, List<Contacto> contactos, Usuario usuario) {
         Duenio nuevoDuenio = new Duenio(nombre, apellido, telefono, fechaNacimiento, tipoDoc, numDocumento, formasDeNotificacion, contactos, usuario);
     }
+
+    public List<Publicacion> mostrarPublicacionesAprobadas() {
+        List<Publicacion> aux = new ArrayList<>();
+        for(Organizacion o:listaDeOrganizaciones) {
+            aux.addAll(o.publicacionesAprobadas);
+        }
+        return aux;
+    }
+
+
 }
 
 

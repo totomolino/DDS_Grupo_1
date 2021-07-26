@@ -12,7 +12,9 @@ public class Organizacion {
     List<String> caracteristicas = new ArrayList<>();
     List<Administrador> misAdmins = new ArrayList<>();
     List<Publicacion> publicacionesEnRevision = new ArrayList<>();
-    List<Publicacion> publicacionesAprobadas = new ArrayList<>();
+    public List<Publicacion> publicacionesAprobadas = new ArrayList<>();
+    Float posX;
+    Float posY;
 
 
     public void agregarMascota(int id, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, List<Foto> fotos, Duenio duenio, HashMap<String, String> caracteristicas) {
@@ -54,6 +56,12 @@ public class Organizacion {
     public void borrarPublicacionAprobada(Publicacion unaPublicacion){
         publicacionesAprobadas.remove(unaPublicacion);
     }
+
+    public Float getX(){return posX;}
+
+    public Float getY(){return posY;}
+
+
 
 
 }
