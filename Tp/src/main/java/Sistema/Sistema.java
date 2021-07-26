@@ -1,6 +1,7 @@
 package Sistema;
 
 import Business.*;
+import Business.services.PublicacionPerdida;
 import Notificar.notificarStrategy;
 import org.antlr.misc.IntArrayList;
 import seguridad.register;
@@ -93,12 +94,12 @@ public class Sistema {
         else
         {
             //rescate sin chapita id = 0
-            this.agregarPublicacion(unRescatista, unRescate);
+            this.agregarPublicacionPerdida(unRescatista, unRescate);
         }
     }
 
-    private void agregarPublicacion(Rescatista unRescatista, Rescate unRescate) {
-        Publicacion unaPublicacion = new Publicacion(unRescate, unRescatista);
+    private void agregarPublicacionPerdida(Rescatista unRescatista, Rescate unRescate) {
+        PublicacionPerdida unaPublicacion = new PublicacionPerdida(unRescate, unRescatista);
         Organizacion orga = this.encontrarOrganizacionMasCercana(unRescate.lugarEncuentroX,unRescate.lugarEncuentroY);
         orga.agregarPublicacionEnRevision(unaPublicacion);
     }
