@@ -34,4 +34,19 @@ public class Usuario {
     public String getEmail() {
         return email;
     }
+
+    public void mostrarUsuario() {
+        System.out.println("El nombre de usuario es: " + nombre);
+        System.out.println("La contrasenia es: " + contrasenia);
+        System.out.println("El mail es: " + email);
+        System.out.println("__________________________________________________________________________");
+    }
+
+    public TipoDeUsuario getTipoDeUsuario() {
+        return tipoDeUsuario;
+    }
+
+    public TipoDeUsuario getTipo() {
+        return tipoDeUsuario;
+    }
 }

@@ -22,15 +22,6 @@ public class mainTrucho {
         }
 
 
-
-
-
-
-
-
-
-
-
     }
 
 

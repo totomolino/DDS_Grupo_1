@@ -13,10 +13,10 @@ public class Persona {
     String tipoDocumento;
     int numeroDocumento;
     List<notificarStrategy> formaNotificacion;
-    List<Contacto> contactos = new ArrayList<>();
+    List<Contacto> contactos;
     Usuario usuario;
 
-    public Persona(String nombre, String apellido, String telefono, String fechaNacimiento, String tipoDocumento, int numeroDocumento, List<notificarStrategy> formaNotificacion) {
+    public Persona(String nombre, String apellido, String telefono, String fechaNacimiento, String tipoDocumento, int numeroDocumento, List<notificarStrategy> formaNotificacion,List<Contacto> contactos) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -24,6 +24,7 @@ public class Persona {
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
         this.formaNotificacion = formaNotificacion;
+        this.contactos = contactos;
     }
     public void agregarContacto(Contacto unContacto){
         contactos.add(unContacto);

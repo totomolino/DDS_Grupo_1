@@ -13,14 +13,34 @@ import java.util.List;
 public class Sistema {
 
     List<Organizacion> listaDeOrganizaciones = new ArrayList<>();
-    List<Usuario> listaDeUsuarios = new ArrayList<>();
+    private static List<Usuario> listaDeUsuarios = new ArrayList<>();
     List<Voluntario> listaDeVoluntarios = new ArrayList<>();
 
+    private static Sistema instancia = null;
 
-    public static void validarContrasenia(String contrasenia, String usuario) throws FileNotFoundException {
-        register.validarContrasenia(contrasenia, usuario);
+    public static Sistema getInstancia() {
+        if (instancia == null) {
+            instancia = new Sistema();
+        }
+        return instancia;
     }
 
+
+    public static boolean validarContrasenia(String contrasenia, String usuario) throws FileNotFoundException {
+        return register.validarContrasenia(contrasenia, usuario);
+    }
+
+    public static boolean usuarioNoValido(String usuarioProvisorio) {
+        if (listaDeUsuarios.stream().anyMatch(usuario -> usuario.getNombre().equals(usuarioProvisorio))){
+            return true;}
+        else{
+            return false;
+        }
+    }
+
+    public void agregarUsuario(Usuario miUsuario) {
+        listaDeUsuarios.add(miUsuario);
+    }
 
 
     /*   public void crearDuenio() {
@@ -30,16 +50,28 @@ public class Sistema {
 
     }
 
+    public static void mostrarUsuarios(){
+        listaDeUsuarios.forEach(usuario -> usuario.mostrarUsuario());
+    }
+
+    public Usuario crearUsuario(String nombre , String contrasenia, TipoDeUsuario tipo, String email){
+        Usuario user= new Usuario(tipo,nombre,contrasenia,email);
+        this.agregarUsuario(user);
+        return user;
+
+    }
+
     public void agregarVoluntario(Voluntario unVoluntario){
         listaDeVoluntarios.add(unVoluntario);
     }
 
     public void recibirForms(int idMascota, String nombreResc, String apellidoResc, String telefonoResc, String fechaNac, String tipoDocResc, int numeroDocResc, List<notificarStrategy> formaNotificacion, String email, String contra, String nombreUsuario, List<Contacto> contactos, List<Foto> fotos, String descripcionEncuentro, Float posX, Float posY, boolean seLoQueda, float radioBusqHogarEnM, Tamanio tamanio, Especie especie){
         Rescate unRescate = new Rescate(idMascota, fotos, descripcionEncuentro, posX, posY);
-        Rescatista unRescatista = new Rescatista(nombreResc,apellidoResc,telefonoResc,fechaNac,tipoDocResc,numeroDocResc,formaNotificacion,email,contra,nombreUsuario);
-        for(Contacto c : contactos) {
+        Usuario miUsuario = new Usuario(TipoDeUsuario.RESCATISTA, nombreUsuario, contra, email);
+        Rescatista unRescatista = new Rescatista(nombreResc,apellidoResc,telefonoResc,fechaNac,tipoDocResc,numeroDocResc,formaNotificacion, contactos, miUsuario);
+       /* for(Contacto c : contactos) {
             unRescatista.agregarContacto(c);
-        }
+        }*/
 
 
         if(idMascota != 0) {
@@ -88,6 +120,15 @@ public class Sistema {
         List<hogarDeTransito> hogaresDeTransitoPosibles = new ArrayList<hogarDeTransito>();
         Sistema.getHogaresDeTransito().stream().filter(unHogar -> unHogar.pasaElFiltrado(posXDelRescate, posYDelRescate, radioBusqHogarEnM, tamanio, especie));
         return hogaresDeTransitoPosibles;
+    }
+
+    public void mostrarUsuario() {
+        Usuario primero = listaDeUsuarios.get(0);
+        primero.mostrarUsuario();
+    }
+
+    public void agregarDuenio(String nombre, String apellido, String telefono, String fechaNacimiento, String tipoDoc, int numDocumento, List<notificarStrategy> formasDeNotificacion, List<Contacto> contactos, Usuario usuario) {
+        Duenio nuevoDuenio = new Duenio(nombre, apellido, telefono, fechaNacimiento, tipoDoc, numDocumento, formasDeNotificacion, contactos, usuario);
     }
 }
 
