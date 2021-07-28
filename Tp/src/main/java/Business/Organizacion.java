@@ -1,9 +1,11 @@
 package Business;
 
+import Business.publicaciones.Publicacion;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Organizacion {
 
@@ -12,9 +14,10 @@ public class Organizacion {
     List<String> caracteristicas = new ArrayList<>();
     List<Administrador> misAdmins = new ArrayList<>();
     List<Publicacion> publicacionesEnRevision = new ArrayList<>();
+    public List<Pregunta> preguntasOrganizacion = new ArrayList<>();
     public List<Publicacion> publicacionesAprobadas = new ArrayList<>();
-    Float posX;
-    Float posY;
+    float posX;
+    float posY;
 
 
     public void agregarMascota(int id, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, List<Foto> fotos, Duenio duenio, HashMap<String, String> caracteristicas) {
@@ -34,6 +37,10 @@ public class Organizacion {
     public boolean tieneMascota(int idMascota) {
 
         return listaMascotas.stream().anyMatch(mascota -> mascota.getId() == (idMascota));
+    }
+
+    public void cambiarPreguntas(List<Pregunta> preguntasNuevas) {
+        preguntasOrganizacion.addAll(preguntasNuevas) ;
     }
 
 
@@ -57,13 +64,19 @@ public class Organizacion {
         publicacionesAprobadas.remove(unaPublicacion);
     }
 
-    public Float getX(){return posX;}
+    public float getX(){return posX;}
 
-    public Float getY(){return posY;}
-
-
+    public float getY(){return posY;}
 
 
+    public boolean tieneDuenio(String unUsuario) {
+        return listaDuenios.stream().anyMatch(duenio -> duenio.tieneXUsuario(unUsuario));
+    }
+
+    public Duenio buscarDuenio(String unUsuario) {
+        Duenio duenio = listaDuenios.stream().filter(due -> due.tieneXUsuario(unUsuario)).collect(Collectors.toList()).get(0);
+        return duenio;
+    }
 }
 
 

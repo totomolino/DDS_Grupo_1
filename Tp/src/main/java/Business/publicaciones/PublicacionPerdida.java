@@ -1,6 +1,5 @@
-package Business.services;
+package Business.publicaciones;
 
-import Business.Publicacion;
 import Business.Rescate;
 import Business.Rescatista;
 
@@ -15,9 +14,10 @@ public class PublicacionPerdida extends Publicacion {
     }
 
 
-
-
-
+    @Override
+    public void mostrar() {
+        System.out.println("Perdida -> Se encontro una mascota en X: " + rescate.getLugarEncuentroX() + " Y: " + rescate.getLugarEncuentroY() );
+    }
 }
 
 

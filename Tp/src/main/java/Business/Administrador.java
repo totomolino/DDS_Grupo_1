@@ -2,7 +2,6 @@ package Business;
 
 public class Administrador
 {
-
     Organizacion miOrganizacion;
     Usuario usuario;
 
@@ -23,15 +22,4 @@ public class Administrador
         unAdmin.setOrganizacion(miOrganizacion);
         miOrganizacion.agregarAdmin(unAdmin);
     }
-
-
-
-
-
-
-
-
-
-
-
 }

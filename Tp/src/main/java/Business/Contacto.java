@@ -2,7 +2,6 @@ package Business;
 
 import Notificar.notificarStrategy;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Contacto {
@@ -21,13 +20,23 @@ public class Contacto {
         this.email = email;
     }
 
-    public void serNotificado(){
+    public void notifcarMascotaEncontrada(Mascota mascota){
 
         for(int i = 0 ; i < formaNotificacion.size() ; i++){
 
-            formaNotificacion.get(i).notificarA(email, telefono);
+            formaNotificacion.get(i).notificarMascotaEncontrada(email, telefono, mascota);
 
         }
     }
+
+    public void notificarAdopcion(Adoptante adoptante){
+
+        for(int i = 0 ; i < formaNotificacion.size() ; i++){
+
+            formaNotificacion.get(i).notificarAdopcion(email, telefono, adoptante);
+
+        }
+    }
+
 
 }

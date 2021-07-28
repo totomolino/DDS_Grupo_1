@@ -88,11 +88,11 @@ public class menuPruebas {
 
     private void pedirDatosExtra(Usuario usuario, Sistema miSistema) {
 
-        if(usuario.getTipo() == TipoDeUsuario.DUENIO || usuario.getTipo() == TipoDeUsuario.RESCATISTA) {
+        if(usuario.getTipo() == TipoDeUsuario.DUENIO || usuario.getTipo() == TipoDeUsuario.RESCATISTA || usuario.getTipo() == TipoDeUsuario.ADOPTANTE) {
             this.crearPersona(usuario, miSistema);
         } else if (usuario.getTipo() == TipoDeUsuario.VOLUNTARIO) {
             this.crearVoluntario(usuario);
-        } else {
+        } else if(usuario.getTipo() == TipoDeUsuario.ADMIN) {
             this.crearAdmin(usuario);
         }
     }
@@ -202,18 +202,6 @@ public class menuPruebas {
 }
 
 
-
-   /* String nombre;
-    String apellido;
-    String telefono;
-    String fechaNacimiento;
-    String tipoDocumento;
-    int numeroDocumento;
-
-    List<notificarStrategy> formaNotificacion;
-    List<Contacto> contactos = new ArrayList<>();
-    Usuario usuario;*/
-
     private TipoDeUsuario recibirTipo() {
         Scanner sn = new Scanner(System.in);
         int opcion; //Guardaremos la opcion del usuario
@@ -226,6 +214,7 @@ public class menuPruebas {
             System.out.println("2. VOLUNTARIO");
             System.out.println("3. DUENIO");
             System.out.println("4. RESCATISTA");
+            System.out.println("5. ADOPTANTE");
 
             try {
 
@@ -250,8 +239,12 @@ public class menuPruebas {
                         noTermine = false;
                         miUsuario = TipoDeUsuario.RESCATISTA;
                         break;
+                    case 5:
+                        noTermine = false;
+                        miUsuario = TipoDeUsuario.ADOPTANTE;
+                        break;
                     default:
-                        System.out.println("Solo números entre 1 y 4");
+                        System.out.println("Solo números entre 1 y 5");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Debes insertar un número");

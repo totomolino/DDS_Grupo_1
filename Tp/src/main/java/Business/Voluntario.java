@@ -1,8 +1,6 @@
 package Business;
 
-import Notificar.notificarStrategy;
-
-import java.util.List;
+import Business.publicaciones.Publicacion;
 
 public class Voluntario {
 

@@ -1,15 +1,17 @@
 package Sistema;
 
 import Business.*;
-import Business.services.PublicacionPerdida;
+import Business.publicaciones.Publicacion;
+import Business.publicaciones.PublicacionDarEnAdopcion;
+import Business.publicaciones.PublicacionPerdida;
 import Notificar.notificarStrategy;
-import org.antlr.misc.IntArrayList;
 import seguridad.register;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Sistema {
 
@@ -17,7 +19,7 @@ public class Sistema {
     private static List<Usuario> listaDeUsuarios = new ArrayList<>();
     List<Voluntario> listaDeVoluntarios = new ArrayList<>();
     List<Publicacion> publicaciones = new ArrayList<>();
-
+    List<Pregunta> preguntasObligatorias = new ArrayList<>();
     private static Sistema instancia = null;
 
     public static Sistema getInstancia() {
@@ -33,11 +35,12 @@ public class Sistema {
     }
 
     public static boolean usuarioNoValido(String usuarioProvisorio) {
-        if (listaDeUsuarios.stream().anyMatch(usuario -> usuario.getNombre().equals(usuarioProvisorio))){
+        /*if (listaDeUsuarios.stream().anyMatch(usuario -> usuario.getNombre().equals(usuarioProvisorio))){
             return true;}
         else{
             return false;
-        }
+        }*/
+        return listaDeUsuarios.stream().anyMatch(usuario -> usuario.getNombre().equals(usuarioProvisorio));
     }
 
     public void agregarUsuario(Usuario miUsuario) {
@@ -160,12 +163,12 @@ public class Sistema {
 
     public static List<hogarDeTransito> getHogaresDeTransito() {
         List<hogarDeTransito> hogaresDeTransito = new ArrayList<hogarDeTransito>();
-        // ACA VA UN METODO QUE AGREGA LOS HOGARES QUE VA LEYENDO DE LA API AL LA LISTA
+        // TODO ACA VA UN METODO QUE AGREGA LOS HOGARES QUE VA LEYENDO DE LA API AL LA LISTA
         return hogaresDeTransito;
     }
 
     public static List<hogarDeTransito> hogaresDeTransitoPosibles(float posXDelRescate, float posYDelRescate, float radioBusqHogarEnM, Tamanio tamanio, Especie especie) {
-        // FILTER DE LA LISTA DE HOGARES DE TRANSITO
+        // TODO FILTER DE LA LISTA DE HOGARES DE TRANSITO
         List<hogarDeTransito> hogaresDeTransitoPosibles = new ArrayList<hogarDeTransito>();
         Sistema.getHogaresDeTransito().stream().filter(unHogar -> unHogar.pasaElFiltrado(posXDelRescate, posYDelRescate, radioBusqHogarEnM, tamanio, especie));
         return hogaresDeTransitoPosibles;
@@ -178,6 +181,7 @@ public class Sistema {
 
     public void agregarDuenio(String nombre, String apellido, String telefono, String fechaNacimiento, String tipoDoc, int numDocumento, List<notificarStrategy> formasDeNotificacion, List<Contacto> contactos, Usuario usuario) {
         Duenio nuevoDuenio = new Duenio(nombre, apellido, telefono, fechaNacimiento, tipoDoc, numDocumento, formasDeNotificacion, contactos, usuario);
+        //  TODO A QUE ORGANIZACION PERTENECE EL DUENIO?
     }
 
     public List<Publicacion> mostrarPublicacionesAprobadas() {
@@ -187,6 +191,36 @@ public class Sistema {
         }
         return aux;
     }
+
+
+    public void darEnAdopcion(String usuarioDuenio, int idMascota) {
+        Organizacion orgaDuenio = this.buscarOrgaConUsuario(usuarioDuenio);
+        Duenio unDuenio = this.buscarDuenio(usuarioDuenio, orgaDuenio);
+        List<Pregunta> preguntasYrespuestasTotales = new ArrayList<>(preguntasObligatorias);
+        List<Pregunta> preguntasYrespuestasOrganizacion = new ArrayList<>(orgaDuenio.preguntasOrganizacion);
+        preguntasYrespuestasTotales.addAll(preguntasYrespuestasOrganizacion);
+        //TODO DEBERIAMOS RECIBIR LAS RESPUESTAS Y PONERLAS CADA UNA EN SU PREGUNTA, LLAMANDO A OTRO METODOS. TAREA PARA OTRO DIA
+        Scanner sn = new Scanner(System.in);
+        // TODO ACA ESTA PARA AGREGAR LA RTA A LA PREGUNTA, POR SI LO TENEMOS QUE TENER
+        for (Pregunta p : preguntasYrespuestasTotales){
+            p.mostrar();
+            String rta = sn.nextLine();
+            p.agregarRta(rta);
+        }
+        //
+        PublicacionDarEnAdopcion unaPublicacion = new PublicacionDarEnAdopcion(this.buscarMascota(idMascota), unDuenio, preguntasYrespuestasTotales);
+        //TODO VER SI HAY QUE APROBARLA
+    }
+
+    public Duenio buscarDuenio(String unUsuario, Organizacion org) {
+        Duenio duenio = org.buscarDuenio(unUsuario);
+        return duenio;
+    }
+    public Organizacion buscarOrgaConUsuario(String unUsuario) {
+        Organizacion org = listaDeOrganizaciones.stream().filter(organizacion -> organizacion.tieneDuenio(unUsuario)).collect(Collectors.toList()).get(0);
+        return org;
+    }
+
 
 
 }

@@ -2,7 +2,6 @@ package Business;
 
 import Notificar.notificarStrategy;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Persona {
@@ -31,16 +30,16 @@ public class Persona {
     }
 
     //formaNOtificacion: [WHATSAPP, EMAIL, SMS]
-    public void serNotificado(){
+   /* public void serNotificado(Mascota masco){
 
         for(int i = 0 ; i < formaNotificacion.size() ; i++) {
-            formaNotificacion.get(i).notificarA(usuario.email, telefono);
+            formaNotificacion.get(i).notificarMascotaEncontrada(usuario.email, telefono);
         }
 
         for (Contacto c : contactos ) {
             c.serNotificado();
         }
-    }
+    }*/
 
 
     public String getTelefono() {

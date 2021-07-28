@@ -5,4 +5,5 @@ public enum TipoDeUsuario {
     VOLUNTARIO,
     DUENIO,
     RESCATISTA,
+    ADOPTANTE
 }

@@ -18,6 +18,12 @@ public class Rescate {
         this.lugarEncuentroX = lugarEncuentroX;
         this.lugarEncuentroY = lugarEncuentroY;
     }
+    public float getLugarEncuentroX(){
+        return lugarEncuentroX;
+    }
 
+    public float getLugarEncuentroY(){
+        return lugarEncuentroY;
+    }
 
 }

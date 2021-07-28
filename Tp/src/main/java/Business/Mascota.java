@@ -105,7 +105,7 @@ public class Mascota {
     }
 
     public void serRescatado() {
-        duenio.serNotificado();
+        duenio.notificarMascotaEncontrada(this);
     }
 }
 
