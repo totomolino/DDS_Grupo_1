@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Mascota {
-
+    
     int id;
     List<Foto> fotos = new ArrayList<>();
     Especie especie;
@@ -17,9 +17,9 @@ public class Mascota {
     boolean tieneChapita;
     Duenio duenio;
     HashMap<String, String> caracteristicas;
+    
 
-
-
+    
     public Mascota(int id, List<Foto> fotos, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, boolean tieneChapita, HashMap<String, String> caracteristicas, Duenio duenio) {
         this.id = id;
         this.fotos = fotos;

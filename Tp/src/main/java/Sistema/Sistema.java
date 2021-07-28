@@ -2,6 +2,7 @@ package Sistema;
 
 import Business.*;
 import Business.publicaciones.Publicacion;
+import Business.publicaciones.PublicacionAdoptar;
 import Business.publicaciones.PublicacionDarEnAdopcion;
 import Business.publicaciones.PublicacionPerdida;
 import Notificar.notificarStrategy;
@@ -9,6 +10,7 @@ import seguridad.register;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -209,6 +211,7 @@ public class Sistema {
         }
         //
         PublicacionDarEnAdopcion unaPublicacion = new PublicacionDarEnAdopcion(this.buscarMascota(idMascota), unDuenio, preguntasYrespuestasTotales);
+        publicaciones.add(unaPublicacion); //TODO VER SI HAY QUE AGREGARLA A UNA LISTA DE PUB A APROBAR O QUE ONDA
         //TODO VER SI HAY QUE APROBARLA
     }
 
@@ -219,6 +222,13 @@ public class Sistema {
     public Organizacion buscarOrgaConUsuario(String unUsuario) {
         Organizacion org = listaDeOrganizaciones.stream().filter(organizacion -> organizacion.tieneDuenio(unUsuario)).collect(Collectors.toList()).get(0);
         return org;
+    }
+
+    public void generarPublicacionParaAdoptar(HashMap<String, String> preferenciasYComodidades) {
+        Publicacion miPub = new PublicacionAdoptar(preferenciasYComodidades);
+        // TODO VER DONDE SE GUARDA ESTA PUBLICACION. EN UNA ORGANIZACION? O ACA? O EN UNA ORG AL AZAR Y DESPUES CUANDO QUEREMOS MOSTRARLO, RECORREMOS TODAS LAS ORGS
+
+
     }
 
 
