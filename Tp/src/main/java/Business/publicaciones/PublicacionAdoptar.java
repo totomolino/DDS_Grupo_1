@@ -16,6 +16,11 @@ public class PublicacionAdoptar extends Publicacion {
         System.out.println("Adoptar -> Se desea adoptar una mascota: " + preferenciasYComodidades.get(1));
     }
 
+    @Override
+    public boolean esDeAdopcion() {
+        return false;
+    };
+
 
 }
 

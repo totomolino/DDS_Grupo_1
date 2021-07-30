@@ -11,4 +11,6 @@ public abstract class Publicacion {
     public void serAprobada(){}
 
     public abstract void mostrar();
+
+    public abstract boolean esDeAdopcion();
 }

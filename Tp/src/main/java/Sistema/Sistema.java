@@ -9,10 +9,7 @@ import Notificar.notificarStrategy;
 import seguridad.register;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Sistema {
@@ -21,8 +18,11 @@ public class Sistema {
     private static List<Usuario> listaDeUsuarios = new ArrayList<>();
     List<Voluntario> listaDeVoluntarios = new ArrayList<>();
     List<Publicacion> publicaciones = new ArrayList<>();
-    List<Pregunta> preguntasObligatorias = new ArrayList<>();
+    List<Adoptante> adoptantes = new ArrayList<>();
+    List<Rescatista> rescatistas = new ArrayList<>();
+    HashMap<String,String> preguntasObligatorias;
     private static Sistema instancia = null;
+
 
     public static Sistema getInstancia() {
         if (instancia == null) {
@@ -57,6 +57,12 @@ public class Sistema {
 
     }
 
+    public List<PublicacionDarEnAdopcion> publicacionesAptasParaAdoptar(Adoptante unAdoptante) {
+        List<PublicacionDarEnAdopcion> publicacionesDarAdopcion = publicaciones.stream().filter(unaPu -> unaPu.esDeAdopcion()).map(publicacion -> (PublicacionDarEnAdopcion) publicacion).collect(Collectors.toList());
+        List<PublicacionDarEnAdopcion> publicacionesAptas = unAdoptante.meSirvenLasPublicaciones(publicacionesDarAdopcion);
+        return publicacionesAptas;
+    }
+
     public static void mostrarUsuarios(){
         listaDeUsuarios.forEach(usuario -> usuario.mostrarUsuario());
     }
@@ -65,7 +71,6 @@ public class Sistema {
         Usuario user= new Usuario(tipo,nombre,contrasenia,email);
         this.agregarUsuario(user);
         return user;
-
     }
 
     public void agregarVoluntario(Voluntario unVoluntario){
@@ -185,6 +190,16 @@ public class Sistema {
         Duenio nuevoDuenio = new Duenio(nombre, apellido, telefono, fechaNacimiento, tipoDoc, numDocumento, formasDeNotificacion, contactos, usuario);
         //  TODO A QUE ORGANIZACION PERTENECE EL DUENIO?
     }
+    public void agregarRescatista(String nombre, String apellido, String telefono, String fechaNacimiento, String tipoDoc, int numDocumento, List<notificarStrategy> formasDeNotificacion, List<Contacto> contactos, Usuario usuario) {
+        Rescatista nuevoRescatista = new Rescatista(nombre, apellido, telefono, fechaNacimiento, tipoDoc, numDocumento, formasDeNotificacion, contactos, usuario);
+        //  TODO A QUE ORGANIZACION PERTENECE EL RESCATISTA?
+        rescatistas.add(nuevoRescatista);
+    }
+    public void agregarAdoptante(String nombre, String apellido, String telefono, String fechaNacimiento, String tipoDoc, int numDocumento, List<notificarStrategy> formasDeNotificacion, List<Contacto> contactos, Usuario usuario) {
+        Adoptante nuevoAdoptante = new Adoptante(nombre, apellido, telefono, fechaNacimiento, tipoDoc, numDocumento, formasDeNotificacion, contactos, usuario);
+        adoptantes.add(nuevoAdoptante);
+    }
+
 
     public List<Publicacion> mostrarPublicacionesAprobadas() {
         List<Publicacion> aux = new ArrayList<>();
@@ -198,21 +213,33 @@ public class Sistema {
     public void darEnAdopcion(String usuarioDuenio, int idMascota) {
         Organizacion orgaDuenio = this.buscarOrgaConUsuario(usuarioDuenio);
         Duenio unDuenio = this.buscarDuenio(usuarioDuenio, orgaDuenio);
-        List<Pregunta> preguntasYrespuestasTotales = new ArrayList<>(preguntasObligatorias);
-        List<Pregunta> preguntasYrespuestasOrganizacion = new ArrayList<>(orgaDuenio.preguntasOrganizacion);
-        preguntasYrespuestasTotales.addAll(preguntasYrespuestasOrganizacion);
+        HashMap<String,String> preguntasYrespuestasTotales = this.copy(preguntasObligatorias);
+        HashMap<String,String> preguntasYrespuestasOrganizacion = this.copy(orgaDuenio.preguntasOrganizacion);
+
+        preguntasYrespuestasTotales.putAll(preguntasYrespuestasOrganizacion);
         //TODO DEBERIAMOS RECIBIR LAS RESPUESTAS Y PONERLAS CADA UNA EN SU PREGUNTA, LLAMANDO A OTRO METODOS. TAREA PARA OTRO DIA
         Scanner sn = new Scanner(System.in);
         // TODO ACA ESTA PARA AGREGAR LA RTA A LA PREGUNTA, POR SI LO TENEMOS QUE TENER
-        for (Pregunta p : preguntasYrespuestasTotales){
-            p.mostrar();
+        preguntasYrespuestasTotales.forEach ((k, v) -> {
+            System.out.println(k);
             String rta = sn.nextLine();
-            p.agregarRta(rta);
-        }
+            preguntasYrespuestasTotales.put(k,rta);
+        });
         //
         PublicacionDarEnAdopcion unaPublicacion = new PublicacionDarEnAdopcion(this.buscarMascota(idMascota), unDuenio, preguntasYrespuestasTotales);
-        publicaciones.add(unaPublicacion); //TODO VER SI HAY QUE AGREGARLA A UNA LISTA DE PUB A APROBAR O QUE ONDA
+        publicaciones.add(unaPublicacion);
+        //TODO VER SI HAY QUE AGREGARLA A UNA LISTA DE PUB A APROBAR O QUE ONDA
         //TODO VER SI HAY QUE APROBARLA
+    }
+
+    public static HashMap<String, String> copy(HashMap<String, String> original)
+    {
+        HashMap<String, String> copy = new HashMap<String, String>();
+        for (Map.Entry<String, String> entry : original.entrySet())
+        {
+            copy.put(entry.getKey(), entry.getValue());
+        }
+        return copy;
     }
 
     public Duenio buscarDuenio(String unUsuario, Organizacion org) {
@@ -227,10 +254,17 @@ public class Sistema {
     public void generarPublicacionParaAdoptar(HashMap<String, String> preferenciasYComodidades) {
         Publicacion miPub = new PublicacionAdoptar(preferenciasYComodidades);
         // TODO VER DONDE SE GUARDA ESTA PUBLICACION. EN UNA ORGANIZACION? O ACA? O EN UNA ORG AL AZAR Y DESPUES CUANDO QUEREMOS MOSTRARLO, RECORREMOS TODAS LAS ORGS
-
-
     }
 
+
+    public void recomendarAdoptar(){
+        adoptantes.forEach(adoptante -> this.recomendarAdoptante(adoptante));
+    }
+
+    private void recomendarAdoptante(Adoptante adoptante) {
+        List<PublicacionDarEnAdopcion> publicaciones = this.publicacionesAptasParaAdoptar(adoptante);
+        adoptante.recomendarAdopcion(publicaciones);
+    }
 
 
 }

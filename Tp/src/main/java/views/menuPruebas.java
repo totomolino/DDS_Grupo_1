@@ -126,7 +126,14 @@ public class menuPruebas {
         List<notificarStrategy> formasDeNotificacion = this.obtenerMediosDeNotificacion();
         List<Contacto> contactos = new ArrayList<>();
         this.agregarContacto(contactos);
-        miSistema.agregarDuenio(nombre,apellido, telefono, fechaNacimiento, tipoDoc, numDocumento, formasDeNotificacion, contactos, usuario);
+        if(usuario.getTipo() == TipoDeUsuario.DUENIO ) {
+            miSistema.agregarDuenio(nombre,apellido, telefono, fechaNacimiento, tipoDoc, numDocumento, formasDeNotificacion, contactos, usuario);
+        } else if(usuario.getTipo() == TipoDeUsuario.RESCATISTA) {
+            miSistema.agregarRescatista(nombre,apellido, telefono, fechaNacimiento, tipoDoc, numDocumento, formasDeNotificacion, contactos, usuario);
+        } else if (usuario.getTipo() == TipoDeUsuario.ADOPTANTE) {
+            miSistema.agregarAdoptante(nombre,apellido, telefono, fechaNacimiento, tipoDoc, numDocumento, formasDeNotificacion, contactos, usuario);
+        }
+
     }
 
     private void agregarContacto(List<Contacto> lista){

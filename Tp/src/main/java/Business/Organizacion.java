@@ -14,7 +14,7 @@ public class Organizacion {
     List<String> caracteristicas = new ArrayList<>();
     List<Administrador> misAdmins = new ArrayList<>();
     List<Publicacion> publicacionesEnRevision = new ArrayList<>();
-    public List<Pregunta> preguntasOrganizacion = new ArrayList<>();
+    public HashMap<String,String> preguntasOrganizacion;
     public List<Publicacion> publicacionesAprobadas = new ArrayList<>();
     float posX;
     float posY;
@@ -39,8 +39,8 @@ public class Organizacion {
         return listaMascotas.stream().anyMatch(mascota -> mascota.getId() == (idMascota));
     }
 
-    public void cambiarPreguntas(List<Pregunta> preguntasNuevas) {
-        preguntasOrganizacion.addAll(preguntasNuevas) ;
+    public void cambiarPreguntas(HashMap<String, String> preguntasNuevas) {//TODO ver esto
+        preguntasOrganizacion.putAll(preguntasNuevas);
     }
 
 

@@ -18,6 +18,11 @@ public class PublicacionPerdida extends Publicacion {
     public void mostrar() {
         System.out.println("Perdida -> Se encontro una mascota en X: " + rescate.getLugarEncuentroX() + " Y: " + rescate.getLugarEncuentroY() );
     }
+
+    @Override
+    public boolean esDeAdopcion() {
+        return false;
+    };
 }
 
 
