@@ -35,7 +35,6 @@ public class Organizacion {
     }
 
     public boolean tieneMascota(int idMascota) {
-
         return listaMascotas.stream().anyMatch(mascota -> mascota.getId() == (idMascota));
     }
 
