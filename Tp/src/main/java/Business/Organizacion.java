@@ -11,7 +11,7 @@ public class Organizacion {
 
     List<Mascota> listaMascotas = new ArrayList<>();
     List<Duenio> listaDuenios = new ArrayList<>();
-    List<String> caracteristicas = new ArrayList<>();
+    HashMap<String, String> caracteristicas;
     List<Administrador> misAdmins = new ArrayList<>();
     List<Publicacion> publicacionesEnRevision = new ArrayList<>();
     public HashMap<String,String> preguntasOrganizacion;
@@ -20,14 +20,14 @@ public class Organizacion {
     float posY;
 
 
-    public void agregarMascota(int id, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, List<Foto> fotos, Duenio duenio, HashMap<String, String> caracteristicas) {
-        Mascota unaMascota = new Mascota(id , fotos, especie, nombre, apodo, edad, sexo, descripcion, true, caracteristicas, duenio);
+    public void agregarMascota(int id, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, List<Foto> fotos, Duenio duenio, HashMap<String, String> caracteristicas, Tamanio tamanio) {
+        Mascota unaMascota = new Mascota(id , fotos, especie, nombre, apodo, edad, sexo, descripcion, true, caracteristicas, duenio, tamanio);
         listaMascotas.add(unaMascota);
         duenio.agregarMascota(unaMascota);
     }
 
     public void agregarCaracteristica(String unaCarateristica) {
-        caracteristicas.add(unaCarateristica);
+        caracteristicas.put(unaCarateristica,null);
     }
 
     public void agregarAdmin(Administrador unAdmin) {
@@ -78,6 +78,3 @@ public class Organizacion {
         return duenio;
     }
 }
-
-
-

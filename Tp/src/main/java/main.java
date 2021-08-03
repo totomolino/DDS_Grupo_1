@@ -30,24 +30,7 @@ public class main {
 
         scheduler.scheduleJob(job, trigger);
 
-        // TODO SOS UN OMOFOBO
-        // TODO SOS UN OMNIFERO
-        // TODO SOS UN SOMNIFERO
-        // TODO SOS UN SUENIO
-        // TODO SOS UN DORMIR
-        // TODO SOS UN CAMA
-        // TODO SOS UN CUARTO
-        // TODO SOS UN QUINTO
-        // TODO SOS UN QUINTERO
-        // TODO SOS UN RIVER
-        // TODO SOS UN PLATE
-        // TODO SOS UN PLATO
-        // TODO SOS UN PATO
-        // TODO SOS UN AVE
-        // TODO SOS UN VOLAR
-        // TODO SOS UN VIENTO
-        // TODO SOS UN VENTILADOR
-        //TODO SOS UN VENTILADOR
+
 
         menu.iniciarMenu();
 
