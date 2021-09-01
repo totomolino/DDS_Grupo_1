@@ -136,7 +136,7 @@ public class Sistema {
 
     }
 
-    private float pasosAdar(float x,float y,float xIr, float yIr){ //buscar como calcular con lat y long
+    private float pasosAdar(float x,float y,float xIr, float yIr){ //TODO buscar como calcular con lat y long
         float difX,difY,total;
         if (x>xIr){
             difX=x-xIr;
