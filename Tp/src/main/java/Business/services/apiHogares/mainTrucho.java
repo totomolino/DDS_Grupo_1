@@ -14,7 +14,7 @@ public class mainTrucho {
 
         apiHogares api = apiHogares.getInstancia();
 
-        List<Hogar> hogares = api.listadoDeHogaresPorOffset(1);
+        List<Hogar> hogares = api.listadoDeHogares();
 
 
         for(Hogar hogar : hogares){
