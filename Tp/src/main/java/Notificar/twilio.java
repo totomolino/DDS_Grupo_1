@@ -26,7 +26,7 @@ public class twilio {
                 mensaje
                 ).create();
 
-        System.out.println(message.getSid());
+       // System.out.println(message.getSid());
     }
 
     public static void mandarEmail(String email, String mensaje){
@@ -38,11 +38,11 @@ public class twilio {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         Message message = Message.creator(
                 new com.twilio.type.PhoneNumber("whatsapp:"+telefono),
-                new com.twilio.type.PhoneNumber("whatsapp:+15017122661"),
+                new com.twilio.type.PhoneNumber("whatsapp:+14155238886"),
                 mensaje)
                 .create();
 
-        System.out.println(message.getSid());
+        //System.out.println(message.getSid());
     }
 }
 
