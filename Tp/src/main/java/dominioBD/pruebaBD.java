@@ -1,18 +1,24 @@
-package dominio;
-
-
+package dominioBD;
 
 import utils.BDUtils;
 import javax.persistence.EntityManager;
+import java.time.LocalDateTime;
 
 
 public class pruebaBD {
 
     public static void main(String[] args) {
+
+        Curso unCurso = new Curso();
+        unCurso.setCantidad(7);
+        agregarObjeto(unCurso);
+
+    }
+    public static void agregarObjeto(Object unObjeto) {
         EntityManager em = BDUtils.getEntityManager();
         BDUtils.comenzarTransaccion(em);
 
-        em.persist(new user((long)123,"nombre","contra","mail"));
+        em.persist(unObjeto);
 
         BDUtils.commit(em);
     }

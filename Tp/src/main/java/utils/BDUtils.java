@@ -39,4 +39,13 @@ public class BDUtils {
         }
     }
 
+    public static void agregarObjeto(Object unObjeto) {
+        EntityManager em = BDUtils.getEntityManager();
+        BDUtils.comenzarTransaccion(em);
+
+        em.persist(unObjeto);
+
+        BDUtils.commit(em);
+    }
+
 }
