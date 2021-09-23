@@ -16,8 +16,23 @@ public class MascotaBD {
     private String masc_especie;
     private String masc_descripcion;
     private Boolean masc_tieneChapita;
-    private int masc_duenio_id;
 
+
+    @ManyToOne
+    @JoinColumn(name = "org_id")
+    private OrganizacionBD organizacion;
+
+    @ManyToOne
+    @JoinColumn(name = "persona_pers_id")
+    private PersonaBD persona;
+
+    public PersonaBD getPersona() {
+        return persona;
+    }
+
+    public void setPersona(PersonaBD persona) {
+        this.persona = persona;
+    }
 
     public Long getMasc_id() {
         return masc_id;
