@@ -14,5 +14,5 @@ public class PreguntaOrg {
     private OrganizacionBD organizacion;
 
     private String clave;
-    private String valor;
+
 }
