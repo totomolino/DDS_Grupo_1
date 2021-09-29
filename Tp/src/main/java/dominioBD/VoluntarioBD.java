@@ -1,6 +1,6 @@
 package dominioBD;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
+
 
 import javax.persistence.*;
 import java.util.List;

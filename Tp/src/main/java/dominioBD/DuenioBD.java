@@ -17,5 +17,19 @@ public class DuenioBD extends PersonaBD {
     @OneToMany(mappedBy = "masc_duenio")
     private List<MascotaBD> mascotas;
 
+    public OrganizacionBD getDue_organizacion() {
+        return due_organizacion;
+    }
 
+    public void setDue_organizacion(OrganizacionBD due_organizacion) {
+        this.due_organizacion = due_organizacion;
+    }
+
+    public List<MascotaBD> getMascotas() {
+        return mascotas;
+    }
+
+    public void setMascotas(List<MascotaBD> mascotas) {
+        this.mascotas = mascotas;
+    }
 }

@@ -17,7 +17,7 @@ public class RescateBD {
 
     @ManyToOne
     @JoinColumn(name = "resc_id")
-    private PersonaBD resc_rescatista;
+    private RescateBD resc_rescatista;
 
     @ManyToOne
     @JoinColumn(name = "masc_id")
@@ -58,11 +58,11 @@ public class RescateBD {
         this.resc_lugarEncuentroY = resc_lugarEncuentroY;
     }
 
-    public PersonaBD getResc_rescatista() {
+    public RescateBD getResc_rescatista() {
         return resc_rescatista;
     }
 
-    public void setResc_rescatista(PersonaBD resc_rescatista) {
+    public void setResc_rescatista(RescateBD resc_rescatista) {
         this.resc_rescatista = resc_rescatista;
     }
 
