@@ -16,5 +16,27 @@ public class FormaNotifCont {
 
     private String fonoc_forma;
 
+    public Long getFonoc_id() {
+        return fonoc_id;
+    }
 
+    public void setFonoc_id(Long fonoc_id) {
+        this.fonoc_id = fonoc_id;
+    }
+
+    public ContactoBD getFonoc_contacto() {
+        return fonoc_contacto;
+    }
+
+    public void setFonoc_contacto(ContactoBD fonoc_contacto) {
+        this.fonoc_contacto = fonoc_contacto;
+    }
+
+    public String getFonoc_forma() {
+        return fonoc_forma;
+    }
+
+    public void setFonoc_forma(String fonoc_forma) {
+        this.fonoc_forma = fonoc_forma;
+    }
 }

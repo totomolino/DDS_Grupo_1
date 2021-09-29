@@ -10,6 +10,7 @@ public class MascotaBD {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long masc_id;
+
     private String masc_nombre;
     private String masc_apodo;
     private int masc_edad;
@@ -21,22 +22,26 @@ public class MascotaBD {
 
     @ManyToOne
     @JoinColumn(name = "org_id")
-    private OrganizacionBD organizacion;
+    private OrganizacionBD masc_organizacion;
 
     @ManyToOne
-    @JoinColumn(name = "persona_pers_id")
-    private PersonaBD persona;
+    @JoinColumn(name = "due_id")
+    private DuenioBD masc_duenio;
 
     @OneToMany (mappedBy = "carMasMas_mascota")
     private List<CarMasXMas> carMasXMas;
 
-    public PersonaBD getPersona() {
-        return persona;
-    }
+    @OneToMany(mappedBy = "fani_masc")
+    private List<FotoAnimales> fotoAnimales;
 
-    public void setPersona(PersonaBD persona) {
-        this.persona = persona;
-    }
+    @OneToMany(mappedBy = "pregOrg_mascota")
+    private List<PregOrgXmascota>pregOrgXmascotas;
+
+    @OneToMany(mappedBy = "caorXmas_mascota")
+    private List<CaracOrgXmascota>caracOrgXmascotas;
+
+    @OneToMany(mappedBy = "resc_mascota")
+    private List<RescateBD> masc_rescate;
 
     public Long getMasc_id() {
         return masc_id;
@@ -100,5 +105,61 @@ public class MascotaBD {
 
     public void setMasc_tieneChapita(Boolean masc_tieneChapita) {
         this.masc_tieneChapita = masc_tieneChapita;
+    }
+
+    public OrganizacionBD getMasc_organizacion() {
+        return masc_organizacion;
+    }
+
+    public void setMasc_organizacion(OrganizacionBD masc_organizacion) {
+        this.masc_organizacion = masc_organizacion;
+    }
+
+    public DuenioBD getMasc_duenio() {
+        return masc_duenio;
+    }
+
+    public void setMasc_duenio(DuenioBD masc_duenio) {
+        this.masc_duenio = masc_duenio;
+    }
+
+    public List<CarMasXMas> getCarMasXMas() {
+        return carMasXMas;
+    }
+
+    public void setCarMasXMas(List<CarMasXMas> carMasXMas) {
+        this.carMasXMas = carMasXMas;
+    }
+
+    public List<FotoAnimales> getFotoAnimales() {
+        return fotoAnimales;
+    }
+
+    public void setFotoAnimales(List<FotoAnimales> fotoAnimales) {
+        this.fotoAnimales = fotoAnimales;
+    }
+
+    public List<PregOrgXmascota> getPregOrgXmascotas() {
+        return pregOrgXmascotas;
+    }
+
+    public void setPregOrgXmascotas(List<PregOrgXmascota> pregOrgXmascotas) {
+        this.pregOrgXmascotas = pregOrgXmascotas;
+    }
+
+    public List<CaracOrgXmascota> getCaracOrgXmascotas() {
+        return caracOrgXmascotas;
+    }
+
+    public void setCaracOrgXmascotas(List<CaracOrgXmascota> caracOrgXmascotas) {
+        this.caracOrgXmascotas = caracOrgXmascotas;
+    }
+
+    public List<RescateBD> getMasc_rescate() {
+        return masc_rescate;
+    }
+
+    public void setMasc_rescate(List<RescateBD> masc_rescate) {
+        this.masc_rescate = masc_rescate;
     }
 }

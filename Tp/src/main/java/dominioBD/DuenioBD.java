@@ -1,9 +1,7 @@
 package dominioBD;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class DuenioBD extends PersonaBD {
@@ -12,7 +10,12 @@ public class DuenioBD extends PersonaBD {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long due_id;
 
+    @ManyToOne
+    @JoinColumn(name = "orga_id")
+    private OrganizacionBD due_organizacion;
 
+    @OneToMany(mappedBy = "masc_duenio")
+    private List<MascotaBD> mascotas;
 
 
 }

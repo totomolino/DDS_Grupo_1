@@ -13,11 +13,10 @@ public class AdministradorBD {
 
     @ManyToOne
     @JoinColumn (name = "id_org")
-    private OrganizacionBD organizacion;
+    private OrganizacionBD admin_organizacion;
 
     @OneToOne
-    @JoinColumn (name="name id_usuario")
-    private UsuarioBD usuario;
+    private UsuarioBD admin_usuario;
 
 
     public Long getAdmin_id() {
@@ -28,19 +27,19 @@ public class AdministradorBD {
         this.admin_id = admin_id;
     }
 
-    public OrganizacionBD getOrganizacion() {
-        return organizacion;
+    public OrganizacionBD getAdmin_organizacion() {
+        return admin_organizacion;
     }
 
-    public void setOrganizacion(OrganizacionBD organizacion) {
-        this.organizacion = organizacion;
+    public void setAdmin_organizacion(OrganizacionBD organizacion) {
+        this.admin_organizacion = organizacion;
     }
 
     public UsuarioBD getUsuario() {
-        return usuario;
+        return admin_usuario;
     }
 
     public void setUsuario(UsuarioBD usuario) {
-        this.usuario = usuario;
+        this.admin_usuario = usuario;
     }
 }

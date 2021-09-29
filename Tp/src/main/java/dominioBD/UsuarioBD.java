@@ -14,7 +14,9 @@ public class UsuarioBD {
 
     private String usu_contrasena;
 
-    private String usu_mail;
+    private String usu_email;
+
+    private String usu_tipo;
 
 
     public Long getUsu_id() {
@@ -42,10 +44,18 @@ public class UsuarioBD {
     }
 
     public String getUsu_mail() {
-        return usu_mail;
+        return usu_email;
     }
 
     public void setUsu_mail(String usu_mail) {
-        this.usu_mail = usu_mail;
+        this.usu_email = usu_mail;
+    }
+
+    public String getUsu_tipo() {
+        return usu_tipo;
+    }
+
+    public void setUsu_tipo(String usu_tipo) {
+        this.usu_tipo = usu_tipo;
     }
 }

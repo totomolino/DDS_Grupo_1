@@ -13,7 +13,7 @@ public class PreferenciaBD {
 
     private String pref_clave;
 
-    @OneToMany (mappedBy = "preferencia_bd")
+    @OneToMany (mappedBy = "prefXado_pref")
     private List<PreferenciaXAdoptante> preferenciaXAdoptantes;
 
 
