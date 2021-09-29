@@ -11,8 +11,8 @@ public class PregOrgXmascota {
     private Long pregOrg_id;
 
     @ManyToOne
-    @JoinColumn(name = "")
-    private Long pregOrg_pregId;
+    @JoinColumn(name = "preg_id")
+    private PreguntaOrg pregOrg_pregId;
 
     private Long pregOrg_mascota;
 

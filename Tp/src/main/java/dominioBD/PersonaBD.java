@@ -5,6 +5,7 @@ import java.util.List;
 
 @Table(name = "persona")
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class PersonaBD {
 
     @Id
@@ -21,6 +22,9 @@ public class PersonaBD {
 
     @OneToMany(mappedBy = "persona")
     private List<MascotaBD> mascotas;
+
+    @OneToMany(mappedBy = "cont_persona")
+    private List<ContactoBD>contactoBDS;
 
     public Long getPers_id() {
         return pers_id;

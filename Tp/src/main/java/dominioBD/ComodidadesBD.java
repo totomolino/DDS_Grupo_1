@@ -3,7 +3,7 @@ package dominioBD;
 import javax.persistence.*;
 import java.util.List;
 
-@Table(name = "comodidades_bd")
+@Table(name = "ComodidadesBD")
 @Entity
 public class ComodidadesBD {
 
@@ -14,9 +14,13 @@ public class ComodidadesBD {
     private String como_clave;
 
 
+    @OneToMany(mappedBy = "comoXad_como")
+    private List<ComodidadesXadoptante> comodidadesXadoptantes;
+
     public Long getComo_id() {
         return como_id;
     }
+
     public void setComo_id(Long como_id) {
         this.como_id = como_id;
     }
@@ -29,6 +33,11 @@ public class ComodidadesBD {
         this.como_clave = como_clave;
     }
 
-    @OneToMany(mappedBy = "ComodidadesBD")
-    private List<ComodidadesXadoptante> mascotas;
+    public List<ComodidadesXadoptante> getComodidadesXadoptantes() {
+        return comodidadesXadoptantes;
+    }
+
+    public void setComodidadesXadoptantes(List<ComodidadesXadoptante> comodidadesXadoptantes) {
+        this.comodidadesXadoptantes = comodidadesXadoptantes;
+    }
 }

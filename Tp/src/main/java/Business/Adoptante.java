@@ -33,10 +33,9 @@ public class Adoptante extends Persona{
     }
 
     private boolean MascotaCompatibleBelleza(HashMap<String,String> caracteristicas){
-        preferencias.forEach((k,v) -> this.contieneKeyBelleza(k, v, caracteristicas));
-        boolean devolver = cumple;
         cumple = true;
-        return devolver;
+        preferencias.forEach((k,v) -> this.contieneKeyBelleza(k, v, caracteristicas));
+        return cumple;
     }
 
     private void contieneKeyBelleza(String k, String v, HashMap<String,String> caracteristicas){
@@ -47,10 +46,9 @@ public class Adoptante extends Persona{
 
 
     private boolean mascotaCompatibleComodidad(HashMap<String,String> preguntas){
-        preguntas.forEach((k,v) -> this.contieneKeyComodidad(k, v));
-        boolean devolver = cumpleC;
         cumpleC = true;
-        return devolver;
+        preguntas.forEach((k,v) -> this.contieneKeyComodidad(k, v));
+        return cumpleC;
     }
 
     private void contieneKeyComodidad(String k, String v){

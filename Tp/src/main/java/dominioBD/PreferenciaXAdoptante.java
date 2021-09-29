@@ -12,6 +12,11 @@ public class PreferenciaXAdoptante {
     private String prefXado_valor;
 
     @ManyToOne
+    @JoinColumn(name = "pref_id")
     private PreferenciaBD preferencia_bd;
+
+    @ManyToOne
+    @JoinColumn(name = "adop_id")
+    private AdoptanteBD prefXado_adoptante;
 
 }

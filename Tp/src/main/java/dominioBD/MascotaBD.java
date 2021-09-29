@@ -1,6 +1,7 @@
 package dominioBD;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "mascota_bd")
 @Entity
@@ -25,6 +26,9 @@ public class MascotaBD {
     @ManyToOne
     @JoinColumn(name = "persona_pers_id")
     private PersonaBD persona;
+
+    @OneToMany (mappedBy = "carMasMas_mascota")
+    private List<CarMasXMas> carMasXMas;
 
     public PersonaBD getPersona() {
         return persona;
