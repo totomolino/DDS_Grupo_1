@@ -25,7 +25,7 @@ public class MascotaBD {
     private OrganizacionBD masc_organizacion;
 
     @ManyToOne
-    @JoinColumn(name = "due_id")
+    @JoinColumn(name = "pers_id")
     private DuenioBD masc_duenio;
 
     @OneToMany (mappedBy = "carMasMas_mascota")

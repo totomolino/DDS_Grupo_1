@@ -16,7 +16,7 @@ public class PreferenciaXAdoptante {
     private PreferenciaBD prefXado_pref;
 
     @ManyToOne
-    @JoinColumn(name = "adop_id")
+    @JoinColumn(name = "pers_id")
     private AdoptanteBD prefXado_adoptante;
 
     public Long getPrefXado_id() {

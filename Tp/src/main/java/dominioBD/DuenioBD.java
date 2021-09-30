@@ -6,9 +6,9 @@ import java.util.List;
 @Entity
 public class DuenioBD extends PersonaBD {
 
-    @Id
+    /*@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long due_id;
+    private Long due_id;*/
 
     @ManyToOne
     @JoinColumn(name = "orga_id")

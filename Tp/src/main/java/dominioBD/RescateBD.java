@@ -16,8 +16,8 @@ public class RescateBD {
     private float resc_lugarEncuentroY;
 
     @ManyToOne
-    @JoinColumn(name = "resc_id")
-    private RescateBD resc_rescatista;
+    @JoinColumn(name = "pers_id")
+    private RescatistaBD resc_rescatista;
 
     @ManyToOne
     @JoinColumn(name = "masc_id")
@@ -58,11 +58,11 @@ public class RescateBD {
         this.resc_lugarEncuentroY = resc_lugarEncuentroY;
     }
 
-    public RescateBD getResc_rescatista() {
+    public RescatistaBD getResc_rescatista() {
         return resc_rescatista;
     }
 
-    public void setResc_rescatista(RescateBD resc_rescatista) {
+    public void setResc_rescatista(RescatistaBD resc_rescatista) {
         this.resc_rescatista = resc_rescatista;
     }
 

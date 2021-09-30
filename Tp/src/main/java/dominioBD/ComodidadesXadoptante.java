@@ -17,7 +17,7 @@ public class ComodidadesXadoptante {
 
 
     @ManyToOne
-    @JoinColumn(name = "adop_id")
+    @JoinColumn(name = "pers_id")
     private AdoptanteBD comoXad_adoptante;
 
     private String comXado_valor;

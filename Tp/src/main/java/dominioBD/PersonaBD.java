@@ -4,14 +4,13 @@ import javax.persistence.*;
 import java.util.List;
 
 @Table(name = "persona")
-//@Entity
-//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class PersonaBD {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long pers_id;
+    private Long pers_id;
 
     private String pers_nombre;
     private String pers_apellido;

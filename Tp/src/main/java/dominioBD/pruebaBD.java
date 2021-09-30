@@ -8,10 +8,7 @@ import java.time.LocalDateTime;
 public class pruebaBD {
 
     public static void main(String[] args) {
-/*
-        Curso unCurso = new Curso();
-        unCurso.setCantidad(7);
-        agregarObjeto(unCurso);*/
+
         EntityManager em = BDUtils.getEntityManager();
         BDUtils.comenzarTransaccion(em);
 
