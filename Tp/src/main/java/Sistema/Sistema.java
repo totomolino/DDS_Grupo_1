@@ -6,8 +6,20 @@ import Business.publicaciones.PublicacionAdoptar;
 import Business.publicaciones.PublicacionDarEnAdopcion;
 import Business.publicaciones.PublicacionPerdida;
 import Notificar.notificarStrategy;
-import seguridad.register;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
+import dominioBD.UsuarioBD;
+
+
+import seguridad.register;
+import spark.Request;
+import spark.Response;
+import spark.Spark;
+import utils.BDUtils;
+
+import javax.persistence.EntityManager;
 import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -45,9 +57,6 @@ public class Sistema {
         return listaDeUsuarios.stream().anyMatch(usuario -> usuario.getNombre().equals(usuarioProvisorio));
     }
 
-    public void agregarUsuario(Usuario miUsuario) {
-        listaDeUsuarios.add(miUsuario);
-    }
 
 
     /*   public void crearDuenio() {
@@ -67,11 +76,6 @@ public class Sistema {
         listaDeUsuarios.forEach(usuario -> usuario.mostrarUsuario());
     }
 
-    public Usuario crearUsuario(String nombre , String contrasenia, TipoDeUsuario tipo, String email){
-        Usuario user= new Usuario(tipo,nombre,contrasenia,email);
-        this.agregarUsuario(user);
-        return user;
-    }
 
     public void agregarVoluntario(Voluntario unVoluntario){
         listaDeVoluntarios.add(unVoluntario);
@@ -266,6 +270,45 @@ public class Sistema {
         adoptante.recomendarAdopcion(publicaciones);
     }
 
+
+    //FUNCIONES PRINCIPALES
+
+    public static void definePaths(){
+        Spark.post("/user", Sistema::crearUsuario);
+        Spark.get("/user", Sistema::iniciarSesion);
+    }
+
+    public static Response crearUsuario(Request req, Response res) throws FileNotFoundException {
+
+        UsuarioBD usuario = new Gson().fromJson(req.body(), UsuarioBD.class);
+
+        if(Sistema.usuarioNoValido(usuario.getUsu_nombre())) {
+            res.status(405);
+        }
+        if(!(Sistema.validarContrasenia(usuario.getUsu_contrasena(), usuario.getUsu_nombre()))) {
+            res.status(405);
+        }
+
+        BDUtils.agregarObjeto(usuario);
+
+        EntityManager em = BDUtils.getEntityManager();
+
+
+
+        List<UsuarioBD> lista = (List<UsuarioBD>) em.createQuery("FROM UsuarioBD ").getResultList();
+
+        System.out.println(lista.size());
+
+        return res;
+//        return "{\"message\":\"Custom 404\"}";
+    }
+    public static String iniciarSesion(Request req, Response res){
+
+
+//        return "iniciarSesion";
+
+        return "{\"message\":\"Custom 404\",\"message2\":\"Custom 404\"}";
+    }
 
 }
 

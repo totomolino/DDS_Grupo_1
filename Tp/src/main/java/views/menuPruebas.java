@@ -62,7 +62,7 @@ public class menuPruebas {
                         TipoDeUsuario tipoDeUsuario = this.recibirTipo();
                         System.out.println("Ingrese email");
                         String mailUsuario = str.nextLine();
-                        usuario = miSistema.crearUsuario(usuarioProvisorio, contrasenaProvisoria, tipoDeUsuario, mailUsuario);
+                     //   usuario = miSistema.crearUsuario(usuarioProvisorio, contrasenaProvisoria, tipoDeUsuario, mailUsuario);
                         this.pedirDatosExtra(usuario, miSistema);
                         System.out.println("Usuario creado exitosamente!!");
                         break;
