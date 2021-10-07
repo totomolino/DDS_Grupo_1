@@ -1,0 +1,78 @@
+Crear usuario (POST)
+{
+    "usu_email": "",
+    "usu_contrasena":"",
+    "usu_nombre":"",
+    "usu_tipo":""
+}
+
+Iniciar sesion (GET)
+
+{
+    "usuario_Email": "",
+    "contrasenia":""
+}
+
+crear Persona (POST)
+
+{
+    "pers_nombre": "",
+    "pers_apellido": "",
+    "pers_fechaNacimiento": "",
+    "pers_documento": "",
+    "pers_tipoDocumento": "",
+    "pers_telefono": "",
+    "pers_usuario":{
+        "usu_id":
+    }
+}
+
+
+agregar notif a persona (POST)
+{
+    "fonop_persona":{
+        pers_id:
+    },
+    "fonop_forma":""
+}
+
+
+agregar Contacto (POST)
+
+{
+    "cont_nombre": "",
+    "cont_apellido": "",
+    "cont_telefono": "",
+    "cont_email": "",
+    "cont_persona":{
+        "pers_id":
+    }
+}
+
+agregar notif a contacto (POST)
+{
+    "fonoc_contacto":{
+        cont_id:
+    },
+    "fonoc_forma":""
+}
+
+crearMascota (POST)
+
+{
+    "masc_nombre":"",
+    "masc_apodo":"",
+    "masc_edad":int,
+    "masc_sexo":"",
+    "masc_especie":"",
+    "masc_descripcion":"",
+    "masc_tieneChapita":bool,
+    "masc_organizacion":{
+        "org_id":int
+    }
+    "masc_duenio":{
+        "pers_id":int
+    }
+    
+}
+

@@ -15,7 +15,6 @@ public class BDUtils {
 
     public static EntityManager getEntityManager() {
         return factory.createEntityManager();
-
     }
 
     public static void comenzarTransaccion(EntityManager em) {
@@ -46,6 +45,23 @@ public class BDUtils {
         em.persist(unObjeto);
 
         BDUtils.commit(em);
+    }
+
+    public static boolean puedoEsteNombre(String nombre){
+        EntityManager em = BDUtils.getEntityManager();
+
+        String hola = "select usu_nombre from UsuarioBD where usu_nombre = '" + nombre + "'";
+
+        return em.createQuery(hola).getResultList().isEmpty();
+    }
+
+    public static boolean verificarContrasenia(String emailOusuario, String contrasenia){
+        EntityManager em = BDUtils.getEntityManager();
+
+        String consultaUsuario = "select usu_contrasena from UsuarioBD where usu_nombre = '" + emailOusuario + "' and usu_contrasena = '" + contrasenia + "'";
+        String consultaEmail = "select usu_contrasena from UsuarioBD where usu_email = '" + emailOusuario + "' and usu_contrasena = '" + contrasenia + "'";
+
+        return !(em.createQuery(consultaEmail).getResultList().isEmpty() && em.createQuery(consultaUsuario).getResultList().isEmpty());
     }
 
 

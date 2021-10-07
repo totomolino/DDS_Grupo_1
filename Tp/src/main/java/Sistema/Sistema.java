@@ -10,9 +10,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-import dominioBD.UsuarioBD;
+import dominioBD.*;
 
 
+import mappers.usuarioIniciarSesion;
+import respuestas.mensaje;
+import respuestas.usuarioCreado;
 import seguridad.register;
 import spark.Request;
 import spark.Response;
@@ -54,7 +57,8 @@ public class Sistema {
         else{
             return false;
         }*/
-        return listaDeUsuarios.stream().anyMatch(usuario -> usuario.getNombre().equals(usuarioProvisorio));
+        return !BDUtils.puedoEsteNombre(usuarioProvisorio);
+        //return listaDeUsuarios.stream().anyMatch(usuario -> usuario.getNombre().equals(usuarioProvisorio));
     }
 
 
@@ -275,39 +279,97 @@ public class Sistema {
 
     public static void definePaths(){
         Spark.post("/user", Sistema::crearUsuario);
+        Spark.post("/duenio", Sistema::crearDuenio);
         Spark.get("/user", Sistema::iniciarSesion);
+        Spark.post("/contacto", Sistema::agregarContacto);
+        Spark.post("/notifCont", Sistema::agregarNotificacionCont);
+        Spark.post("/notifPers", Sistema::agregarNotificacionPers);
+        Spark.post("/mascotas", Sistema::crearMascota);
     }
 
-    public static Response crearUsuario(Request req, Response res) throws FileNotFoundException {
+    public static String crearUsuario(Request req, Response res) throws FileNotFoundException {
 
         UsuarioBD usuario = new Gson().fromJson(req.body(), UsuarioBD.class);
 
-        if(Sistema.usuarioNoValido(usuario.getUsu_nombre())) {
-            res.status(405);
+        res.type("application/json");
+
+        if(!BDUtils.puedoEsteNombre(usuario.getUsu_nombre())) {
+            res.status(404);
+            return (new mensaje("El nombre de usuario no esta disponible")).transformar();
         }
         if(!(Sistema.validarContrasenia(usuario.getUsu_contrasena(), usuario.getUsu_nombre()))) {
-            res.status(405);
+            res.status(404);
+            return (new mensaje("La contrasenia ingresada no es valida")).transformar();
         }
 
         BDUtils.agregarObjeto(usuario);
 
-        EntityManager em = BDUtils.getEntityManager();
+        res.status(200);
 
 
+       return (new usuarioCreado(usuario)).transformar();
 
-        List<UsuarioBD> lista = (List<UsuarioBD>) em.createQuery("FROM UsuarioBD ").getResultList();
-
-        System.out.println(lista.size());
-
-        return res;
-//        return "{\"message\":\"Custom 404\"}";
     }
     public static String iniciarSesion(Request req, Response res){
 
+        usuarioIniciarSesion usuario =  new Gson().fromJson(req.body(), usuarioIniciarSesion.class);
 
-//        return "iniciarSesion";
+        if(!BDUtils.verificarContrasenia(usuario.getUsuario_Email(),usuario.getContrasenia())){
+            res.status(404);
+            return (new mensaje("Contrasenia o usuario incorrecto!").transformar());
+        }
 
-        return "{\"message\":\"Custom 404\",\"message2\":\"Custom 404\"}";
+        res.status(200);
+        return (new mensaje("Validado Correctamente!").transformar());
+
+    }
+
+    public static String crearDuenio(Request req, Response res){
+
+        DuenioBD duenio = new Gson().fromJson(req.body(), DuenioBD.class);
+
+        BDUtils.agregarObjeto(duenio);
+
+        res.status(200);
+
+        return (new mensaje("Duenio creado").transformar());
+    }
+
+    public static String agregarNotificacionPers(Request req, Response res){
+        FormaNotifPers formaNotif =  new Gson().fromJson(req.body(), FormaNotifPers.class);
+
+        BDUtils.agregarObjeto(formaNotif);
+
+        res.status(200);
+        return (new mensaje("Notificacion agregada")).transformar();
+    }
+
+
+    public static String agregarContacto(Request req, Response res){
+        ContactoBD contacto = new Gson().fromJson(req.body(), ContactoBD.class);
+
+        BDUtils.agregarObjeto(contacto);
+
+        return (new mensaje("Contacto agregado")).transformar();
+    }
+
+    public static String agregarNotificacionCont(Request req, Response res){
+        FormaNotifCont formaNotif =  new Gson().fromJson(req.body(), FormaNotifCont.class);
+
+        BDUtils.agregarObjeto(formaNotif);
+
+        res.status(200);
+        return (new mensaje("Notificacion agregada")).transformar();
+    }
+
+
+    public static String crearMascota(Request req, Response res){
+        MascotaBD mascotaBD =  new Gson().fromJson(req.body(), MascotaBD.class);
+
+        BDUtils.agregarObjeto(mascotaBD);
+
+        res.status(200);
+        return (new mensaje("Notificacion agregada")).transformar();
     }
 
 }

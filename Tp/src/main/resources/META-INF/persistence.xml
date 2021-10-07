@@ -3,7 +3,7 @@
     <persistence-unit name="aplicacion" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-        <class>dominioBD.UsuarioBD</class>
+<!--        <class>dominioBD.UsuarioBD</class>-->
 
         <properties>
             <property name="hibernate.archive.autodetection" value="class"/>
