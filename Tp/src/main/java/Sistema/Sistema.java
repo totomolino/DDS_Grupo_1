@@ -310,6 +310,7 @@ public class Sistema {
        return (new usuarioCreado(usuario)).transformar();
 
     }
+
     public static String iniciarSesion(Request req, Response res){
 
         usuarioIniciarSesion usuario =  new Gson().fromJson(req.body(), usuarioIniciarSesion.class);

@@ -7,14 +7,12 @@ Crear usuario (POST)
 }
 
 Iniciar sesion (GET)
-
 {
     "usuario_Email": "",
     "contrasenia":""
 }
 
 crear Persona (POST)
-
 {
     "pers_nombre": "",
     "pers_apellido": "",
@@ -38,7 +36,6 @@ agregar notif a persona (POST)
 
 
 agregar Contacto (POST)
-
 {
     "cont_nombre": "",
     "cont_apellido": "",
@@ -58,7 +55,6 @@ agregar notif a contacto (POST)
 }
 
 crearMascota (POST)
-
 {
     "masc_nombre":"",
     "masc_apodo":"",
@@ -72,7 +68,6 @@ crearMascota (POST)
     }
     "masc_duenio":{
         "pers_id":int
-    }
-    
+    }    
 }
 
