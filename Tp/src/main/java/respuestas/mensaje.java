@@ -1,8 +1,8 @@
 package respuestas;
 
-import utils.JsonTransformer;
 
-public class mensaje {
+
+public class mensaje extends claseJSon{
     String mensaje;
 
 
@@ -10,8 +10,6 @@ public class mensaje {
         this.mensaje = mensaje;
     }
 
-    public String transformar(){
-        return JsonTransformer.transformar(this);
-    }
+
 
 }

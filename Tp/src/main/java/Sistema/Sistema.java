@@ -14,6 +14,8 @@ import dominioBD.*;
 
 
 import mappers.usuarioIniciarSesion;
+import respuestas.id;
+import respuestas.mascotaJson;
 import respuestas.mensaje;
 import respuestas.usuarioCreado;
 import seguridad.register;
@@ -285,6 +287,7 @@ public class Sistema {
         Spark.post("/notifCont", Sistema::agregarNotificacionCont);
         Spark.post("/notifPers", Sistema::agregarNotificacionPers);
         Spark.post("/mascotas", Sistema::crearMascota);
+        Spark.get("/mascotas", Sistema::devolverMascota);
     }
 
     public static String crearUsuario(Request req, Response res) throws FileNotFoundException {
@@ -372,6 +375,26 @@ public class Sistema {
         res.status(200);
         return (new mensaje("Notificacion agregada")).transformar();
     }
+
+    public static String devolverMascota(Request req, Response res){
+        id mascotaID =  new Gson().fromJson(req.body(), id.class);
+
+        MascotaBD mascota = BDUtils.buscarMascota(mascotaID.getId());
+
+        res.status(200);
+        return (new mascotaJson(mascota)).transformar();
+    }
+
+    public static String agregarCaracteristicaMascota(Request req, Response res){
+
+        CarMasXMas caracteristicas = new Gson().fromJson(req.body(), CarMasXMas.class);
+
+        BDUtils.agregarObjeto(caracteristicas);
+
+        res.status(200);
+        return (new mensaje("Se agrego las caracteristicas a la mascota")).transformar();
+    }
+
 
 }
 

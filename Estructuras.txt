@@ -71,3 +71,21 @@ crearMascota (POST)
     }    
 }
 
+pedir Mascota (GET)
+{
+  "id":
+}
+
+caracteristicas mascota (POST)
+agregar Contacto (POST)
+{
+    "carMasMas_carmas":{
+        "carmas_id":
+    },
+    "carMasMas_mascota":{
+        "masc_id":
+    }
+    "carMasMas_valor": ""
+}
+
+

@@ -1,5 +1,7 @@
 package utils;
 
+import dominioBD.MascotaBD;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -65,5 +67,10 @@ public class BDUtils {
     }
 
 
+    public static MascotaBD buscarMascota(int id) {
+        EntityManager em = BDUtils.getEntityManager();
 
+        return (MascotaBD) em.createQuery("from MascotaBD where masc_id= '"+id+"'").getResultList().get(0);
+
+    }
 }
