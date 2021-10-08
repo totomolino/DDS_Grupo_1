@@ -289,6 +289,7 @@ public class Sistema {
         Spark.post("/mascotaCarac", Sistema::agregarCaracteristicaMascota);
         Spark.post("/rescate", Sistema::encontrarMascota);
         Spark.post("/rescatista", Sistema::crearRescatista);
+        Spark.post("/caracAdmin", Sistema::agregarCaracteristicaAdmin);
         //Spark.post("/publicacionPerdida", Sistema::crearPubPerdida);
     }
 
@@ -411,6 +412,7 @@ public class Sistema {
 
         BDUtils.agregarObjeto(rescatistaBD);
 
+        res.status(200);
         return (new devolverObjeto(rescatistaBD, "Se creo un rescatista")).transformar();
     }
 
@@ -420,14 +422,26 @@ public class Sistema {
 
         BDUtils.agregarObjeto(voluntarioBD);
 
+        res.status(200);
         return (new devolverObjeto(voluntarioBD, "Se creo un voluntario")).transformar();
     }
 
     //DAR EN ADOPCION
 
-    
 
     //ADOPTAR
+
+
+    //ADMIN AGREGAR CARACTERISTICA
+
+    public static String agregarCaracteristicaAdmin(Request req, Response res){
+        CaracteristicaMascota caracteristicas = new Gson().fromJson(req.body(), CaracteristicaMascota.class);
+
+        BDUtils.agregarObjeto(caracteristicas);
+
+        res.status(200);
+        return (new mensaje("Se agrego la caracteristica correctamente").transformar());
+    }
 
 
     //

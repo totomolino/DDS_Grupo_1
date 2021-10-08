@@ -45,7 +45,7 @@ crear Duenio (POST)
 agregar notif a persona (POST) /notifPers
 {
     "fonop_persona":{
-        pers_id:
+        "pers_id":
     },
     "fonop_forma":""
 }
@@ -65,7 +65,7 @@ agregar Contacto (POST) /contacto
 agregar notif a contacto (POST) /notifCont
 {
     "fonoc_contacto":{
-        cont_id:
+        "cont_id":
     },
     "fonoc_forma":""
 }
@@ -145,4 +145,9 @@ Crear Voluntario (POST) /Voluntario
     }
 }
 
+Agregar Caracteristicas Admin (POST) /caracAdmin
+
+{
+    "carmas_clave":""
+}
 
