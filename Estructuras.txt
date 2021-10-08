@@ -1,4 +1,4 @@
-Crear usuario (POST)
+Crear usuario (POST) /user
 {
     "usu_email": "",
     "usu_contrasena":"",
@@ -6,7 +6,7 @@ Crear usuario (POST)
     "usu_tipo":""
 }
 
-Iniciar sesion (GET)
+Iniciar sesion (GET) /user
 {
     "usuario_Email": "",
     "contrasenia":""
@@ -26,7 +26,23 @@ crear Persona (POST)
 }
 
 
-agregar notif a persona (POST)
+crear Duenio (POST)
+{
+    "pers_nombre": "",
+    "pers_apellido": "",
+    "pers_fechaNacimiento": "",
+    "pers_documento": "",
+    "pers_tipoDocumento": "",
+    "pers_telefono": "",
+    "pers_usuario":{
+        "usu_id":
+    }
+    "resc_organizacion":{
+        "orga_id":
+    }
+}
+
+agregar notif a persona (POST) /notifPers
 {
     "fonop_persona":{
         pers_id:
@@ -35,7 +51,7 @@ agregar notif a persona (POST)
 }
 
 
-agregar Contacto (POST)
+agregar Contacto (POST) /contacto
 {
     "cont_nombre": "",
     "cont_apellido": "",
@@ -46,7 +62,7 @@ agregar Contacto (POST)
     }
 }
 
-agregar notif a contacto (POST)
+agregar notif a contacto (POST) /notifCont
 {
     "fonoc_contacto":{
         cont_id:
@@ -54,7 +70,7 @@ agregar notif a contacto (POST)
     "fonoc_forma":""
 }
 
-crearMascota (POST)
+crearMascota (POST) /mascotas
 {
     "masc_nombre":"",
     "masc_apodo":"",
@@ -71,13 +87,12 @@ crearMascota (POST)
     }    
 }
 
-pedir Mascota (GET)
+Pedir Mascota (GET) /mascotas
 {
   "id":
 }
 
-caracteristicas mascota (POST)
-agregar Contacto (POST)
+Caracteristicas mascota (POST) 
 {
     "carMasMas_carmas":{
         "carmas_id":
@@ -86,6 +101,48 @@ agregar Contacto (POST)
         "masc_id":
     }
     "carMasMas_valor": ""
+}
+
+Crear rescatista (POST) /rescatista
+
+{
+    "pers_nombre": "",
+    "pers_apellido": "",
+    "pers_fechaNacimiento": "",
+    "pers_documento": "",
+    "pers_tipoDocumento": "",
+    "pers_telefono": "",
+    "pers_usuario":{
+        "usu_id":
+    }
+    "resc_organizacion":{
+        "orga_id":
+    }
+}
+
+Encontrar mascota (POST) /rescate
+{
+    "resc_descripcionEstado":""
+    "resc_lugarEncuentroX":,    
+    "resc_lugarEncuentroY":,
+    "resc_rescatista":{
+        "pers_id":,
+    },
+    "resc_mascota":{
+        "masc_id":
+    }
+}
+
+Crear Voluntario (POST) /Voluntario
+
+{
+    "volu_tamFotos":,
+    "volu_organizacion":{
+        "orga_id":
+    }
+    "volu_usuario":{
+        "usu_id":
+    }
 }
 
 

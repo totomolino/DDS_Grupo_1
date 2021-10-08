@@ -14,10 +14,7 @@ import dominioBD.*;
 
 
 import mappers.usuarioIniciarSesion;
-import respuestas.id;
-import respuestas.mascotaJson;
-import respuestas.mensaje;
-import respuestas.usuarioCreado;
+import respuestas.*;
 import seguridad.register;
 import spark.Request;
 import spark.Response;
@@ -278,16 +275,21 @@ public class Sistema {
 
 
     //FUNCIONES PRINCIPALES
-
+    // TODO ACA ESTAN LOS SPARKS!!! :) <3 (LOS IRON MANS)
     public static void definePaths(){
         Spark.post("/user", Sistema::crearUsuario);
         Spark.post("/duenio", Sistema::crearDuenio);
+        Spark.post("/voluntario", Sistema::crearVoluntario);
         Spark.get("/user", Sistema::iniciarSesion);
         Spark.post("/contacto", Sistema::agregarContacto);
         Spark.post("/notifCont", Sistema::agregarNotificacionCont);
         Spark.post("/notifPers", Sistema::agregarNotificacionPers);
         Spark.post("/mascotas", Sistema::crearMascota);
         Spark.get("/mascotas", Sistema::devolverMascota);
+        Spark.post("/mascotaCarac", Sistema::agregarCaracteristicaMascota);
+        Spark.post("/rescate", Sistema::encontrarMascota);
+        Spark.post("/rescatista", Sistema::crearRescatista);
+        //Spark.post("/publicacionPerdida", Sistema::crearPubPerdida);
     }
 
     public static String crearUsuario(Request req, Response res) throws FileNotFoundException {
@@ -382,7 +384,7 @@ public class Sistema {
         MascotaBD mascota = BDUtils.buscarMascota(mascotaID.getId());
 
         res.status(200);
-        return (new mascotaJson(mascota)).transformar();
+        return (new devolverObjeto(mascota,"Toma la mascota gato")).transformar();
     }
 
     public static String agregarCaracteristicaMascota(Request req, Response res){
@@ -394,6 +396,74 @@ public class Sistema {
         res.status(200);
         return (new mensaje("Se agrego las caracteristicas a la mascota")).transformar();
     }
+
+    public static String encontrarMascota(Request req, Response res){
+        RescateBD rescateBD = new Gson().fromJson(req.body(), RescateBD.class);
+
+        BDUtils.agregarObjeto(rescateBD);
+
+        res.status(200);
+        return (new mensaje("Se creo el rescate")).transformar();
+    }
+
+    public static String crearRescatista(Request req, Response res){
+        RescatistaBD rescatistaBD = new Gson().fromJson(req.body(), RescatistaBD.class);
+
+        BDUtils.agregarObjeto(rescatistaBD);
+
+        return (new devolverObjeto(rescatistaBD, "Se creo un rescatista")).transformar();
+    }
+
+
+    public static String crearVoluntario(Request req, Response res){
+        VoluntarioBD voluntarioBD = new Gson().fromJson(req.body(), VoluntarioBD.class);
+
+        BDUtils.agregarObjeto(voluntarioBD);
+
+        return (new devolverObjeto(voluntarioBD, "Se creo un voluntario")).transformar();
+    }
+
+    //DAR EN ADOPCION
+
+    
+
+    //ADOPTAR
+
+
+    //
+
+   /* crearVoluntario public static String crearPubPerdida(Request req, Response res){
+        PublicacionPerdida rescateBD = new Gson().fromJson(req.body(), RescateBD.class);
+
+        BDUtils.agregarObjeto(rescateBD);
+
+        res.status(200);
+        return (new mensaje("Se creo el rescate")).transformar();
+    }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
