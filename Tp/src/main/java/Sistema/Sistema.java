@@ -321,6 +321,8 @@ public class Sistema {
 
         usuarioIniciarSesion usuario =  new Gson().fromJson(req.body(), usuarioIniciarSesion.class);
 
+        res.type("application/json");
+
         if(!BDUtils.verificarContrasenia(usuario.getUsuario_Email(),usuario.getContrasenia())){
             res.status(404);
             return (new mensaje("Contrasenia o usuario incorrecto!").transformar());
@@ -335,6 +337,8 @@ public class Sistema {
 
         DuenioBD duenio = new Gson().fromJson(req.body(), DuenioBD.class);
 
+        res.type("application/json");
+
         BDUtils.agregarObjeto(duenio);
 
         res.status(200);
@@ -344,6 +348,8 @@ public class Sistema {
 
     public static String agregarNotificacionPers(Request req, Response res){
         FormaNotifPers formaNotif =  new Gson().fromJson(req.body(), FormaNotifPers.class);
+
+        res.type("application/json");
 
         BDUtils.agregarObjeto(formaNotif);
 
@@ -355,6 +361,8 @@ public class Sistema {
     public static String agregarContacto(Request req, Response res){
         ContactoBD contacto = new Gson().fromJson(req.body(), ContactoBD.class);
 
+        res.type("application/json");
+
         BDUtils.agregarObjeto(contacto);
 
         return (new mensaje("Contacto agregado")).transformar();
@@ -362,6 +370,8 @@ public class Sistema {
 
     public static String agregarNotificacionCont(Request req, Response res){
         FormaNotifCont formaNotif =  new Gson().fromJson(req.body(), FormaNotifCont.class);
+
+        res.type("application/json");
 
         BDUtils.agregarObjeto(formaNotif);
 
@@ -373,6 +383,8 @@ public class Sistema {
     public static String crearMascota(Request req, Response res){
         MascotaBD mascotaBD =  new Gson().fromJson(req.body(), MascotaBD.class);
 
+        res.type("application/json");
+
         BDUtils.agregarObjeto(mascotaBD);
 
         res.status(200);
@@ -381,6 +393,8 @@ public class Sistema {
 
     public static String devolverMascota(Request req, Response res){
         id mascotaID =  new Gson().fromJson(req.body(), id.class);
+
+        res.type("application/json");
 
         MascotaBD mascota = BDUtils.buscarMascota(mascotaID.getId());
 
@@ -392,6 +406,8 @@ public class Sistema {
 
         CarMasXMas caracteristicas = new Gson().fromJson(req.body(), CarMasXMas.class);
 
+        res.type("application/json");
+
         BDUtils.agregarObjeto(caracteristicas);
 
         res.status(200);
@@ -400,6 +416,8 @@ public class Sistema {
 
     public static String encontrarMascota(Request req, Response res){
         RescateBD rescateBD = new Gson().fromJson(req.body(), RescateBD.class);
+
+        res.type("application/json");
 
         BDUtils.agregarObjeto(rescateBD);
 
@@ -410,6 +428,8 @@ public class Sistema {
     public static String crearRescatista(Request req, Response res){
         RescatistaBD rescatistaBD = new Gson().fromJson(req.body(), RescatistaBD.class);
 
+        res.type("application/json");
+
         BDUtils.agregarObjeto(rescatistaBD);
 
         res.status(200);
@@ -419,6 +439,8 @@ public class Sistema {
 
     public static String crearVoluntario(Request req, Response res){
         VoluntarioBD voluntarioBD = new Gson().fromJson(req.body(), VoluntarioBD.class);
+
+        res.type("application/json");
 
         BDUtils.agregarObjeto(voluntarioBD);
 
@@ -436,6 +458,8 @@ public class Sistema {
 
     public static String agregarCaracteristicaAdmin(Request req, Response res){
         CaracteristicaMascota caracteristicas = new Gson().fromJson(req.body(), CaracteristicaMascota.class);
+
+        res.type("application/json");
 
         BDUtils.agregarObjeto(caracteristicas);
 
