@@ -35,9 +35,8 @@ public class OrganizacionBD {
     @OneToMany(mappedBy = "volu_organizacion")
     private List<VoluntarioBD> voluntarioBDS;
 
-
-    /*@OneToMany(mappedBy = "pubi_organizacion")
-    private List<PublicacionBD>*/
+    @OneToMany(mappedBy = "publ_organizacion")
+    List<PublicacionBD> publicacionBDS;
 
     public Long getOrga_id() {
         return orga_id;

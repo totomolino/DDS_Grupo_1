@@ -18,8 +18,5 @@ public class prueba {
         emf = Persistence.createEntityManagerFactory("aplicacion");
         manager = emf.createEntityManager();
 
-        List<UsuarioBD> usuarioBDS = (List<UsuarioBD>) manager.createQuery("FROM UsuarioBD").getResultList();
-
-        System.out.println("Hay " + usuarioBDS.size() + " usuarios");
     }
 }
