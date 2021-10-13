@@ -1,16 +1,19 @@
 package dominioBD;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
-public class PublicacionPerdida extends PublicacionBD{
+public class PublicacionPerdidaBD extends PublicacionBD{
 
     @OneToOne
     private RescateBD pper_rescate;
 
     @OneToOne
     private RescatistaBD pper_rescatista;
+
+    @ManyToOne
 
     public RescateBD getPper_rescate() {
         return pper_rescate;

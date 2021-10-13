@@ -12,7 +12,7 @@ public class pregPublicacionDarEnAdopcion {
 
     @ManyToOne
     @JoinColumn(name = "pdar_mascota")
-    PublicacionDarEnAdopcion preg_publi;
+    PublicacionDarEnAdopcionBD preg_publi;
 
     private String pregunta;
     private String respuesta;
@@ -25,11 +25,11 @@ public class pregPublicacionDarEnAdopcion {
         this.preg_id = preg_id;
     }
 
-    public PublicacionDarEnAdopcion getPreg_publi() {
+    public PublicacionDarEnAdopcionBD getPreg_publi() {
         return preg_publi;
     }
 
-    public void setPreg_publi(PublicacionDarEnAdopcion preg_publi) {
+    public void setPreg_publi(PublicacionDarEnAdopcionBD preg_publi) {
         this.preg_publi = preg_publi;
     }
 

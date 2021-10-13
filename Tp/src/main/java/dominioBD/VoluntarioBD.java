@@ -22,6 +22,10 @@ public class VoluntarioBD {
     @OneToOne
     private UsuarioBD volu_usuario;
 
+    @OneToMany
+    List<PublicacionPerdidaBD> volu_publicacionesPerdidas;
+
+
     public Long getVolu_id() {
         return volu_id;
     }

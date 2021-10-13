@@ -151,3 +151,61 @@ Agregar Caracteristicas Admin (POST) /caracAdmin
     "carmas_clave":""
 }
 
+
+Crear Publicacion de adoptar (POST) /publicacion/adoptar
+
+{
+    "publ_id":,
+    "publ_organizacion":{
+        "orga_id":
+    },
+    "publ_estado":"",
+    "padop_adoptante":{
+        "adop_id":
+    }
+}
+
+
+Crear Publicacion de dar en adopcion (POST) /publicacion/adopcion
+
+{
+    "publ_id":,
+    "publ_organizacion":{
+        "orga_id":
+    },
+    "publ_estado":"",
+    "pdar_mascota":{
+        "masc_id":
+    },
+    "pdar_duenio":{
+        "due_id":
+    }
+}
+
+Agregar preguntas a la publicacion (POST) /publicacion/adopcion/preguntas
+
+{
+    "preg_id":,
+    "preg_publi":{
+        "publ_id":
+    },
+    "pregunta":"",
+    "respuesta":""
+}
+
+
+Crear Publicacion de mascota perdida (POST) /publicacion/perdida
+
+{
+    "publ_id":,
+    "publ_organizacion":{
+        "orga_id":
+    },
+    "publ_estado":"",
+    "pper_rescate":{
+        "resc_id":
+    },
+    "pper_rescatista":{
+        "resc_id":
+    }
+}

@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 @Entity
-public class PublicacionDarEnAdopcion extends PublicacionBD{
+public class PublicacionDarEnAdopcionBD extends PublicacionBD{
 
     @OneToOne
     private MascotaBD pdar_mascota;

@@ -37,14 +37,12 @@ public class Sistema {
     HashMap<String,String> preguntasObligatorias;
     private static Sistema instancia = null;
 
-
     public static Sistema getInstancia() {
         if (instancia == null) {
             instancia = new Sistema();
         }
         return instancia;
     }
-
 
     public static boolean validarContrasenia(String contrasenia, String usuario) throws FileNotFoundException {
         return register.validarContrasenia(contrasenia, usuario);
@@ -60,13 +58,10 @@ public class Sistema {
         //return listaDeUsuarios.stream().anyMatch(usuario -> usuario.getNombre().equals(usuarioProvisorio));
     }
 
-
-
     /*   public void crearDuenio() {
            Duenio duenio = new Duenio();
        }*/
     public void crearAdmin() {
-
     }
 
     public List<PublicacionDarEnAdopcion> publicacionesAptasParaAdoptar(Adoptante unAdoptante) {
@@ -78,7 +73,6 @@ public class Sistema {
     public static void mostrarUsuarios(){
         listaDeUsuarios.forEach(usuario -> usuario.mostrarUsuario());
     }
-
 
     public void agregarVoluntario(Voluntario unVoluntario){
         listaDeVoluntarios.add(unVoluntario);
@@ -140,7 +134,6 @@ public class Sistema {
         }
         Organizacion orgElegidaPorElDestino = listaDeOrganizaciones.get(posicionElegido);
         return orgElegidaPorElDestino;
-
     }
 
     private float pasosAdar(float x,float y,float xIr, float yIr){ //TODO buscar como calcular con lat y long
@@ -157,7 +150,6 @@ public class Sistema {
         }
         total= difY+difX;
         return total;
-
     }
 
     public Mascota buscarMascota(int idMascota) {
@@ -207,7 +199,6 @@ public class Sistema {
         adoptantes.add(nuevoAdoptante);
     }
 
-
     public List<Publicacion> mostrarPublicacionesAprobadas() {
         List<Publicacion> aux = new ArrayList<>();
         for(Organizacion o:listaDeOrganizaciones) {
@@ -215,7 +206,6 @@ public class Sistema {
         }
         return aux;
     }
-
 
     public void darEnAdopcion(String usuarioDuenio, int idMascota) {
         Organizacion orgaDuenio = this.buscarOrgaConUsuario(usuarioDuenio);
@@ -253,6 +243,7 @@ public class Sistema {
         Duenio duenio = org.buscarDuenio(unUsuario);
         return duenio;
     }
+
     public Organizacion buscarOrgaConUsuario(String unUsuario) {
         Organizacion org = listaDeOrganizaciones.stream().filter(organizacion -> organizacion.tieneDuenio(unUsuario)).collect(Collectors.toList()).get(0);
         return org;
@@ -263,7 +254,6 @@ public class Sistema {
         // TODO VER DONDE SE GUARDA ESTA PUBLICACION. EN UNA ORGANIZACION? O ACA? O EN UNA ORG AL AZAR Y DESPUES CUANDO QUEREMOS MOSTRARLO, RECORREMOS TODAS LAS ORGS
     }
 
-
     public void recomendarAdoptar(){
         adoptantes.forEach(adoptante -> this.recomendarAdoptante(adoptante));
     }
@@ -272,7 +262,6 @@ public class Sistema {
         List<PublicacionDarEnAdopcion> publicaciones = this.publicacionesAptasParaAdoptar(adoptante);
         adoptante.recomendarAdopcion(publicaciones);
     }
-
 
     //FUNCIONES PRINCIPALES
     // TODO ACA ESTAN LOS SPARKS!!! :) <3 (LOS IRON MANS)
@@ -290,6 +279,11 @@ public class Sistema {
         Spark.post("/rescate", Sistema::encontrarMascota);
         Spark.post("/rescatista", Sistema::crearRescatista);
         Spark.post("/caracAdmin", Sistema::agregarCaracteristicaAdmin);
+        Spark.post("/publicacion/perdida",  Sistema::crearPublicacionPerdida);
+        Spark.post("/publicacion/adopcion",  Sistema::crearPublicacionAdopcion);
+        Spark.post("/publicacion/adopcion/preguntas",  Sistema::agregarPreguntasPubli);
+        Spark.post("/publicacion/adoptar",  Sistema::crearPublicacionAdoptar);
+
         //Spark.post("/publicacionPerdida", Sistema::crearPubPerdida);
     }
 
@@ -314,7 +308,6 @@ public class Sistema {
 
 
        return (new usuarioCreado(usuario)).transformar();
-
     }
 
     public static String iniciarSesion(Request req, Response res){
@@ -330,7 +323,6 @@ public class Sistema {
 
         res.status(200);
         return (new mensaje("Validado Correctamente!").transformar());
-
     }
 
     public static String crearDuenio(Request req, Response res){
@@ -356,7 +348,6 @@ public class Sistema {
         res.status(200);
         return (new mensaje("Notificacion agregada")).transformar();
     }
-
 
     public static String agregarContacto(Request req, Response res){
         ContactoBD contacto = new Gson().fromJson(req.body(), ContactoBD.class);
@@ -436,7 +427,6 @@ public class Sistema {
         return (new devolverObjeto(rescatistaBD, "Se creo un rescatista")).transformar();
     }
 
-
     public static String crearVoluntario(Request req, Response res){
         VoluntarioBD voluntarioBD = new Gson().fromJson(req.body(), VoluntarioBD.class);
 
@@ -447,14 +437,6 @@ public class Sistema {
         res.status(200);
         return (new devolverObjeto(voluntarioBD, "Se creo un voluntario")).transformar();
     }
-
-    //DAR EN ADOPCION
-
-
-    //ADOPTAR
-
-
-    //ADMIN AGREGAR CARACTERISTICA
 
     public static String agregarCaracteristicaAdmin(Request req, Response res){
         CaracteristicaMascota caracteristicas = new Gson().fromJson(req.body(), CaracteristicaMascota.class);
@@ -467,19 +449,52 @@ public class Sistema {
         return (new mensaje("Se agrego la caracteristica correctamente").transformar());
     }
 
+    private static String crearPublicacionAdoptar(Request req, Response res) {
 
-    //
+        PublicacionAdoptarBD publicacion = new Gson().fromJson(req.body(), PublicacionAdoptarBD.class);
 
-   /* crearVoluntario public static String crearPubPerdida(Request req, Response res){
-        PublicacionPerdida rescateBD = new Gson().fromJson(req.body(), RescateBD.class);
+        res.type("application/json");
 
-        BDUtils.agregarObjeto(rescateBD);
+        BDUtils.agregarObjeto(publicacion);
 
         res.status(200);
-        return (new mensaje("Se creo el rescate")).transformar();
-    }*/
+        return new devolverObjeto(publicacion,"Se creo la publicacion de adoptar").transformar();
+    }
 
+    private static String crearPublicacionAdopcion(Request req, Response res) {
 
+        PublicacionDarEnAdopcionBD publicacion = new Gson().fromJson(req.body(), PublicacionDarEnAdopcionBD.class);
+
+        res.type("application/json");
+
+        BDUtils.agregarObjeto(publicacion);
+
+        res.status(200);
+        return new devolverObjeto(publicacion,"Se creo la publicacion de dar en adopcion").transformar();
+    }
+
+    private static String agregarPreguntasPubli(Request req, Response res) {
+       pregPublicacionDarEnAdopcion preguntas = new Gson().fromJson(req.body(), pregPublicacionDarEnAdopcion.class);
+
+        res.type("application/json");
+
+        BDUtils.agregarObjeto(preguntas);
+
+        res.status(200);
+        return (new mensaje("Se agregaron las preguntas correctamente").transformar());
+    }
+
+    private static String crearPublicacionPerdida(Request req, Response res) {
+
+        PublicacionPerdidaBD publicacion = new Gson().fromJson(req.body(), PublicacionPerdidaBD.class);
+
+        res.type("application/json");
+
+        BDUtils.agregarObjeto(publicacion);
+
+        res.status(200);
+        return new devolverObjeto(publicacion,"Se creo la publicacion de mascota perdida").transformar();
+    }
 
 
 
