@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delegaciones</title>
-    <link rel="icon" href="../fotos/laLetraD.ico">
+    <title>Registrar</title>
+    <link rel="icon" href="../fotos/patitapro.png">
     <style> @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap');</style>
     <link rel="stylesheet" href="../css/estilosRegistro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,6 +39,7 @@
   
   <body>
     <header>
+      <img src="../fotos/patitas.jpg" alt="logo" class="logo">
       <h2>Patitas</h2>
       <div class="botones">
         <a href="iniciarSesion.html" type="button" class="header-button">Iniciar sesion</a>
@@ -67,7 +68,13 @@
 
     <main>
       <section>
-        <h1>REGISTRO</h1>
+        <div class="titulo">
+          <h1>REGISTRO</h1>
+          <div class="icon-titulo">
+            <i class="fas fa-paw"></i>
+          </div>
+        </div>
+        
         <br />
         <form
           action="https://formspree.io/f/xwkawqpa"
@@ -120,24 +127,42 @@
               <br />
               <label>
                 <input
-                  placeholder="Ingrese su ciudad"
+                  placeholder="Ingrese su email"
                   type="text"
-                  name="ciudad"
+                  name="email"
                 />
               </label>
               <br />
               <br />
-              <label>
-                <input
-                  placeholder="Ingrese su localidad"
-                  type="text"
-                  name="localidad"
-                />
-              </label>
+              <p> Seleccione una forma de notificacion:
+                  <br>
+                  <label>SMS
+                    <input
+                        type = "checkbox"
+                        name = "sms"
+                        value = "SMS"
+                    />
+                  </label>
+                  <label>E-Mail
+                    <input
+                    type = "checkbox"
+                    name = "email"
+                    value = "email"
+                    />
+                  </label>
+                  <label> Whatsapp
+                    <input
+                    type = "checkbox"
+                    name = "whatsapp"
+                    value = "Whatsapp"
+                    />
+                  </label>
+              </p>
+
             </fieldset>
 
             <section>
-                <img src="../fotos/imgRegistro.jpeg" alt="dibujo" width="350px">
+                <img src="../fotos/undraw_decorative_friends_q2np.png" alt="dibujo" width="350px">
             </section>
           </section>
 
@@ -168,9 +193,76 @@
                 />
               </label>
             </fieldset>
-            <fieldset class="formulario-foto">
-              <h3 class="titulos-form">Foto</h3>
-              <img src="../fotos/añadirFoto.jpeg" alt="añadirFoto" width="300px">
+            <br />
+            <fieldset>
+              <h3 class="titulos-form">Contacto</h3>
+              <label>
+                <input
+                  placeholder="Ingrese nombre completo"
+                  type="text"
+                  name="nombre"
+                  required
+                />
+              </label>
+              <br />
+              <br />
+              <div id="dni">
+                <select name="selector">
+                  <option value="DNI">DNI</option>
+                  <option value="Pasaporte">Pasaporte</option>
+                </select>
+                <input
+                  placeholder="Ingrese el número"
+                  type="text"
+                  name="numero"
+                />
+              </div>
+              <br />
+              <label>
+                <input
+                  placeholder="Ingrese el numero de telefono"
+                  type="text"
+                  name="telefono"
+                  required
+                />
+              </label>
+              <br />
+              <br />
+              <label>
+                <input
+                  placeholder="Ingrese email"
+                  type="text"
+                  name="email"
+                  required
+                />
+              </label>
+              <br />
+              <br />
+              <p> Seleccione una forma de notificacion:
+                  <br>
+                  <label>SMS
+                    <input
+                        type = "checkbox"
+                        name = "sms"
+                        value = "SMS"
+                    />
+                  </label>
+                  <label>E-Mail
+                    <input
+                    type = "checkbox"
+                    name = "email"
+                    value = "email"
+                    />
+                  </label>
+                  <label> Whatsapp
+                    <input
+                    type = "checkbox"
+                    name = "whatsapp"
+                    value = "Whatsapp"
+                    />
+                  </label>
+              </p>
+              
             </fieldset>
             <button class="boton-registrarse" type="submit">Registrarse</button>
           </section>

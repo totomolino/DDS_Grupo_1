@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delegaciones</title>
+    <title>Registra tu mascota</title>
+    <link rel="icon" href="../fotos/patitapro.png">
     <style> @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap');</style>
-    <link rel="stylesheet" href="../css/estilosIniciarSesion.css">
+    <link rel="stylesheet" href="../css/estilosRegistraTuMascota.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="../fotos/patitapro.png">
     <link
       href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap"
       rel="stylesheet"
@@ -39,52 +39,93 @@
   
   <body>
     <header>
-      <img src="../fotos/patitas.jpg" alt="logo" class="logo">
       <h2>Patitas</h2>
       <div class="botones">
         <a href="iniciarSesion.html" type="button" class="header-button">Iniciar sesion</a>
         <a href="registro.html" type="button" class="header-button">Registrarse</a>
       </div>
-    </header>
-    
-    <main>
-        <section class="form-img">
-            <section class="formulario">
-              <div class="titulo">
-                <h1>INICIAR SESION</h1>
-                <div class="icon-titulo">
-                  <i class="fas fa-paw"></i>
-                </div>
-              </div>
-                <form>
-                    <section class="inicio-sesion">
-                        <fieldset>
-                            <label>
-                                <input placeholder="Ingrese nombre de usuario:" type="text" name="usuario" required>
-                            </label>
-                            <br> <br>
-                            <label>
-                                <input placeholder="Ingrese contraseña:" type="password" name="contraseña" required>
-                            </label>
-                            <br> <br>
-                            <section>
-                                <a href="notificaciones.html" class="boton-iniciarSesion">Iniciar Sesion</a>
-                            </section>
-                            <section>
-                                <br>
-                                <button class="boton-olv-contraseña">¿Olvidaste tu contraseña?</button>
-                            </section>
-                        </fieldset>
-                        
-                    </section>
-                </form>
-            </section>
-            
-            <section class="imagen">
-                <img src="../fotos/undraw_woman_mevk.png" alt="imgIniciarSesion" width="400px">
-            </section> 
 
-        </section>
+      <!-- MENU 1
+            <div class="dropbtn" onclick="myFunction(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+      <div class="dropdown">
+        <div id="esta" class="dropbtn" onclick="myFunction(this)">
+          <div class="bar1" onclick="myFunction('esta')"></div>
+          <div class="bar2" onclick="myFunction('esta')"></div>
+          <div class="bar3" onclick="myFunction('esta')"></div>
+        </div>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div> -->
+    </header>
+
+    <nav>
+      <div class="side-bar" id="side-bar">
+          <button class="cruz">
+              <i class="far fa-times-circle"></i>
+          </button>
+          <p>MENU</p>
+          <section class="conj-botones-menu">
+              <section>
+                  <a href="actualizarDatosAdmin.html" type="button" class="boton-menu">ACTUALIZAR DATOS</a>
+              </section>
+              <section>
+                  <a href="AutorizacionesAdmin.html" type="button" class="boton-menu">AUTORIZACIONES</a>
+              </section>
+              <section>
+                  <a href="notificacionesAdmin.html" type="button" class="boton-menu">NOTIFICACIONES</a>
+              </section>
+              <section>
+                  <a href="listadoPersonas.html" type="button" class="boton-menu">LISTADO DE PERSONAS</a>
+              </section>
+              <section>
+                  <a href="listadoDelegaciones.html" type="button" class="boton-menu-seleccionado">LISTADO DE DELEGACIONES</a>
+              </section>
+              <section>
+                  <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
+              </section>
+          </section>
+      </div>
+  </nav>
+
+    <main>
+      <section>
+        <br/>
+        <h1 class = "alto-titulo">REGISTRA A TU MASCOTA</h1>
+        <br/>
+        <br/>
+        <br/>
+        <form>
+          <section class="ingresar-nombre">
+            <fieldset>
+              <label>
+                  <div class = "ingresar-mascota">
+                    <input
+                    placeholder="Ingresa el nombre de tu mascota"
+                    type="text"
+                    name="nombre"
+                    required
+                  />                
+                  <a type="submit" href="registrarMascota.html" class="boton-iniciarSesion">Iniciar</a>
+                  </div>
+                  
+              </label>
+            </fieldset>
+            <br/>
+            <br/>
+            <br/>
+            <section>
+                <img src="../fotos/undraw_Nature_fun_re_iney.png" alt="dibujo" width="500px">
+            </section>
+          </section>
+        </form>
+      </section>
     </main>
 
     <footer>
@@ -127,5 +168,6 @@
             </section>
         </section>
       </footer>
-</body>
+
+  </body>
 </html>

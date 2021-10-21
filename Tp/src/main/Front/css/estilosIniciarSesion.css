@@ -16,6 +16,10 @@ header{
   align-items: center;
 }
 
+.logo{
+  border-radius: 20px;
+}
+
 .botones{
   display: flex;
   gap: 20px;
@@ -41,10 +45,19 @@ header{
 /* FIN HEADER */
 
 /* FORMULARIOS */
+.titulo{
+  display: flex;
+  gap: 10px;
+}
 
 h1{
   font-family: 'Fira Sans', sans-serif;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+.icon-titulo{
+  font-size: 20px;
 }
 
 .form-img{
@@ -75,20 +88,24 @@ form fieldset{
 }
   
 form input{
-  width: 300px;
+  width: 400px;
   height: 45px;
   border: none;
   background-color: #f5f5f5;
   color: #757575;
-  border-radius: 15px;
+  border-radius: 30px;
   padding: 10px 50px 10px 20px;
   margin-top: 8px;
+  font-size: 18px;
 }
   
 .boton-iniciarSesion{
+  display: flex;
+  width: 150px;
+  justify-content: center;
   border-radius: 7px;
   text-align: center;
-  font-size: 16px;
+  font-size: 22px;
   font-family: 'Roboto Condensed', sans-serif;
   border: none;
   background-color: #C281EA;
@@ -97,10 +114,12 @@ form input{
   cursor: pointer;
   transition: background-color 0.5s ease-in-out;
   text-decoration: none;
+  margin-left: 120px;
+  margin-top: 10px;
 }
 
 .boton-iniciarSesion:hover{
-  background-color: #C281EA;
+  background-color: rgb(206, 152, 240);
 }
 
 .boton-olv-contraseña{
@@ -110,6 +129,8 @@ form input{
   background-color: transparent;
   cursor: pointer;
   transition: color 0.5s ease-in-out;
+  font-size: 18px;
+  margin-left: 100px;
 }
 
 .boton-olv-contraseña:hover{
@@ -150,5 +171,8 @@ form input{
     font-family: 'Roboto Condensed', sans-serif;
     flex-direction: column;
     gap: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
   }
 /*FIN FOOTER*/
