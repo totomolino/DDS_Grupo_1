@@ -39,51 +39,57 @@
   
   <body>
     <header>
-      <h2>Patitas</h2>
-      <div class="usuario">
-        <div class="usuario-icon">
-            <i class="fas fa-user-circle"></i>
+        <div class="logo">
+          <img src="../fotos/logoBlanco.png" alt="logo" width="5%">
+          <h2>Patitas</h2>
         </div>
-        <p>Juan Perez</p>
-      </div>
-      <div id="menu2" class="menu2" onclick="openSidebar()">
-        <button>
-            <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </header>
 
-    <nav>
-      <div class="side-bar" id="side-bar">
-          <button class="cruz">
-              <i class="far fa-times-circle"></i>
+        <div class="usuario">
+          <div class="usuario-icon">
+              <i class="fas fa-user-circle"></i>
+          </div>
+          <p>Juan Perez</p>
+        </div>
+
+        <div id="menu2" class="menu2" onclick="openSidebar()">
+          <button>
+              <i class="fas fa-bars"></i>
           </button>
-          <p>MENU</p>
-          <section class="conj-botones-menu">
-              <section>
-                  <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
-              </section>
-              <section>
-                  <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
-              </section>
-              <section>
-                  <a href="encontreUnaMascota.html" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
-              </section>
-              <section>
-                  <a href="registraTuMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
-              </section>
-              <section>
-                  <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
-              </section>
-          </section>
-      </div>
-  </nav>
+        </div>
+      </header>
+  
+      <nav>
+        <div class="side-bar" id="side-bar">
+            <button class="cruz">
+                <i class="far fa-times-circle"></i>
+            </button>
+            <p>MENU</p>
+            <section class="conj-botones-menu">
+                <section>
+                    <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
+                </section>
+                <section>
+                    <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
+                </section>
+                <section>
+                    <a href="encontreUnaMascota.html" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
+                </section>
+                <section>
+                    <a href="registraTuMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
+                </section>
+                <section>
+                    <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
+                </section>
+            </section>
+        </div>
+    </nav>
 
     <main>
       <section>
-        <h1>REGISTRAR MASCOTA</h1>
-        <img src="../fotos/FotoMascotas.jpg" alt="portada">
-        <br />
+        <div class="portada">
+          <h1>REGISTRAR MASCOTA</h1>
+        </div>
+        <br>
         <form
           action="https://formspree.io/f/xwkawqpa"
           method="post"
@@ -100,31 +106,37 @@
                   required
                 />
               </label>
-              <br />
-              <br />
-              <div id="dni">
-                <select name="selector">
-                  <option value="Macho"> Macho</option>
-                  <option value="Hembra">Hembra</option>
-                </select>
+              <br>
+              <br>
+              <label>
                 <input
                   placeholder="Ingrese el apodo"
                   type="text"
                   name="apodo"
                 />
-              </div>
-              <br />
-              <div id="dni">
+              </label>
+              <br>
+              <br>
+              <div id="selectores">
+                <select name="selector">
+                  <option value="Macho"> Macho</option>
+                  <option value="Hembra">Hembra</option>
+                </select>
                 <select name="selector">
                   <option value="Perro">Perro</option>
                   <option value="Gato">Gato</option>
                 </select>
+              </div>
+              <br>
+              <label>
                 <input
                   placeholder="Ingrese la edad"
                   type="text"
                   name="apodo"
                 />
+              </label>  
               </div>
+              <br>
               <br>
               <div>
                 <textarea name="descripcion mascota" rows="10" cols="40">Inserte la descripcion de su mascota aqui ... </textarea>
@@ -140,23 +152,23 @@
           <section class="usuario-foto">
             <fieldset>
               <h3 class="titulos-form">Caracteristicas</h3>
-              <div id="dni">
+              <div id="caracteristicas">
                 <select name="selector">
                   <option value="Color ojos">Color ojos</option>
                   <option value="Color pelo">Color pelo</option>
                 </select>
                 <input
-                  placeholder="Ingrese la edad"
+                  placeholder="Especifique"
                   type="text"
-                  name="apodo"
+                  name="caracteristicas"
                 />
               </div>
-              <br />
-              <br />
+              <br>
+              <br>
               
             </fieldset>
             
-            <button class="boton-registrarse" type="submit">Registrarse</button>
+            <button class="boton-registrarse" type="submit">Registrar</button>
           </section>
         </form>
       </section>

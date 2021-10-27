@@ -1,31 +1,44 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  width: 100%;
 }
 
 /* HEADER */
 header{
   background-color: #A632D4;
   display: flex;
-  height: 85px;
-  /*width: 100vw;*/
+  height: 10vh;
   color: white;
   font-family: 'Balsamiq Sans', cursive;
   justify-content: space-around;
   align-items: center;
 }
 
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 5vh;
+  padding-left: 40vh;
+}
+
 .usuario{
   display: flex;
   gap: 20px;
-  }
+  padding-right: 25vh;
+  align-items: center;
+
+}
   
-  .usuario-icon{
-    font-size: 30px;
-  }
+.usuario-icon{
+  font-size: 30px;
+}
   
-  .header-button{
+.header-button{
   border-radius: 7px;
   text-align: center;
   font-size: 16px;
@@ -37,37 +50,37 @@ header{
   cursor: pointer;
   transition: background-color 0.5s ease-in-out;
   text-decoration: none;
-  }
+}
   
-  .header-button:hover{
+.header-button:hover{
   background-color: rgb(11, 172, 172);
-  }
-  /* FIN HEADER*/
+}
+/* FIN HEADER*/
   
-  /* MENU */
-  #menu2{
+/* MENU */
+#menu2{
   position: absolute;
   left: 150px;
-  }
+}
   
-  #menu2 button{
+#menu2 button{
   border: none;
   background-color: transparent;
   color: white;
   cursor: pointer;
   transition: color 0.5s ease-in-out;
-  }
+}
   
-  /*cuando pasamos el cursor por arriba cambia el color*/
-  #menu2 button:hover{
+/*cuando pasamos el cursor por arriba cambia el color*/
+#menu2 button:hover{
   color: #b3e5fc;
-  }
+}
   
-  #menu2 i{
+#menu2 i{
   font-size: 20px;
-  }
+}
   
-  .side-bar{
+.side-bar{
   position: absolute; /*no ocupa espacio*/
   background-color: rgb(69, 17, 90);
   width: 280px;
@@ -76,54 +89,57 @@ header{
   left: 0;
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
-  }
+  z-index: 2; /*Para que aparezca arriba de la portada, (cuanto mas adelante debe estar as grande es el num)*/
+}
   
-  .side-bar.open{
+.side-bar.open{
   transform: translateX(0);
-  }
+}
   
-  nav p{
+nav p{
   font-family: 'Fira Sans', sans-serif;
   color: white;
   font-size: 25px;
   margin-top: 23px;
   margin-left: 50px;
-  }
+}
   
-  .conj-botones-menu{
+.conj-botones-menu{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: space-between;
-  padding: 260px 50px;
-  }
+  padding: 100px 50px;
+  gap: 8vh;
+}
   
-  .boton-menu{
+.boton-menu{
   font-family: 'Fira Sans', sans-serif;
   color: white;
   font-size: 20px;
   cursor: pointer;
   transition: color 0.5s ease-in-out;
   text-decoration: none;
-  }
+
+}
   
 
 
-  .boton-menu:hover{
+.boton-menu:hover{
   color: rgb(183, 116, 189);
-  }
+}
   
-  .boton-menu-seleccionado{
-    font-family: 'Fira Sans', sans-serif;
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    cursor: pointer;
-    transition: color 0.5s ease-in-out;
-    text-decoration: none;
-    text-decoration: underline;
-  }
+.boton-menu-seleccionado{
+  font-family: 'Fira Sans', sans-serif;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.5s ease-in-out;
+  text-decoration: none;
+  text-decoration: underline;
+}
   
-  .cruz{
+.cruz{
   position: absolute;
   background-color: transparent;
   border: none;
@@ -132,26 +148,32 @@ header{
   cursor: pointer;
   color: white;
   transition: color 0.5s ease-in-out;
-  }
+}
   
-  .cruz:hover{
+.cruz:hover{
   color: black;
-  }
+}
   
-  .cruz i{
+.cruz i{
   font-size: 30px;
-  
-  }
-  
-  /* FIN MENU */
+}
+/* FIN MENU */
 
 /* FORMULARIOS */
+.portada{
+  z-index: 1;
+  background-image: url("../fotos/FotoMascotas.jpg");
+  background-blend-mode: darken;
+  height: 75vh;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
 
 .titulo{
   display: flex;
   gap: 25px;
 }
-
 
 h1{
   font-family: 'Fira Sans', sans-serif;
@@ -207,9 +229,9 @@ textarea{
   font-family: 'Fira Sans', sans-serif;
 }
 
-#dni select{
+select{
   display: inline-block;
-  width: 30%;
+  width: 50%;
   border: none;
   background-color: #f5f5f5;
   color: #757575;
@@ -217,16 +239,19 @@ textarea{
   padding: 10px 12px;
 }
 
-#dni{
+select option{
+  text-align: center;
+}
+
+#selectores{
   display: flex;
   gap: 5px;
 }
 
-#dni input{
+#selectores input{
   display: inline-block;
   width: 70%;
 }
-
 
 .descripcion{
   width: 300px;
@@ -260,6 +285,19 @@ textarea{
 
 .boton-registrarse:hover{
   color: rgb(220, 165, 236);
+}
+
+#caracteristicas{
+  display: flex;
+  gap: 2vh;
+}
+
+#caracteristicas select{
+  width: 40%;
+}
+
+#caracteristicas input{
+  width: 60%;
 }
 /* FIN FORMULARIOS */
 
