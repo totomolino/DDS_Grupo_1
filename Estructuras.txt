@@ -42,6 +42,13 @@ crear Duenio (POST)
     }
 }
 
+Crear organizacion (POST) /organizacion
+{
+    "orga_posX": ,
+    "orga_posY": 
+}
+
+
 agregar notif a persona (POST) /notifPers
 {
     "fonop_persona":{
@@ -80,7 +87,7 @@ crearMascota (POST) /mascotas
     "masc_descripcion":"",
     "masc_tieneChapita":bool,
     "masc_organizacion":{
-        "org_id":int
+        "orga_id":int
     }
     "masc_duenio":{
         "pers_id":int

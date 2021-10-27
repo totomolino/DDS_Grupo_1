@@ -6,9 +6,7 @@ import Business.publicaciones.PublicacionAdoptar;
 import Business.publicaciones.PublicacionDarEnAdopcion;
 import Business.publicaciones.PublicacionPerdida;
 import Notificar.notificarStrategy;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 import dominioBD.*;
 
@@ -21,7 +19,6 @@ import spark.Response;
 import spark.Spark;
 import utils.BDUtils;
 
-import javax.persistence.EntityManager;
 import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -274,7 +271,7 @@ public class Sistema {
         Spark.post("/notifCont", Sistema::agregarNotificacionCont);
         Spark.post("/notifPers", Sistema::agregarNotificacionPers);
         Spark.post("/mascotas", Sistema::crearMascota);
-        Spark.get("/mascotas", Sistema::devolverMascota);
+        Spark.get("/mascotas/:id", Sistema::devolverMascota);
         Spark.post("/mascotaCarac", Sistema::agregarCaracteristicaMascota);
         Spark.post("/rescate", Sistema::encontrarMascota);
         Spark.post("/rescatista", Sistema::crearRescatista);
@@ -283,6 +280,7 @@ public class Sistema {
         Spark.post("/publicacion/adopcion",  Sistema::crearPublicacionAdopcion);
         Spark.post("/publicacion/adopcion/preguntas",  Sistema::agregarPreguntasPubli);
         Spark.post("/publicacion/adoptar",  Sistema::crearPublicacionAdoptar);
+        Spark.post("/organizacion", Sistema::crearOrganizacion);
 
         //Spark.post("/publicacionPerdida", Sistema::crearPubPerdida);
     }
@@ -338,6 +336,20 @@ public class Sistema {
         return (new mensaje("Duenio creado").transformar());
     }
 
+    public static String crearOrganizacion(Request req, Response res){
+
+        OrganizacionBD organizacion = new Gson().fromJson(req.body(), OrganizacionBD.class);
+
+        res.type("application/json");
+
+        BDUtils.agregarObjeto(organizacion);
+
+        res.status(200);
+
+        return (new mensaje("Organizacion creada").transformar());
+    }
+
+
     public static String agregarNotificacionPers(Request req, Response res){
         FormaNotifPers formaNotif =  new Gson().fromJson(req.body(), FormaNotifPers.class);
 
@@ -372,25 +384,34 @@ public class Sistema {
 
 
     public static String crearMascota(Request req, Response res){
+    
         MascotaBD mascotaBD =  new Gson().fromJson(req.body(), MascotaBD.class);
 
+        System.out.println(mascotaBD);
+        
         res.type("application/json");
 
         BDUtils.agregarObjeto(mascotaBD);
 
         res.status(200);
-        return (new mensaje("Notificacion agregada")).transformar();
+        return (new mensaje("Mascota agregada")).transformar();
     }
 
     public static String devolverMascota(Request req, Response res){
-        id mascotaID =  new Gson().fromJson(req.body(), id.class);
+        //id mascotaID =  new Gson().fromJson(req.body(), id.class);
+        String mascotaID =  req.params(":id");
 
         res.type("application/json");
 
-        MascotaBD mascota = BDUtils.buscarMascota(mascotaID.getId());
+        MascotaBD mascota = BDUtils.buscarMascota(Integer.parseInt(mascotaID));
+
+        if(mascota == null){
+            res.status(400);
+            return new mensaje("No encontre la mascota").transformar();
+        }
 
         res.status(200);
-        return (new devolverObjeto(mascota,"Toma la mascota gato")).transformar();
+        return (new devolverMascota(mascota)).transformar();
     }
 
     public static String agregarCaracteristicaMascota(Request req, Response res){

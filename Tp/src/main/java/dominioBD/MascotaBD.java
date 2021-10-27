@@ -21,27 +21,27 @@ public class MascotaBD {
 
 
     @ManyToOne
-    @JoinColumn(name = "org_id")
+    @JoinColumn(name = "orga_id")
     private OrganizacionBD masc_organizacion;
 
     @ManyToOne
     @JoinColumn(name = "pers_id")
     private DuenioBD masc_duenio;
 
-    @OneToMany (mappedBy = "carMasMas_mascota")
-    private List<CarMasXMas> carMasXMas;
-
-    @OneToMany(mappedBy = "fani_masc")
-    private List<FotoAnimales> fotoAnimales;
-
-    @OneToMany(mappedBy = "pregOrg_mascota")
-    private List<PregOrgXmascota>pregOrgXmascotas;
-
-    @OneToMany(mappedBy = "caorXmas_mascota")
-    private List<CaracOrgXmascota>caracOrgXmascotas;
-
-    @OneToMany(mappedBy = "resc_mascota")
-    private List<RescateBD> masc_rescate;
+   // @OneToMany (mappedBy = "carMasMas_mascota")
+   // private List<CarMasXMas> carMasXMas;
+//
+   // @OneToMany(mappedBy = "fani_masc")
+   // private List<FotoAnimales> fotoAnimales;
+//
+   // @OneToMany(mappedBy = "pregOrg_mascota")
+   // private List<PregOrgXmascota>pregOrgXmascotas;
+//
+   // @OneToMany(mappedBy = "caorXmas_mascota")
+   // private List<CaracOrgXmascota>caracOrgXmascotas;
+//
+   // @OneToMany(mappedBy = "resc_mascota")
+   // private List<RescateBD> masc_rescate;
 
     public Long getMasc_id() {
         return masc_id;
@@ -122,7 +122,7 @@ public class MascotaBD {
     public void setMasc_duenio(DuenioBD masc_duenio) {
         this.masc_duenio = masc_duenio;
     }
-
+/*
     public List<CarMasXMas> getCarMasXMas() {
         return carMasXMas;
     }
@@ -161,5 +161,5 @@ public class MascotaBD {
 
     public void setMasc_rescate(List<RescateBD> masc_rescate) {
         this.masc_rescate = masc_rescate;
-    }
+    }*/
 }

@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delegaciones</title>
+    <title>registrarMascota</title>
     <link rel="icon" href="../fotos/patitapro.png">
     <style> @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap');</style>
-    <link rel="stylesheet" href="../css/estilosRegistro.css">
+    <link rel="stylesheet" href="../css/estilosRegistrarMascota.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -40,29 +40,17 @@
   <body>
     <header>
       <h2>Patitas</h2>
-      <div class="botones">
-        <a href="iniciarSesion.html" type="button" class="header-button">Iniciar sesion</a>
-        <a href="registro.html" type="button" class="header-button">Registrarse</a>
+      <div class="usuario">
+        <div class="usuario-icon">
+            <i class="fas fa-user-circle"></i>
+        </div>
+        <p>Juan Perez</p>
       </div>
-
-      <!-- MENU 1
-            <div class="dropbtn" onclick="myFunction(this)">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
-      <div class="dropdown">
-        <div id="esta" class="dropbtn" onclick="myFunction(this)">
-          <div class="bar1" onclick="myFunction('esta')"></div>
-          <div class="bar2" onclick="myFunction('esta')"></div>
-          <div class="bar3" onclick="myFunction('esta')"></div>
-        </div>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div> -->
+      <div id="menu2" class="menu2" onclick="openSidebar()">
+        <button>
+            <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </header>
 
     <nav>
@@ -73,19 +61,16 @@
           <p>MENU</p>
           <section class="conj-botones-menu">
               <section>
-                  <a href="actualizarDatosAdmin.html" type="button" class="boton-menu">ACTUALIZAR DATOS</a>
+                  <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
               </section>
               <section>
-                  <a href="AutorizacionesAdmin.html" type="button" class="boton-menu">AUTORIZACIONES</a>
+                  <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
               </section>
               <section>
-                  <a href="notificacionesAdmin.html" type="button" class="boton-menu">NOTIFICACIONES</a>
+                  <a href="encontreUnaMascota.html" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
               </section>
               <section>
-                  <a href="listadoPersonas.html" type="button" class="boton-menu">LISTADO DE PERSONAS</a>
-              </section>
-              <section>
-                  <a href="listadoDelegaciones.html" type="button" class="boton-menu-seleccionado">LISTADO DE DELEGACIONES</a>
+                  <a href="registraTuMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
               </section>
               <section>
                   <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
@@ -96,7 +81,8 @@
 
     <main>
       <section>
-        <h1>REGISTRO</h1>
+        <h1>REGISTRAR MASCOTA</h1>
+        <img src="../fotos/FotoMascotas.jpg" alt="portada">
         <br />
         <form
           action="https://formspree.io/f/xwkawqpa"
@@ -105,7 +91,7 @@
         >
           <section class="datos-personales">
             <fieldset>
-              <h3 class="titulos-form">Datos personales</h3>
+              <h3 class="titulos-form">Sobre tu mascota</h3>
               <label>
                 <input
                   placeholder="Ingrese nombre completo"
@@ -116,91 +102,60 @@
               </label>
               <br />
               <br />
-              <label>
+              <div id="dni">
+                <select name="selector">
+                  <option value="Macho"> Macho</option>
+                  <option value="Hembra">Hembra</option>
+                </select>
                 <input
-                  placeholder="Ingrese fecha de nacimiento:"
+                  placeholder="Ingrese el apodo"
                   type="text"
-                  name="fechaDeNacimiento"
-                  required
+                  name="apodo"
                 />
-              </label>
-              <br />
+              </div>
               <br />
               <div id="dni">
                 <select name="selector">
-                  <option value="DNI">DNI</option>
-                  <option value="Pasaporte">Pasaporte</option>
+                  <option value="Perro">Perro</option>
+                  <option value="Gato">Gato</option>
                 </select>
                 <input
-                  placeholder="Ingrese el número"
+                  placeholder="Ingrese la edad"
                   type="text"
-                  name="numero"
+                  name="apodo"
                 />
               </div>
               <br>
-              <label>
-                <input
-                  placeholder="Ingrese su número de telefono"
-                  type="text"
-                  name="numero de telefono"
-                />
-              </label>
-              <br />
-              <br />
-              <label>
-                <input
-                  placeholder="Ingrese su ciudad"
-                  type="text"
-                  name="ciudad"
-                />
-              </label>
-              <br />
-              <br />
-              <label>
-                <input
-                  placeholder="Ingrese su email"
-                  type="text"
-                  name="email"
-                />
-              </label>
+              <div>
+                <textarea name="descripcion mascota" rows="10" cols="40">Inserte la descripcion de su mascota aqui ... </textarea>
+              </div>
             </fieldset>
 
-            <section>
-                <img src="../fotos/undraw_good_doggy_4wfq.png" alt="dibujo" width="350px">
-            </section>
-          </section>
-
-          <section class="usuario-foto">
-            <fieldset>
-              <h3 class="titulos-form">Usuario</h3>
-              <input
-                placeholder="Ingrese su usuario"
-                type="text"
-                name="usuario"
-              />
-              <br />
-              <br />
-              <label>
-                <input
-                  placeholder="Ingrese su contraseña"
-                  type="password"
-                  name="contraseña"
-                />
-              </label>
-              <br />
-              <br />
-              <label>
-                <input
-                  placeholder="Ingrese nuevamente su contraseña"
-                  type="password"
-                  name="contraseña repetida"
-                />
-              </label>
-            </fieldset>
             <fieldset class="formulario-foto">
               <h3 class="titulos-form">Foto</h3>
               <img src="../fotos/añadirFoto.jpeg" alt="añadirFoto" width="300px">
             </fieldset>
+          </section>
+
+          <section class="usuario-foto">
+            <fieldset>
+              <h3 class="titulos-form">Caracteristicas</h3>
+              <div id="dni">
+                <select name="selector">
+                  <option value="Color ojos">Color ojos</option>
+                  <option value="Color pelo">Color pelo</option>
+                </select>
+                <input
+                  placeholder="Ingrese la edad"
+                  type="text"
+                  name="apodo"
+                />
+              </div>
+              <br />
+              <br />
+              
+            </fieldset>
+            
             <button class="boton-registrarse" type="submit">Registrarse</button>
           </section>
         </form>
@@ -225,6 +180,15 @@
             <p>MAIL</p>
             <p>patitas@gmail.com</p>
             <p></p>
+          </div>
+        </section>
+        <section class="contacto">
+          <div class="contacto-icon">
+              <i class="fab fa-facebook-square"></i>
+          </div>
+          <div class="contacto-info">
+            <p>FACEBOOK</p>
+            <p>PatitasOK</p>
           </div>
         </section>
         <section class="contacto">
