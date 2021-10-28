@@ -1,10 +1,7 @@
 package Business;
 
 public enum Tamanio {
-
     CHICA,
-    MEDIANA,
-    GRANDE,
-
-
+    MEDIANO,
+    GRANDE
 }

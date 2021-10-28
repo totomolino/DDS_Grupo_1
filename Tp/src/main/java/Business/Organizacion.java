@@ -21,9 +21,9 @@ public class Organizacion {
 
 
     public void agregarMascota(int id, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, List<Foto> fotos, Duenio duenio, HashMap<String, String> caracteristicas, Tamanio tamanio) {
-        Mascota unaMascota = new Mascota(id , fotos, especie, nombre, apodo, edad, sexo, descripcion, true, caracteristicas, duenio, tamanio);
-        listaMascotas.add(unaMascota);
-        duenio.agregarMascota(unaMascota);
+        //Mascota unaMascota = new Mascota(id , fotos, especie, nombre, apodo, edad, sexo, descripcion, true, caracteristicas, duenio, tamanio);
+       // listaMascotas.add(unaMascota);
+       // duenio.agregarMascota(unaMascota);
     }
 
     public void agregarCaracteristica(String unaCarateristica) {

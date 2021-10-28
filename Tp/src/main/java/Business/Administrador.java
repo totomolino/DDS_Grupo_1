@@ -7,7 +7,7 @@ public class Administrador
 
     public Administrador(Organizacion miOrganizacion, String nombreUsuario, String contrasenia, String email) {
         this.miOrganizacion = miOrganizacion;
-        usuario = new Usuario(TipoDeUsuario.ADMIN, nombreUsuario, contrasenia, email);
+        //usuario = new Usuario(TipoDeUsuario.ADMIN, nombreUsuario, contrasenia, email);
     }
 
     public void setOrganizacion(Organizacion organizacion){

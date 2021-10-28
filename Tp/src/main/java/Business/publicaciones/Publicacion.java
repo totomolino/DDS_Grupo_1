@@ -7,6 +7,11 @@ import java.util.List;
 
 public abstract class Publicacion {
 
+    Long id;
+
+    public Publicacion(Long id) {
+        this.id = id;
+    }
 
     public void serAprobada(){}
 

@@ -164,6 +164,7 @@ h1{
   position: relative;
   font-size: 60px;
   text-align: center;
+  margin-top: 8vh;
 }
 
 form{
@@ -221,15 +222,18 @@ form input{
 .botonesEncontrar{
   display: flex;
   justify-content: center;
-  gap: 5vh;
+  gap: 8vh;
+}
+
+.imagenPerritos{
+  display: flex;
+  justify-content: center;
 }
   
 .ingresar-mascota{
-      display: flex;
+  display: flex;
   gap: 10px;
 }
-
-
 
 /* FIN FORMULARIOS */
 

@@ -10,7 +10,8 @@ public class PublicacionDarEnAdopcion extends Publicacion {
     public Duenio duenio;
     public HashMap<String,String> preguntas;
 
-    public PublicacionDarEnAdopcion(Mascota unaMascota, Duenio duenio, HashMap<String,String> preguntas){
+    public PublicacionDarEnAdopcion(Long id, Mascota unaMascota, Duenio duenio, HashMap<String,String> preguntas){
+        super(id);
         this.mascota = unaMascota;
         this.duenio = duenio;
         this.preguntas = preguntas;

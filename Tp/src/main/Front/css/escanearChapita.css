@@ -166,12 +166,7 @@ h1{
   text-align: center;
 }
 
-h3{
-    font-family: 'Fira Sans', sans-serif;
-    position: relative;
-    font-size: 50px;
-    text-align: center;
-}
+
 
 form{
   display: flex;
@@ -189,9 +184,6 @@ form fieldset{
   margin-bottom: 15px;
 }
 
-.foto{
-  
-}
 
 form input{
   width: 400px;
@@ -206,13 +198,14 @@ form input{
 }
 
 .boton-encontrarMascota{
-    width: 50vh;
+    width: 20vh;
     height: 45px;
     border: none;
     padding: 12px 10px 10px 10px;
     border-radius: 15px;
     text-align: center;
     font-size: 16px;
+
     
 
     background-color: #C281EA;
@@ -237,10 +230,26 @@ form input{
   
 .ingresar-mascota{
       display: flex;
-  gap: 10px;
+      gap: 10px;
 }
 
+.foto{
+  
+    display: flex;
+    justify-content: center;
 
+}
+
+.codigoQr{
+  
+  border: 1px solid #A632D4;
+  border-radius: 15px;
+  /*padding: 25px*/;
+  width: 300px;  
+  height: 300px;
+  padding: 12px 10px 10px 10px;
+
+}
 
 /* FIN FORMULARIOS */
 
@@ -266,6 +275,8 @@ form input{
   font-size: 40px;
 }
 
+
+
 footer{
     background-color: #A632D4;
     color: white;
@@ -275,8 +286,8 @@ footer{
     margin-top: 50px;
     font-family: 'Roboto Condensed', sans-serif;
     flex-direction: column;
-    gap: 20px;
     position: absolute;
+    gap: 20px;
     bottom: 0;
     width: 100%;
   }

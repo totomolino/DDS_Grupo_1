@@ -17,11 +17,11 @@ public class Mascota {
     boolean tieneChapita;
     Duenio duenio;
     HashMap<String, String> caracteristicas;
-    Tamanio tamanio;
+
     
 
     
-    public Mascota(Long id, List<Foto> fotos, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, boolean tieneChapita, HashMap<String, String> caracteristicas, Duenio duenio, Tamanio tamanio) {
+    public Mascota(Long id, List<Foto> fotos, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, boolean tieneChapita, HashMap<String, String> caracteristicas, Duenio duenio) {
         this.id = id;
         this.fotos = fotos;
         this.especie = especie;
@@ -33,12 +33,11 @@ public class Mascota {
         this.tieneChapita = tieneChapita;
         this.caracteristicas = caracteristicas;
         this.duenio= duenio;
-        this.tamanio = tamanio;
     }
 
-    public int getId() {return id;}
+    public Long getId() {return id;}
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -111,18 +110,3 @@ public class Mascota {
     }
 }
 
-/*import java.util.HashMap;
-
-public class Main {
-  public static void main(String[] args) {
-    // Create a HashMap object called capitalCities
-    HashMap<String, String> capitalCities = new HashMap<String, String>();
-
-    // Add keys and values (Country, City)
-    capitalCities.put("England", "London");
-    capitalCities.put("Germany", "Berlin");
-    capitalCities.put("Norway", "Oslo");
-    capitalCities.put("USA", "Washington DC");
-    System.out.println(capitalCities);
-  }
-}*/

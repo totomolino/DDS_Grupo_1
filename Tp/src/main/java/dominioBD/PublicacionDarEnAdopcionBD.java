@@ -3,10 +3,14 @@ package dominioBD;
 import Business.Duenio;
 import Business.Mascota;
 import Business.publicaciones.PublicacionDarEnAdopcion;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import utils.BDUtils;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 public class PublicacionDarEnAdopcionBD extends PublicacionBD{
@@ -34,10 +38,13 @@ public class PublicacionDarEnAdopcionBD extends PublicacionBD{
     }
 
     public PublicacionDarEnAdopcion transformar() {
+        Long id = getPubl_id();
         Duenio duenio = this.pdar_duenio.transformar();
         Mascota mascota = this.pdar_mascota.transformar();
-        List<pregPublicacionDarEnAdopcion> miLista = // select * from pregPublicacionDarEnAdopcion where preg_publi = this.id
-        HashMap<String,String> preguntas = dameHash
-        //PublicacionDarEnAdopcion publicacion = new PublicacionDarEnAdopcion()
+        HashMap<String,String> preguntas  = BDUtils.dameHashPreguntasPubli(id);
+        PublicacionDarEnAdopcion publicacion = new PublicacionDarEnAdopcion(id,mascota,duenio,preguntas);
+        return publicacion;
     }
+
+
 }

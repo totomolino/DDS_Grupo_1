@@ -1,17 +1,19 @@
 package utils;
 
 import Business.Contacto;
+import Business.Foto;
 import Business.publicaciones.Publicacion;
+import Business.publicaciones.PublicacionDarEnAdopcion;
 import Notificar.notificarStrategy;
-import dominioBD.ContactoBD;
-import dominioBD.FormaNotifPers;
-import dominioBD.MascotaBD;
+import dominioBD.*;
+import mappers.caracteristicasMasc;
 
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -89,12 +91,13 @@ public class BDUtils {
     }
 
 
-    public static List<Publicacion> damePublicacionesAdopcion() {
+    public static List<PublicacionDarEnAdopcion> damePublicacionesAdopcion() {
 
         EntityManager em = BDUtils.getEntityManager();
 
-        return em.createQuery("from PublicacionDarEnAdopcionBD ").getResultList();
+        List<PublicacionDarEnAdopcionBD> publicaciones = em.createQuery("from PublicacionDarEnAdopcionBD ").getResultList();
 
+        return publicaciones.stream().map(publi -> publi.transformar()).collect(Collectors.toList());
     }
 
     public static List<notificarStrategy> dameListaNotif(Long id) {
@@ -126,6 +129,45 @@ public class BDUtils {
 
         return formaNotifPers.stream().map(forma -> forma.transformar()).collect(Collectors.toList());
 
+
+    }
+
+    public static List<Foto> dameFotosMasc(Long id) {
+
+        EntityManager em = BDUtils.getEntityManager();
+
+        List<FotoAnimales> fotos = em.createQuery("from FotoAnimales where fani_masc.masc_id = '"+id+"'").getResultList();
+
+        return fotos.stream().map(foto -> foto.transformar()).collect(Collectors.toList());
+
+
+    }
+
+    public static HashMap<String,String> dameHashCaracteristicasMasc(Long id) {
+        EntityManager em = BDUtils.getEntityManager();
+
+        List<caracteristicasMasc> unaLista = em.createQuery("select CaracteristicaMascota.carmas_clave as pregunta , CarMasXMas.carMasMas_valor as respuesta " +
+                "                                               from CarMasXMas " +
+                "                                               join CaracteristicaMascota " +
+                "                                               on CaracteristicaMascota.carmas_id = CarMasXMas.carMasMas_carmas.carmas_id " +
+                "                                               where CarMasXMas.carMasMas_mascota.masc_id = '"+id+"'").getResultList();
+
+        HashMap<String, String> res = new HashMap<String,String>();
+
+        unaLista.stream().map(p -> res.put(p.getPregunta(), p.getRespuesta())).collect(Collectors.toList());
+
+        return res;
+    }
+
+
+    public static HashMap<String, String> dameHashPreguntasPubli(Long id) {
+        EntityManager em = BDUtils.getEntityManager();
+
+        List<pregPublicacionDarEnAdopcion> preguntas = em.createQuery("from pregPublicacionDarEnAdopcion where preg_publi = '"+id+"'").getResultList();
+
+        HashMap<String, String> res = new HashMap<String,String>();
+        preguntas.stream().map(p -> res.put(p.getPregunta(), p.getRespuesta())).collect(Collectors.toList());
+        return res;
 
     }
 }

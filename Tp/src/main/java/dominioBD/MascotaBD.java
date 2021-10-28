@@ -1,12 +1,12 @@
 package dominioBD;
 
-import Business.Duenio;
-import Business.Especie;
-import Business.Foto;
-import Business.Mascota;
+import Business.*;
+import utils.BDUtils;
 
 import javax.persistence.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Table(name = "mascota_bd")
 @Entity
@@ -23,7 +23,7 @@ public class MascotaBD {
     private String masc_especie;
     private String masc_descripcion;
     private Boolean masc_tieneChapita;
-
+    private String masc_tamanio;
 
     @ManyToOne
     @JoinColumn(name = "orga_id")
@@ -54,12 +54,17 @@ public class MascotaBD {
         String apodo = this.getMasc_apodo();
         Integer edad = this.getMasc_edad();
         String sexo = this.getMasc_sexo();
-        String especie = this.getMasc_especie();
+        Especie especie = Especie.valueOf(this.getMasc_especie());
         String descripcion = this.getMasc_descripcion();
         Boolean tieneChapita = this.getMasc_tieneChapita();
-        List<Foto>
+        List<Foto> fotos = BDUtils.dameFotosMasc(id);
+        Duenio duenio = masc_duenio.transformar();
+        HashMap<String, String> caracteristicas = BDUtils.dameHashCaracteristicasMasc(id);
+        return new Mascota(id,fotos,especie,nombre,apodo,edad,sexo,descripcion,tieneChapita,caracteristicas,duenio);
 
     }
+
+
 
     public Long getMasc_id() {
         return masc_id;

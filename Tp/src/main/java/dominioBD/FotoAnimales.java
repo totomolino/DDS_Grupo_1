@@ -1,5 +1,7 @@
 package dominioBD;
 
+import Business.Foto;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -40,4 +42,9 @@ public class FotoAnimales {
     public void setFani_direccion(String fani_direccion) {
         this.fani_direccion = fani_direccion;
     }
+
+    public Foto transformar(){
+        return new Foto(fani_id,fani_direccion);
+    }
+
 }

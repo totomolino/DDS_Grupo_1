@@ -9,7 +9,7 @@ public class Voluntario {
     Organizacion organizacion;
 
     public Voluntario(String nombre, String contrasenia, String email, int tamanioFotos, Organizacion organizacion) {
-        this.usuario = new Usuario(TipoDeUsuario.VOLUNTARIO, nombre, contrasenia, email);
+        //this.usuario = new Usuario(TipoDeUsuario.VOLUNTARIO, nombre, contrasenia, email);
         this.tamanioFotos = tamanioFotos;
         this.organizacion = organizacion;
     }

@@ -8,7 +8,8 @@ public class PublicacionPerdida extends Publicacion {
     Rescatista rescatista;
 
 
-    public PublicacionPerdida(Rescate rescate, Rescatista rescatista){
+    public PublicacionPerdida(Long id ,Rescate rescate, Rescatista rescatista){
+        super(id);
         this.rescate = rescate;
         this.rescatista = rescatista;
     }

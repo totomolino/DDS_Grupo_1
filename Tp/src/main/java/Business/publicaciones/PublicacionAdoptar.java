@@ -7,7 +7,8 @@ public class PublicacionAdoptar extends Publicacion {
 
 
 
-    public PublicacionAdoptar(HashMap<String, String> preferencias) {
+    public PublicacionAdoptar(Long id, HashMap<String, String> preferencias) {
+        super(id);
         this.preferenciasYComodidades = preferencias;
     }
 

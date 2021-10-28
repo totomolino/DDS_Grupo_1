@@ -148,8 +148,8 @@ public class menuPruebas {
         List<notificarStrategy> notifC = this.obtenerMediosDeNotificacion();
         System.out.println("Ingrese telefono");
         String mailC = st.nextLine();
-        Contacto unContacto = new Contacto(nombreC, apellidoC, telefonoC, notifC, mailC);
-        lista.add(unContacto);
+       // Contacto unContacto = new Contacto(nombreC, apellidoC, telefonoC, notifC, mailC);
+        //lista.add(unContacto);
     }
 
     private List<notificarStrategy> obtenerMediosDeNotificacion() {
