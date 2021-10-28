@@ -5,6 +5,7 @@ import Notificar.notificarStrategy;
 import java.util.List;
 
 public class Contacto {
+    Long id;
     String nombre;
     String apellido;
     String telefono;
@@ -12,7 +13,8 @@ public class Contacto {
     List<notificarStrategy> formaNotificacion;
 
 
-    public Contacto(String nombre, String apellido, String telefono, List<notificarStrategy> formaNotificacion, String email) {
+    public Contacto(Long id,String nombre, String apellido, String telefono, List<notificarStrategy> formaNotificacion, String email) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;

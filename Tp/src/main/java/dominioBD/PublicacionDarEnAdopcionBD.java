@@ -1,7 +1,12 @@
 package dominioBD;
 
+import Business.Duenio;
+import Business.Mascota;
+import Business.publicaciones.PublicacionDarEnAdopcion;
+
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import java.util.HashMap;
 
 @Entity
 public class PublicacionDarEnAdopcionBD extends PublicacionBD{
@@ -26,5 +31,13 @@ public class PublicacionDarEnAdopcionBD extends PublicacionBD{
 
     public void setPdar_duenio(DuenioBD pdar_duenio) {
         this.pdar_duenio = pdar_duenio;
+    }
+
+    public PublicacionDarEnAdopcion transformar() {
+        Duenio duenio = this.pdar_duenio.transformar();
+        Mascota mascota = this.pdar_mascota.transformar();
+        List<pregPublicacionDarEnAdopcion> miLista = // select * from pregPublicacionDarEnAdopcion where preg_publi = this.id
+        HashMap<String,String> preguntas = dameHash
+        //PublicacionDarEnAdopcion publicacion = new PublicacionDarEnAdopcion()
     }
 }

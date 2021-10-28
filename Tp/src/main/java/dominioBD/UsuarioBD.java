@@ -1,5 +1,8 @@
 package dominioBD;
 
+import Business.TipoDeUsuario;
+import Business.Usuario;
+
 import javax.persistence.*;
 
 @Entity
@@ -57,5 +60,11 @@ public class UsuarioBD {
 
     public void setUsu_tipo(String usu_tipo) {
         this.usu_tipo = usu_tipo;
+    }
+
+    public Usuario transformar() {
+        TipoDeUsuario tipo = TipoDeUsuario.valueOf(usu_tipo);
+        Usuario usuario = new Usuario(usu_id,tipo,usu_nombre,usu_contrasena,usu_email);
+        return usuario;
     }
 }

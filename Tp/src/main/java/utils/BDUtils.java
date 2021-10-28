@@ -1,5 +1,10 @@
 package utils;
 
+import Business.Contacto;
+import Business.publicaciones.Publicacion;
+import Notificar.notificarStrategy;
+import dominioBD.ContactoBD;
+import dominioBD.FormaNotifPers;
 import dominioBD.MascotaBD;
 
 
@@ -8,6 +13,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BDUtils {
 
@@ -83,4 +89,43 @@ public class BDUtils {
     }
 
 
+    public static List<Publicacion> damePublicacionesAdopcion() {
+
+        EntityManager em = BDUtils.getEntityManager();
+
+        return em.createQuery("from PublicacionDarEnAdopcionBD ").getResultList();
+
+    }
+
+    public static List<notificarStrategy> dameListaNotif(Long id) {
+
+        EntityManager em = BDUtils.getEntityManager();
+
+        List<FormaNotifPers> formaNotifPers = em.createQuery("from FormaNotifPers where fonop_persona.pers_id = '"+id+"'").getResultList();
+
+        return formaNotifPers.stream().map(forma -> forma.transformar()).collect(Collectors.toList());
+
+    }
+
+    public static List<Contacto> dameContactos(Long id) {
+
+        EntityManager em = BDUtils.getEntityManager();
+
+        List<ContactoBD> contactoBDS = em.createQuery("from ContactoBD where cont_persona.pers_id = '"+id+"'").getResultList();
+
+        return contactoBDS.stream().map(contactoBD -> contactoBD.transformar()).collect(Collectors.toList());
+
+
+    }
+
+    public static List<notificarStrategy> dameListaNotifCont(Long id) {
+
+        EntityManager em = BDUtils.getEntityManager();
+
+        List<FormaNotifPers> formaNotifPers = em.createQuery("from FormaNotifCont where fonoc_contacto.cont_id = '"+id+"'").getResultList();
+
+        return formaNotifPers.stream().map(forma -> forma.transformar()).collect(Collectors.toList());
+
+
+    }
 }

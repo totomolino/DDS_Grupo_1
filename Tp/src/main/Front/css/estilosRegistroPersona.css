@@ -76,6 +76,7 @@ header{
   left: 0;
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
+  z-index: 2
   }
   
   .side-bar.open{
@@ -95,7 +96,8 @@ header{
   flex-direction: column;
   justify-content: center;
   align-content: space-between;
-  padding: 260px 50px;
+  padding: 100px 50px;
+  gap: 8vh;
   }
   
   .boton-menu{

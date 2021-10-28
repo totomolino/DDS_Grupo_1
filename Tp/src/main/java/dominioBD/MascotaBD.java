@@ -1,5 +1,10 @@
 package dominioBD;
 
+import Business.Duenio;
+import Business.Especie;
+import Business.Foto;
+import Business.Mascota;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -28,20 +33,33 @@ public class MascotaBD {
     @JoinColumn(name = "pers_id")
     private DuenioBD masc_duenio;
 
-   // @OneToMany (mappedBy = "carMasMas_mascota")
-   // private List<CarMasXMas> carMasXMas;
-//
-   // @OneToMany(mappedBy = "fani_masc")
-   // private List<FotoAnimales> fotoAnimales;
-//
-   // @OneToMany(mappedBy = "pregOrg_mascota")
-   // private List<PregOrgXmascota>pregOrgXmascotas;
-//
-   // @OneToMany(mappedBy = "caorXmas_mascota")
-   // private List<CaracOrgXmascota>caracOrgXmascotas;
-//
-   // @OneToMany(mappedBy = "resc_mascota")
-   // private List<RescateBD> masc_rescate;
+    @OneToMany (mappedBy = "carMasMas_mascota")
+    private List<CarMasXMas> carMasXMas;
+
+    @OneToMany(mappedBy = "fani_masc")
+    private List<FotoAnimales> fotoAnimales;
+
+    @OneToMany(mappedBy = "pregOrg_mascota")
+    private List<PregOrgXmascota>pregOrgXmascotas;
+
+    @OneToMany(mappedBy = "caorXmas_mascota")
+    private List<CaracOrgXmascota>caracOrgXmascotas;
+
+    @OneToMany(mappedBy = "resc_mascota")
+    private List<RescateBD> masc_rescate;
+
+    public Mascota transformar() {
+        Long id = this.getMasc_id();
+        String nombre = this.getMasc_nombre();
+        String apodo = this.getMasc_apodo();
+        Integer edad = this.getMasc_edad();
+        String sexo = this.getMasc_sexo();
+        String especie = this.getMasc_especie();
+        String descripcion = this.getMasc_descripcion();
+        Boolean tieneChapita = this.getMasc_tieneChapita();
+        List<Foto>
+
+    }
 
     public Long getMasc_id() {
         return masc_id;
@@ -122,7 +140,7 @@ public class MascotaBD {
     public void setMasc_duenio(DuenioBD masc_duenio) {
         this.masc_duenio = masc_duenio;
     }
-/*
+
     public List<CarMasXMas> getCarMasXMas() {
         return carMasXMas;
     }
@@ -161,5 +179,5 @@ public class MascotaBD {
 
     public void setMasc_rescate(List<RescateBD> masc_rescate) {
         this.masc_rescate = masc_rescate;
-    }*/
+    }
 }

@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>registrarMascota</title>
+    <title>llenarFormularioEncontrado</title>
     <link rel="icon" href="../fotos/patitapro.png">
     <style> @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap');</style>
-    <link rel="stylesheet" href="../css/estilosRegistrarMascota.css">
+    <link rel="stylesheet" href="../css/estilosSinChapita.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -87,7 +87,7 @@
     <main>
       <section>
         <div class="portada">
-          <h1>REGISTRAR MASCOTA</h1>
+          <h1>LLENAR FORMULARIO DE MASCOTA PERDIDA</h1>
         </div>
         <br>
         <form
@@ -97,26 +97,8 @@
         >
           <section class="datos-personales">
             <fieldset>
-              <h3 class="titulos-form">Sobre tu mascota</h3>
-              <label>
-                <input
-                  placeholder="Ingrese nombre completo"
-                  type="text"
-                  name="nombre"
-                  required
-                />
-              </label>
-              <br>
-              <br>
-              <label>
-                <input
-                  placeholder="Ingrese el apodo"
-                  type="text"
-                  name="apodo"
-                />
-              </label>
-              <br>
-              <br>
+              <h3 class="titulos-form">Sobre la mascota perdida</h3>
+
               <div id="selectores">
                 <select name="selector">
                   <option value="Macho"> Macho</option>
@@ -129,8 +111,10 @@
               </div>
               <br>
               <label>
+                  
+                
                 <input
-                  placeholder="Ingrese la edad"
+                  placeholder="Ingrese la ubicacion del encuentro"
                   type="text"
                   name="apodo"
                 />
@@ -139,7 +123,13 @@
               <br>
               <br>
               <div>
-                <textarea name="descripcion mascota" rows="10" cols="40">Inserte la descripcion fisica de su mascota aqui ... </textarea>
+                <textarea name="descripcion mascota" rows="10" cols="40">Inserte la descripcion fisica de la mascota aqui ... </textarea>
+              </div>
+
+              <br>
+            
+              <div>
+                <textarea name="descripcion mascota encuantr" rows="10" cols="40">Inserte la descripcion del encuentro de la mascota aqui ... </textarea>
               </div>
             </fieldset>
 
@@ -168,10 +158,13 @@
               
             </fieldset>
             
-            <button class="boton-registrarse" type="submit">Registrar</button>
+            <button class="boton-registrarse" type="submit">Publicar</button>
           </section>
+        
         </form>
+        
       </section>
+      
     </main>
 
     <footer>

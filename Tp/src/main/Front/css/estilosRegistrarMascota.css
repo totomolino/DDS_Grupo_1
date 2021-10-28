@@ -12,7 +12,8 @@ html{
 header{
   background-color: #A632D4;
   display: flex;
-  height: 10vh;
+  height: 85px;
+  /*width: 100vw;*/
   color: white;
   font-family: 'Balsamiq Sans', cursive;
   justify-content: space-around;
@@ -24,8 +25,10 @@ header{
   align-items: center;
   gap: 5vh;
   padding-left: 40vh;
+
 }
 
+  
 .usuario{
   display: flex;
   gap: 20px;
@@ -188,17 +191,15 @@ h1{
 form{
   display: flex;
   justify-content: center;
-  gap: 150px;
+  gap: 10vh;
 }
 
-form > section{
-  width: 300px;
-}
 
 form fieldset{
   border: 2px solid #A632D4;
   border-radius: 15px;
   padding: 25px;
+  
 }
 
 .titulos-form{

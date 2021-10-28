@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encontrar mascota</title>
+    <link rel="icon" href="../fotos/patitapro.png">
+    <style> @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap');</style>
+    <link rel="stylesheet" href="../css/estilosEncontreMascota.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap"
+      rel="stylesheet"
+    >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap"
+      rel="stylesheet"
+    >
+    <script
+      src="https://kit.fontawesome.com/d1f11e4bbc.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Material Icon CDN -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="../jscript/menu.js"></script>
+  </head>
+  
+  <body>
+    <header>
+      <!--h2>Patitas</h2-->
+      <!--div class="botones">
+        <a href="iniciarSesion.html" type="button" class="header-button">Iniciar sesion</a>
+        <a href="registro.html" type="button" class="header-button">Registrarse</a>
+      </div-->
+
+      <div class="logo">
+        <img src="../fotos/logoBlanco.png" alt="logo" width="5%">
+        <h2>Patitas</h2>
+      </div>
+
+      <div class="usuario">
+        <div class="usuario-icon">
+            <i class="fas fa-user-circle"></i>
+        </div>
+        <p>Juan Perez</p>
+      </div>
+
+      <div id="menu2" class="menu2" onclick="openSidebar()">
+        <button>
+            <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    </header>
+
+    <nav>
+      <div class="side-bar" id="side-bar">
+          <button class="cruz">
+              <i class="far fa-times-circle"></i>
+          </button>
+          <p>MENU</p>
+          <section class="conj-botones-menu">
+              <section>
+                  <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
+              </section>
+              <section>
+                  <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
+              </section>
+              <section>
+                  <a href="encontreUnaMascota.html" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
+              </section>
+              <section>
+                  <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
+              </section>
+              <section>
+                  <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
+              </section>
+          </section>
+      </div>
+  </nav>
+
+    <main>
+      <section>
+        <br/>
+        <h1>¿ENCONTRASTE A UNA MASCOTA?</h1>
+        <br/>
+        <br/>
+        <br/>
+        <section>
+            <div class="botonesEncontrar">            
+                <a type="submit" href="EscanearChapita.html" class="boton-encontrarMascota">Escanear codigo QR</a>
+
+                <a type="submit" href="FormularioSinChapita.html" class="boton-encontrarMascota">Completar formulario de rescate</a>
+            </div>
+            <div class="imagenPerritos">
+                <img src="../fotos/grupoPerritos.png" alt="fotoPerritos">
+            </div>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+        <section>
+          <div class="texto-contactanos">
+            <h3>CONTACTANOS!</h3>
+            <p>Ante cualquier duda no dude en consultarnos.</p>
+            <p>Estamos a su disposicion.</p>
+          </div>
+        </section>
+  
+        <section class="contacto-general">
+          <section class="contacto">
+            <div class="contacto-icon">
+              <i class="fas fa-envelope-square"></i>
+            </div>
+            <div class="contacto-info">
+              <p>MAIL</p>
+              <p>patitas@gmail.com</p>
+              <p></p>
+            </div>
+          </section>
+            <section class="contacto">
+                <div class="contacto-icon">
+                    <i class="fab fa-facebook-square"></i>
+                </div>
+                <div class="contacto-info">
+                    <p>FACEBOOK</p>
+                    <p>PatitasOk</p>
+                </div>
+            </section>
+          <section class="contacto">
+              <div class="contacto-icon">
+                <i class="fas fa-phone-square-alt"></i>
+              </div>
+              <div class="contacto-info">
+                <p>TELEFONO</p>
+                <p>11 2345-6789</p>
+              </div>
+            </section>
+        </section>
+      </footer>
+
+  </body>
+</html>

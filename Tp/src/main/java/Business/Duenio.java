@@ -14,8 +14,8 @@ public class Duenio extends Persona {
         super(nombre, apellido, telefono, fechaNacimiento, tipoDocumento, numeroDocumento, formaNotificacion);
         usuario = new Usuario(TipoDeUsuario.DUENIO, nombre, contrasenia, email);
     }*/
-    public Duenio(String nombre, String apellido, String telefono, String fechaNacimiento, String tipoDocumento, int numeroDocumento, List<notificarStrategy> formaNotificacion,List<Contacto> contactos, Usuario usuario) {
-        super(nombre, apellido, telefono, fechaNacimiento, tipoDocumento, numeroDocumento, formaNotificacion, contactos);
+    public Duenio(Long id, String nombre, String apellido, String telefono, String fechaNacimiento, String tipoDocumento, int numeroDocumento, List<notificarStrategy> formaNotificacion,List<Contacto> contactos, Usuario usuario) {
+        super(id, nombre, apellido, telefono, fechaNacimiento, tipoDocumento, numeroDocumento, formaNotificacion, contactos);
         this.usuario = usuario;
     }
 

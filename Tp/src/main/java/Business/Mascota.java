@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Mascota {
     
-    int id;
+    Long id;
     List<Foto> fotos = new ArrayList<>();
     Especie especie;
     String nombre;
@@ -21,7 +21,7 @@ public class Mascota {
     
 
     
-    public Mascota(int id, List<Foto> fotos, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, boolean tieneChapita, HashMap<String, String> caracteristicas, Duenio duenio, Tamanio tamanio) {
+    public Mascota(Long id, List<Foto> fotos, Especie especie, String nombre, String apodo, int edad, String sexo, String descripcion, boolean tieneChapita, HashMap<String, String> caracteristicas, Duenio duenio, Tamanio tamanio) {
         this.id = id;
         this.fotos = fotos;
         this.especie = especie;

@@ -5,6 +5,7 @@ import Notificar.notificarStrategy;
 import java.util.List;
 
 public class Persona {
+    long id;
     String nombre;
     String apellido;
     String telefono;
@@ -15,7 +16,8 @@ public class Persona {
     List<Contacto> contactos;
     Usuario usuario;
 
-    public Persona(String nombre, String apellido, String telefono, String fechaNacimiento, String tipoDocumento, int numeroDocumento, List<notificarStrategy> formaNotificacion,List<Contacto> contactos) {
+    public Persona(Long id, String nombre, String apellido, String telefono, String fechaNacimiento, String tipoDocumento, int numeroDocumento, List<notificarStrategy> formaNotificacion,List<Contacto> contactos) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;

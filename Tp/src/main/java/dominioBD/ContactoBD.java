@@ -1,5 +1,9 @@
 package dominioBD;
 
+import Business.Contacto;
+import Notificar.notificarStrategy;
+import utils.BDUtils;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -77,5 +81,11 @@ public class ContactoBD {
 
     public void setFormaNotifConts(List<FormaNotifCont> formaNotifConts) {
         this.formaNotifConts = formaNotifConts;
+    }
+
+    public Contacto transformar() {
+        List<notificarStrategy> listaNotif = BDUtils.dameListaNotifCont(cont_id);
+        Contacto contacto = new Contacto(cont_id, cont_nombre,cont_apellido,cont_telefono,listaNotif,cont_email);
+        return contacto;
     }
 }

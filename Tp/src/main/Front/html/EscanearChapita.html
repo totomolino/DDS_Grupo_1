@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registra tu mascota</title>
+    <title>Encontrar mascota</title>
     <link rel="icon" href="../fotos/patitapro.png">
     <style> @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap');</style>
-    <link rel="stylesheet" href="../css/estilosRegistraTuMascota.css">
+    <link rel="stylesheet" href="../css/escanearChapita.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -39,34 +39,32 @@
   
   <body>
     <header>
-      <h2>Patitas</h2>
-      <div class="botones">
+      <!--h2>Patitas</h2-->
+      <!--div class="botones">
         <a href="iniciarSesion.html" type="button" class="header-button">Iniciar sesion</a>
         <a href="registro.html" type="button" class="header-button">Registrarse</a>
+      </div-->
+
+      <div class="logo">
+        <img src="../fotos/logoBlanco.png" alt="logo" width="5%">
+        <h2>Patitas</h2>
       </div>
 
-      <!-- MENU 1
-            <div class="dropbtn" onclick="myFunction(this)">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
+      <div class="usuario">
+        <div class="usuario-icon">
+            <i class="fas fa-user-circle"></i>
         </div>
-      <div class="dropdown">
-        <div id="esta" class="dropbtn" onclick="myFunction(this)">
-          <div class="bar1" onclick="myFunction('esta')"></div>
-          <div class="bar2" onclick="myFunction('esta')"></div>
-          <div class="bar3" onclick="myFunction('esta')"></div>
-        </div>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div> -->
+        <p>Juan Perez</p>
+      </div>
+
+      <div id="menu2" class="menu2" onclick="openSidebar()">
+        <button>
+            <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </header>
 
-
-
+    </header>
 
     <nav>
       <div class="side-bar" id="side-bar">
@@ -76,19 +74,16 @@
           <p>MENU</p>
           <section class="conj-botones-menu">
               <section>
-                  <a href="actualizarDatosAdmin.html" type="button" class="boton-menu">ACTUALIZAR DATOS</a>
+                  <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
               </section>
               <section>
-                  <a href="AutorizacionesAdmin.html" type="button" class="boton-menu">AUTORIZACIONES</a>
+                  <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
               </section>
               <section>
-                  <a href="notificacionesAdmin.html" type="button" class="boton-menu">NOTIFICACIONES</a>
+                  <a href="encontreUnaMascota.html" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
               </section>
               <section>
-                  <a href="listadoPersonas.html" type="button" class="boton-menu">LISTADO DE PERSONAS</a>
-              </section>
-              <section>
-                  <a href="listadoDelegaciones.html" type="button" class="boton-menu-seleccionado">LISTADO DE DELEGACIONES</a>
+                  <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
               </section>
               <section>
                   <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
@@ -100,34 +95,24 @@
     <main>
       <section>
         <br/>
-        <h1 class = "alto-titulo">REGISTRA A TU MASCOTA</h1>
+        <h1>ESCANEA EL CODIGO QR DE LA CHAPITA</h1>
         <br/>
         <br/>
         <br/>
-        <form>
-          <section class="ingresar-nombre">
-            <fieldset>
-              <label>
-                  <div class = "ingresar-mascota">
-                    <input
-                    placeholder="Ingresa el nombre de tu mascota"
-                    type="text"
-                    name="nombre"
-                    required
-                  />                
-                  <a type="submit" href="registrarMascota.html" class="boton-iniciarSesion">Iniciar</a>
-                  </div>
-                  
-              </label>
-            </fieldset>
+        <section>
+            <div class="botonesEncontrar">            
+                <a type="submit" href="EscanearChapita.html" class="boton-encontrarMascota">Escanear codigo QR</a>
+
+            </div>
             <br/>
             <br/>
             <br/>
-            <section>
-                <img src="../fotos/undraw_Nature_fun_re_iney.png" alt="dibujo" width="500px">
+            <section >
+              <div class="foto">
+                <img src="../fotos/tres-gatitos-en-una-cesta-un-fondo-blanco-140770712.png" alt="dibujo" width="500px">
+              </div>
             </section>
-          </section>
-        </form>
+        </section>
       </section>
     </main>
 

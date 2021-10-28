@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 
 public class Usuario {
 
+    Long id;
     TipoDeUsuario tipoDeUsuario;
     String nombre;
     String contrasenia;
@@ -15,7 +16,8 @@ public class Usuario {
         Sistema.validarContrasenia(contrasenia, nombre);
     }
 
-    public Usuario(TipoDeUsuario tipoDeUsuario, String nombre, String contrasenia, String email){
+    public Usuario(long id, TipoDeUsuario tipoDeUsuario, String nombre, String contrasenia, String email){
+        this.id = id;
         this.tipoDeUsuario = tipoDeUsuario;
         this.nombre = nombre;
         this.contrasenia = contrasenia;

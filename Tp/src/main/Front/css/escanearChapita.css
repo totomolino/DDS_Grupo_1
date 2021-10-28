@@ -27,7 +27,6 @@ header{
   padding-left: 40vh;
 }
 
-  
 .usuario{
   display: flex;
   gap: 20px;
@@ -163,8 +162,15 @@ nav p{
 h1{
   font-family: 'Fira Sans', sans-serif;
   position: relative;
-  font-size: 70px;
+  font-size: 60px;
   text-align: center;
+}
+
+h3{
+    font-family: 'Fira Sans', sans-serif;
+    position: relative;
+    font-size: 50px;
+    text-align: center;
 }
 
 form{
@@ -183,6 +189,10 @@ form fieldset{
   margin-bottom: 15px;
 }
 
+.foto{
+  
+}
+
 form input{
   width: 400px;
   height: 45px;
@@ -195,8 +205,8 @@ form input{
   font-size: 16px;
 }
 
-.boton-iniciarSesion{
-    width: 70px;
+.boton-encontrarMascota{
+    width: 50vh;
     height: 45px;
     border: none;
     padding: 12px 10px 10px 10px;
@@ -214,16 +224,21 @@ form input{
     text-decoration: none;
 
   }
+
+.boton-encontrarMascota:hover{
+  background-color: rgb(206, 152, 240);
+}
+
+.botonesEncontrar{
+  display: flex;
+  justify-content: center;
+  gap: 5vh;
+}
   
-  .boton-iniciarSesion:hover{
-    background-color: rgb(206, 152, 240);
-  }
-
-
-  .ingresar-mascota{
+.ingresar-mascota{
       display: flex;
-      gap: 10px;
-  }
+  gap: 10px;
+}
 
 
 

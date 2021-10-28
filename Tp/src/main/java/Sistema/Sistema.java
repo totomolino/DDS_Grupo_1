@@ -62,7 +62,8 @@ public class Sistema {
     }
 
     public List<PublicacionDarEnAdopcion> publicacionesAptasParaAdoptar(Adoptante unAdoptante) {
-        List<PublicacionDarEnAdopcion> publicacionesDarAdopcion = publicaciones.stream().filter(unaPu -> unaPu.esDeAdopcion()).map(publicacion -> (PublicacionDarEnAdopcion) publicacion).collect(Collectors.toList());
+        List<PublicacionDarEnAdopcionBD> publicacionesDarAdopcionBD = BDUtils.damePublicacionesAdopcion();
+        List<PublicacionDarEnAdopcion> publicacionesDarAdopcion = publicacionesDarAdopcionBD.stream().map(publi -> publi.transformar());
         List<PublicacionDarEnAdopcion> publicacionesAptas = unAdoptante.meSirvenLasPublicaciones(publicacionesDarAdopcion);
         return publicacionesAptas;
     }
@@ -281,8 +282,29 @@ public class Sistema {
         Spark.post("/publicacion/adopcion/preguntas",  Sistema::agregarPreguntasPubli);
         Spark.post("/publicacion/adoptar",  Sistema::crearPublicacionAdoptar);
         Spark.post("/organizacion", Sistema::crearOrganizacion);
+        Spark.get("/publicacion/adopcion/:id", Sistema::devolverPublicaciones);
 
         //Spark.post("/publicacionPerdida", Sistema::crearPubPerdida);
+    }
+
+    private static String devolverPublicaciones(Request req, Response res) {
+
+        String personaID =  req.params(":id");
+
+        res.type("application/json");
+
+        MascotaBD mascota = BDUtils.buscarMascota(Integer.parseInt(mascotaID));
+
+        if(mascota == null){
+            res.status(400);
+            return new mensaje("No encontre la mascota").transformar();
+        }
+
+        res.status(200);
+        return (new devolverMascota(mascota)).transformar();
+
+
+
     }
 
     public static String crearUsuario(Request req, Response res) throws FileNotFoundException {
@@ -398,7 +420,6 @@ public class Sistema {
     }
 
     public static String devolverMascota(Request req, Response res){
-        //id mascotaID =  new Gson().fromJson(req.body(), id.class);
         String mascotaID =  req.params(":id");
 
         res.type("application/json");
