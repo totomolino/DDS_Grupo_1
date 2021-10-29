@@ -67,16 +67,14 @@ public class BDUtils {
     public static boolean verificarContrasenia(String emailOusuario, String contrasenia){
         EntityManager em = BDUtils.getEntityManager();
 
-        String consultaUsuario = "select usu_contrasena from UsuarioBD where usu_nombre = '" + emailOusuario +"'" ;
-        String consultaEmail = "select usu_contrasena from UsuarioBD where usu_email = '" + emailOusuario +"'";
+        String consulta = "select usu_contrasena from UsuarioBD where usu_nombre = '" + emailOusuario +"' or usu_email = '" + emailOusuario +"'";
 
-        Query query1 = em.createQuery(consultaEmail);
-        Query query2 = em.createQuery(consultaUsuario);
+        Query query1 = em.createQuery(consulta);
 
-        String contra1 = query1.getSingleResult();
-        String contra2 = query2.getSingleResult();
+        Object contra1 =  query1.getResultList().get(0);
 
-        return contra1.equals(contrasenia) || contra2.equals(contrasenia);
+
+        return contra1.equals(contrasenia) ;
     }
 
 
