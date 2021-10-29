@@ -2,9 +2,7 @@ package Sistema;
 
 import Business.*;
 import Business.publicaciones.Publicacion;
-import Business.publicaciones.PublicacionAdoptar;
 import Business.publicaciones.PublicacionDarEnAdopcion;
-import Business.publicaciones.PublicacionPerdida;
 import Notificar.notificarStrategy;
 import com.google.gson.Gson;
 
@@ -61,7 +59,7 @@ public class Sistema {
     public void crearAdmin() {
     }
 
-    public List<PublicacionDarEnAdopcion> publicacionesAptasParaAdoptar(Adoptante unAdoptante) {
+    public static List<PublicacionDarEnAdopcion> publicacionesAptasParaAdoptar(Adoptante unAdoptante) {
         List<PublicacionDarEnAdopcion> publicacionesDarAdopcion = BDUtils.damePublicacionesAdopcion();
         List<PublicacionDarEnAdopcion> publicacionesAptas = unAdoptante.meSirvenLasPublicaciones(publicacionesDarAdopcion);
         return publicacionesAptas;
@@ -266,7 +264,7 @@ public class Sistema {
         Spark.post("/user", Sistema::crearUsuario);
         Spark.post("/duenio", Sistema::crearDuenio);
         Spark.post("/voluntario", Sistema::crearVoluntario);
-        Spark.get("/user", Sistema::iniciarSesion);
+        Spark.post("/iniciarSesion", Sistema::iniciarSesion);
         Spark.post("/contacto", Sistema::agregarContacto);
         Spark.post("/notifCont", Sistema::agregarNotificacionCont);
         Spark.post("/notifPers", Sistema::agregarNotificacionPers);
@@ -281,28 +279,30 @@ public class Sistema {
         Spark.post("/publicacion/adopcion/preguntas",  Sistema::agregarPreguntasPubli);
         Spark.post("/publicacion/adoptar",  Sistema::crearPublicacionAdoptar);
         Spark.post("/organizacion", Sistema::crearOrganizacion);
-        Spark.get("/publicacion/adopcion/:id", Sistema::devolverPublicaciones);
+        Spark.get("/publicacion/adopcion/:id", Sistema::devolverPublicacionesDarAdopcion);
 
         //Spark.post("/publicacionPerdida", Sistema::crearPubPerdida);
     }
 
-    private static String devolverPublicaciones(Request req, Response res) {
+    private static String devolverPublicacionesDarAdopcion(Request req, Response res) {
 
         String personaID =  req.params(":id");
 
         res.type("application/json");
 
-        MascotaBD mascota = BDUtils.buscarMascota(Integer.parseInt(personaID));
+        //MascotaBD mascota = BDUtils.buscarMascota(Integer.parseInt(personaID));
 
-        if(mascota == null){
+        Adoptante adoptante = BDUtils.buscarAdoptante(Integer.parseInt(personaID));
+
+        List<PublicacionDarEnAdopcion> publicaciones = publicacionesAptasParaAdoptar(adoptante);
+
+        if(publicaciones.isEmpty() || publicaciones == null){
             res.status(400);
-            return new mensaje("No encontre la mascota").transformar();
+            return new mensaje("No hay publicaciones").transformar();
         }
 
         res.status(200);
-        return (new devolverMascota(mascota)).transformar();
-
-
+        return (new devolverObjeto(publicaciones,("Aca tenes las publicaciones para el adoptante "+personaID))).transformar(); //es posible que rompa por el hashmap
 
     }
 
@@ -336,7 +336,7 @@ public class Sistema {
         res.type("application/json");
 
         if(!BDUtils.verificarContrasenia(usuario.getUsuario_Email(),usuario.getContrasenia())){
-            res.status(404);
+            res.status(400);
             return (new mensaje("Contrasenia o usuario incorrecto!").transformar());
         }
 

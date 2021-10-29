@@ -1,155 +1,148 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+width: 100%;
 }
 
 /* HEADER */
 header{
-  background-color: #A632D4;
-  display: flex;
-  height: 85px;
-  color: white;
-  font-family: 'Balsamiq Sans', cursive;
+background-color: #A632D4;
+display: flex;
+height: 85px;
+/*width: 100vw;*/
+color: white;
+font-family: 'Balsamiq Sans', cursive;
+justify-content: space-around;
+align-items: center;
 }
 
 .logo{
-  display: flex;
-  align-items: center;
-  gap: 5vh;
-  padding-left: 40vh;
+display: flex;
+align-items: center;
+gap: 2vh;
+padding-left: 40vh;
 }
 
-.botones{
-  display: flex;
-  gap: 20px;
-  margin-right: 10vh;
-  padding: 0 20vh;
-  align-items: center;
+.usuario{
+display: flex;
+gap: 20px;
+padding-right: 25vh;
+align-items: center;
+width: 60vh;
 }
 
-.header-button{
-  border-radius: 7px;
-  font-size: 18px;
-  font-family: 'Roboto Condensed', sans-serif;
-  border: 2px solid white;
-  background-color: transparent;
-  color: white;
-  padding: 2px 2vh;
-  cursor: pointer;
-  transition: background-color 0.5s ease-in-out;
-  text-decoration: none;
-  width: 21vh;
-  text-align: center;;
+.usuario-icon{
+font-size: 30px;
 }
-  
-.header-button:hover{
-  background-color: #C281EA;
-}
-/* FIN HEADER */
 
-  /* MENU */
-  #menu2{
-  position: absolute;
-  left: 150px;
-  }
-  
-  #menu2 button{
-  border: none;
-  background-color: transparent;
-  color: white;
-  cursor: pointer;
-  transition: color 0.5s ease-in-out;
-  }
-  
-  /*cuando pasamos el cursor por arriba cambia el color*/
-  #menu2 button:hover{
-  color: #b3e5fc;
-  }
-  
-  #menu2 i{
-  font-size: 20px;
-  }
-  
-  .side-bar{
-  position: absolute; /*no ocupa espacio*/
-  background-color: rgb(69, 17, 90);
-  width: 280px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  transform: translateX(-100%);
-  transition: transform 0.5s ease-in-out;
-  z-index: 2
-  }
-  
-  .side-bar.open{
-  transform: translateX(0);
-  }
-  
-  nav p{
+/* FIN HEADER*/
+
+/* MENU */
+#menu2{
+position: absolute;
+left: 150px;
+}
+
+#menu2 button{
+border: none;
+background-color: transparent;
+color: white;
+cursor: pointer;
+transition: color 0.5s ease-in-out;
+}
+
+/*cuando pasamos el cursor por arriba cambia el color*/
+#menu2 button:hover{
+color: #b3e5fc;
+}
+
+#menu2 i{
+font-size: 20px;
+}
+
+.side-bar{
+position: absolute; /*no ocupa espacio*/
+background-color: rgb(69, 17, 90);
+width: 280px;
+top: 0;
+bottom: 0;
+left: 0;
+transform: translateX(-100%);
+transition: transform 0.5s ease-in-out;
+z-index: 2
+}
+
+.side-bar.open{
+transform: translateX(0);
+}
+
+nav p{
+font-family: 'Fira Sans', sans-serif;
+color: white;
+font-size: 25px;
+margin-top: 23px;
+margin-left: 50px;
+}
+
+.conj-botones-menu{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-content: space-between;
+padding: 100px 50px;
+gap: 8vh;
+}
+
+.boton-menu{
+font-family: 'Fira Sans', sans-serif;
+color: white;
+font-size: 20px;
+cursor: pointer;
+transition: color 0.5s ease-in-out;
+text-decoration: none;
+}
+
+
+
+.boton-menu:hover{
+color: rgb(183, 116, 189);
+}
+
+.boton-menu-seleccionado{
   font-family: 'Fira Sans', sans-serif;
-  color: white;
-  font-size: 25px;
-  margin-top: 23px;
-  margin-left: 50px;
-  }
-  
-  .conj-botones-menu{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: space-between;
-  padding: 100px 50px;
-  gap: 8vh;
-  }
-  
-  .boton-menu{
-  font-family: 'Fira Sans', sans-serif;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 20px;
   cursor: pointer;
   transition: color 0.5s ease-in-out;
   text-decoration: none;
-  }
-  
+  text-decoration: underline;
+}
 
+.cruz{
+position: absolute;
+background-color: transparent;
+border: none;
+right: 20px;
+top: 20px;
+cursor: pointer;
+color: white;
+transition: color 0.5s ease-in-out;
+}
 
-  .boton-menu:hover{
-  color: rgb(183, 116, 189);
-  }
-  
-  .boton-menu-seleccionado{
-    font-family: 'Fira Sans', sans-serif;
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    cursor: pointer;
-    transition: color 0.5s ease-in-out;
-    text-decoration: none;
-    text-decoration: underline;
-  }
-  
-  .cruz{
-  position: absolute;
-  background-color: transparent;
-  border: none;
-  right: 20px;
-  top: 20px;
-  cursor: pointer;
-  color: white;
-  transition: color 0.5s ease-in-out;
-  }
-  
-  .cruz:hover{
-  color: black;
-  }
-  
-  .cruz i{
-  font-size: 30px;
-  
-  }
-  
-  /* FIN MENU */
+.cruz:hover{
+color: black;
+}
+
+.cruz i{
+font-size: 30px;
+
+}
+
+/* FIN MENU */
 
 /* FORMULARIOS */
 
@@ -179,12 +172,6 @@ form > section{
   width: 300px;
 }
 
-form fieldset{
-  border: 2px solid #A632D4;
-  border-radius: 15px;
-  padding: 25px;
-}
-
 .titulos-form{
   font-family: 'Fira Sans', sans-serif;
   margin-bottom: 15px;
@@ -201,6 +188,19 @@ form input{
   font-size: 16px;
 }
 
+form fieldset{
+  border: 2px solid #A632D4;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.caracteristica{
+  border: 2px solid #A632D4;
+  border-radius: 15px;
+  padding: 25px;
+
+}
+
 textarea{
   width: 300px;
   height: 75px;
@@ -213,27 +213,6 @@ textarea{
   font-family: 'Fira Sans', sans-serif;
 }
 
-#dni select{
-  display: inline-block;
-  width: 30%;
-  border: none;
-  background-color: #f5f5f5;
-  color: #757575;
-  border-radius: 15px;
-  padding: 10px 12px;
-}
-
-#dni{
-  display: flex;
-  gap: 5px;
-}
-
-#dni input{
-  display: inline-block;
-  width: 70%;
-}
-
-
 .descripcion{
   width: 300px;
   height: 45px;
@@ -245,9 +224,8 @@ textarea{
   font-size: 16px;
 }
 
-.formulario-foto{
-  margin-top: 35px;
-}
+
+
 
 .boton-registrarse{
   margin-top: 35px;
@@ -269,10 +247,6 @@ textarea{
 }
 
 
-.formaNotif{
-  font-size: 16px;
-  font-family: 'Fira Sans', sans-serif;
-}
 
 .container{
   display: block;
@@ -333,6 +307,21 @@ textarea{
   transform: rotate(45deg);
 }
 
+
+
+
+#caracteristicas{
+  display: flex;
+  gap: 2vh;
+}
+
+#caracteristicas select{
+  width: 40%;
+}
+
+#caracteristicas input{
+  width: 60%;
+}
 /* FIN FORMULARIOS */
 
 /* FOOTER */
@@ -351,6 +340,7 @@ textarea{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2vh;
 }
 
 .contacto-icon{
@@ -368,4 +358,4 @@ footer{
   flex-direction: column;
   gap: 20px;
 }
-/* FIN FOOTER*/
+/*FIN FOOTER*/

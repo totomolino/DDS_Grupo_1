@@ -35,6 +35,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
     <script type="text/javascript" src="../jscript/menu.js"></script>
+     
   </head>
   
   <body>
@@ -44,7 +45,8 @@
         <a href="iniciarSesion.html" type="button" class="header-button">Iniciar sesion</a>
         <a href="registro.html" type="button" class="header-button">Registrarse</a>
       </div-->
-
+      <input type = "text" id="qr-data" onchange = "generateQR()"> 
+      <div id="qrcode"></div> 
       <div class="logo">
         <img src="../fotos/logoBlanco.png" alt="logo" width="5%">
         <h2>Patitas</h2>
@@ -154,4 +156,18 @@
       </footer>
 
   </body>
+  <script type="text/javascript" src="../jscript/qrcode.min.js"></script>
+  <script>
+      var qrdata = document.getElementById('qr-data');
+      var qrcode = new QRCode(document.getElementById('qrcode'));
+
+      function generateQR(){
+        var data = qrdata.value; 
+        qrcode.makeCode("ACA VA EL LINK DEL QR!!!!");
+      }
+
+  </script>
+
+  
+
 </html>

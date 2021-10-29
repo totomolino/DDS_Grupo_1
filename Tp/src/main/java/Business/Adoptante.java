@@ -14,9 +14,11 @@ public class Adoptante extends Persona{
     boolean cumple = true;
     boolean cumpleC = true;
 
-    public Adoptante(long id, String nombre, String apellido, String telefono, String fechaNacimiento, String tipoDocumento, int numeroDocumento, List<notificarStrategy> formaNotificacion, List<Contacto> contactos, Usuario usuario) {
+    public Adoptante(long id, String nombre, String apellido, String telefono, String fechaNacimiento, String tipoDocumento, int numeroDocumento, List<notificarStrategy> formaNotificacion, List<Contacto> contactos, Usuario usuario, HashMap<String, String> comodidades, HashMap<String, String> preferencias) {
         super(id, nombre, apellido, telefono, fechaNacimiento, tipoDocumento, numeroDocumento, formaNotificacion, contactos);
         this.usuario = usuario;
+        this.comodidades = comodidades;
+        this.preferencias = preferencias;
     }
 
     public void quieroAdoptar(PublicacionDarEnAdopcion unaPubl) {

@@ -1,18 +1,15 @@
 package utils;
 
+import Business.Adoptante;
 import Business.Contacto;
 import Business.Foto;
-import Business.publicaciones.Publicacion;
 import Business.publicaciones.PublicacionDarEnAdopcion;
 import Notificar.notificarStrategy;
 import dominioBD.*;
-import mappers.caracteristicasMasc;
+import mappers.hashmapMapper;
 
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -70,10 +67,16 @@ public class BDUtils {
     public static boolean verificarContrasenia(String emailOusuario, String contrasenia){
         EntityManager em = BDUtils.getEntityManager();
 
-        String consultaUsuario = "select usu_contrasena from UsuarioBD where usu_nombre = '" + emailOusuario + "' and usu_contrasena = '" + contrasenia + "'";
-        String consultaEmail = "select usu_contrasena from UsuarioBD where usu_email = '" + emailOusuario + "' and usu_contrasena = '" + contrasenia + "'";
+        String consultaUsuario = "select usu_contrasena from UsuarioBD where usu_nombre = '" + emailOusuario +"'" ;
+        String consultaEmail = "select usu_contrasena from UsuarioBD where usu_email = '" + emailOusuario +"'";
 
-        return !(em.createQuery(consultaEmail).getResultList().isEmpty() && em.createQuery(consultaUsuario).getResultList().isEmpty());
+        Query query1 = em.createQuery(consultaEmail);
+        Query query2 = em.createQuery(consultaUsuario);
+
+        String contra1 = query1.getSingleResult();
+        String contra2 = query2.getSingleResult();
+
+        return contra1.equals(contrasenia) || contra2.equals(contrasenia);
     }
 
 
@@ -146,7 +149,7 @@ public class BDUtils {
     public static HashMap<String,String> dameHashCaracteristicasMasc(Long id) {
         EntityManager em = BDUtils.getEntityManager();
 
-        List<caracteristicasMasc> unaLista = em.createQuery("select CaracteristicaMascota.carmas_clave as pregunta , CarMasXMas.carMasMas_valor as respuesta " +
+        List<hashmapMapper> unaLista = em.createQuery("select CaracteristicaMascota.carmas_clave as 'pregunta' , CarMasXMas.carMasMas_valor as 'respuesta' " +
                 "                                               from CarMasXMas " +
                 "                                               join CaracteristicaMascota " +
                 "                                               on CaracteristicaMascota.carmas_id = CarMasXMas.carMasMas_carmas.carmas_id " +
@@ -168,6 +171,56 @@ public class BDUtils {
         HashMap<String, String> res = new HashMap<String,String>();
         preguntas.stream().map(p -> res.put(p.getPregunta(), p.getRespuesta())).collect(Collectors.toList());
         return res;
+
+    }
+
+    public static Adoptante buscarAdoptante(int personaID) {
+
+        EntityManager em = BDUtils.getEntityManager();
+
+        AdoptanteBD adoptanteBD = em.find(AdoptanteBD.class,personaID);
+
+        return adoptanteBD.transformar();
+
+
+
+    }
+
+    public static HashMap<String, String> dameComodidadesAdoptante(Long id) {
+
+        EntityManager em = BDUtils.getEntityManager();
+
+        List<hashmapMapper> unaLista = em.createQuery("select ComodidadesBD.como_clave as 'pregunta' , ComodidadesXadoptante.comoXado_id as 'respuesta' " +
+                "                                               from ComodidadesXadoptante " +
+                "                                               join ComodidadesBD " +
+                "                                               on ComodidadesXadoptante.comoXad_como.como_id = ComodidadesBD.como_id  " +
+                "                                               where ComodidadesXadoptante.comoXad_adoptante.pers_id = '"+id+"'").getResultList();
+
+        HashMap<String, String> res = new HashMap<String,String>();
+
+        unaLista.stream().map(p -> res.put(p.getPregunta(), p.getRespuesta())).collect(Collectors.toList());
+
+        return res;
+
+
+    }
+
+    public static HashMap<String, String> damePreferenciasAdoptante(Long id) {
+
+        EntityManager em = BDUtils.getEntityManager();
+
+        List<hashmapMapper> unaLista = em.createQuery("select PreferenciaBD.pref_clave as 'pregunta' , PreferenciaXAdoptante.prefXado_id as 'respuesta' " +
+                "                                               from PreferenciaXAdoptante " +
+                "                                               join PreferenciaBD " +
+                "                                               on PreferenciaXAdoptante.prefXado_pref.pref_id = PreferenciaBD.pref_id  " +
+                "                                               where PreferenciaXAdoptante.prefXado_adoptante.pers_id = '"+id+"'").getResultList();
+
+        HashMap<String, String> res = new HashMap<String,String>();
+
+        unaLista.stream().map(p -> res.put(p.getPregunta(), p.getRespuesta())).collect(Collectors.toList());
+
+        return res;
+
 
     }
 }

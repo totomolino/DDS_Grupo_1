@@ -1,6 +1,6 @@
 package mappers;
 
-public class caracteristicasMasc {
+public class hashmapMapper {
 
     String pregunta;
     String respuesta;

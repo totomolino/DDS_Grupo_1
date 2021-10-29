@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delegaciones</title>
+    <title>INICIO SESION</title>
     <style> @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap');</style>
     <link rel="stylesheet" href="../css/estilosIniciarSesion.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,15 +35,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
     <script type="text/javascript" src="../jscript/menu.js"></script>
+    <script type="text/javascript" src="../jscript/iniciarSesion.js"></script>
   </head>
   
   <body>
     <header>
-      <img src="../fotos/patitas.jpg" alt="logo" class="logo">
-      <h2>Patitas</h2>
+      <div class="logo">
+        <img src="../fotos/logoBlanco.png" alt="logo" width="10%">
+        <h2>Patitas</h2>
+      </div>
       <div class="botones">
         <a href="iniciarSesion.html" type="button" class="header-button">Iniciar sesion</a>
-        <a href="registro.html" type="button" class="header-button">Registrarse</a>
+        <a href="registrarPersona.html" type="button" class="header-button">Registrarse</a>
       </div>
     </header>
     
@@ -60,15 +63,16 @@
                     <section class="inicio-sesion">
                         <fieldset>
                             <label>
-                                <input placeholder="Ingrese nombre de usuario:" type="text" name="usuario" required>
+                                <input placeholder="Ingrese nombre de usuario" type="text" name="usuario" id="usuario" required>
                             </label>
                             <br> <br>
                             <label>
-                                <input placeholder="Ingrese contraseña:" type="password" name="contraseña" required>
+                                <input placeholder="Ingrese contraseña" type="password" name="contrasenia" id="contrasenia" required>
                             </label>
                             <br> <br>
                             <section>
-                                <a href="notificaciones.html" class="boton-iniciarSesion">Iniciar Sesion</a>
+                              <button type= "button" class="boton-iniciarSesion" onclick="iniciarSesion(document.getElementById('usuario').value,document.getElementById('contrasenia').value)">Iniciar Sesion</button>
+                              <a id="anchorID" href="adoptar.html" target = "_self"></a>
                             </section>
                             <section>
                                 <br>

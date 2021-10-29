@@ -39,11 +39,13 @@
   
   <body>
     <header>
-      <img src="../fotos/patitas.jpg" alt="logo" class="logo">
-      <h2>Patitas</h2>
+      <div class="logo">
+        <img src="../fotos/logoBlanco.png" alt="logo" width="10%">
+        <h2>Patitas</h2>
+      </div>
       <div class="botones">
         <a href="iniciarSesion.html" type="button" class="header-button">Iniciar sesion</a>
-        <a href="registro.html" type="button" class="header-button">Registrarse</a>
+        <a href="registrarPersona.html" type="button" class="header-button">Registrarse</a>
       </div>
     </header>
 
@@ -115,31 +117,36 @@
               </label>
               <br />
               <br />
-              <p> Seleccione una forma de notificacion:
+              <div class="formaNotif">
+                <p> Seleccione las formas de notificacion:</p>
                   <br>
-                  <label>SMS
+                  <label class="container">SMS
                     <input
                         type = "checkbox"
                         name = "sms"
                         value = "SMS"
                     />
+                    <span class="checkmark"></span>
                   </label>
-                  <label>E-Mail
+                  <br>
+                  <label class="container">E-Mail
                     <input
                     type = "checkbox"
                     name = "email"
                     value = "email"
                     />
+                    <span class="checkmark"></span>
                   </label>
-                  <label> Whatsapp
+                  <br>
+                  <label class="container"> Whatsapp
                     <input
                     type = "checkbox"
                     name = "whatsapp"
                     value = "Whatsapp"
                     />
+                    <span class="checkmark"></span>
                   </label>
-              </p>
-
+            </div>
             </fieldset>
 
             <section>
@@ -220,30 +227,36 @@
               </label>
               <br />
               <br />
-              <p> Seleccione una forma de notificacion:
+              <div class="formaNotif">
+                <p> Seleccione las formas de notificacion:</p>
                   <br>
-                  <label>SMS
+                  <label class="container">SMS
                     <input
                         type = "checkbox"
                         name = "sms"
                         value = "SMS"
                     />
+                    <span class="checkmark"></span>
                   </label>
-                  <label>E-Mail
+                  <br>
+                  <label class="container">E-Mail
                     <input
                     type = "checkbox"
                     name = "email"
                     value = "email"
                     />
+                    <span class="checkmark"></span>
                   </label>
-                  <label> Whatsapp
+                  <br>
+                  <label class="container"> Whatsapp
                     <input
                     type = "checkbox"
                     name = "whatsapp"
                     value = "Whatsapp"
                     />
+                    <span class="checkmark"></span>
                   </label>
-              </p>
+            </div>
               
             </fieldset>
             <button class="boton-registrarse" type="submit">Registrarse</button>
@@ -272,6 +285,15 @@
             <p></p>
           </div>
         </section>
+          <section class="contacto">
+              <div class="contacto-icon">
+                  <i class="fab fa-facebook-square"></i>
+              </div>
+              <div class="contacto-info">
+                  <p>FACEBOOK</p>
+                  <p>PatitasOk</p>
+              </div>
+          </section>
         <section class="contacto">
             <div class="contacto-icon">
               <i class="fas fa-phone-square-alt"></i>
