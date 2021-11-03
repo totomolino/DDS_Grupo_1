@@ -16,6 +16,7 @@ import spark.Request;
 import spark.Response;
 import spark.Spark;
 import utils.BDUtils;
+import utils.SesionManager;
 
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -340,8 +341,16 @@ public class Sistema {
             return (new mensaje("Contrasenia o usuario incorrecto!").transformar());
         }
 
+
+//        Dueño dueño = repoDueños.obtenerJose(); //hardcode: siempre loguea a Jose
+//        System.out.println("Login: " + loginRequest);
+//        System.out.println("Login: " + dueño);
+//
+        SesionManager sesionManager = SesionManager.get();
+        String idSesion = sesionManager.crear("usuario", usuario );
+
         res.status(200);
-        return (new mensaje("Validado Correctamente!").transformar());
+        return idSesion;
     }
 
     public static String crearDuenio(Request req, Response res){
