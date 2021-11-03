@@ -3,6 +3,7 @@ package utils;
 import Business.Adoptante;
 import Business.Contacto;
 import Business.Foto;
+import Business.Mascota;
 import Business.publicaciones.PublicacionDarEnAdopcion;
 import Notificar.notificarStrategy;
 import dominioBD.*;
@@ -147,15 +148,11 @@ public class BDUtils {
     public static HashMap<String,String> dameHashCaracteristicasMasc(Long id) {
         EntityManager em = BDUtils.getEntityManager();
 
-        List<hashmapMapper> unaLista = em.createQuery("select CaracteristicaMascota.carmas_clave as 'pregunta' , CarMasXMas.carMasMas_valor as 'respuesta' " +
-                "                                               from CarMasXMas " +
-                "                                               join CaracteristicaMascota " +
-                "                                               on CaracteristicaMascota.carmas_id = CarMasXMas.carMasMas_carmas.carmas_id " +
-                "                                               where CarMasXMas.carMasMas_mascota.masc_id = '"+id+"'").getResultList();
+        MascotaBD mascota = em.find(MascotaBD.class, id);
 
         HashMap<String, String> res = new HashMap<String,String>();
 
-        unaLista.stream().map(p -> res.put(p.getPregunta(), p.getRespuesta())).collect(Collectors.toList());
+        mascota.getCarMasXMas().stream().map(carMasXMas -> res.put(carMasXMas.getCarMasMas_carmas().getClave(), carMasXMas.getCarMasMas_valor())).collect(Collectors.toList());
 
         return res;
     }
@@ -172,7 +169,7 @@ public class BDUtils {
 
     }
 
-    public static Adoptante buscarAdoptante(int personaID) {
+    public static Adoptante buscarAdoptante(Long personaID) {
 
         EntityManager em = BDUtils.getEntityManager();
 
@@ -186,17 +183,14 @@ public class BDUtils {
 
     public static HashMap<String, String> dameComodidadesAdoptante(Long id) {
 
+
         EntityManager em = BDUtils.getEntityManager();
 
-        List<hashmapMapper> unaLista = em.createQuery("select ComodidadesBD.como_clave as 'pregunta' , ComodidadesXadoptante.comoXado_id as 'respuesta' " +
-                "                                               from ComodidadesXadoptante " +
-                "                                               join ComodidadesBD " +
-                "                                               on ComodidadesXadoptante.comoXad_como.como_id = ComodidadesBD.como_id  " +
-                "                                               where ComodidadesXadoptante.comoXad_adoptante.pers_id = '"+id+"'").getResultList();
+        AdoptanteBD adoptanteBD = em.find(AdoptanteBD.class,id);
 
         HashMap<String, String> res = new HashMap<String,String>();
 
-        unaLista.stream().map(p -> res.put(p.getPregunta(), p.getRespuesta())).collect(Collectors.toList());
+        adoptanteBD.getComodidades().stream().map(comodidadesXadoptante -> res.put(comodidadesXadoptante.getComoXad_como().getComo_clave(), comodidadesXadoptante.getComXado_valor())).collect(Collectors.toList());
 
         return res;
 
@@ -207,18 +201,13 @@ public class BDUtils {
 
         EntityManager em = BDUtils.getEntityManager();
 
-        List<hashmapMapper> unaLista = em.createQuery("select PreferenciaBD.pref_clave as 'pregunta' , PreferenciaXAdoptante.prefXado_id as 'respuesta' " +
-                "                                               from PreferenciaXAdoptante " +
-                "                                               join PreferenciaBD " +
-                "                                               on PreferenciaXAdoptante.prefXado_pref.pref_id = PreferenciaBD.pref_id  " +
-                "                                               where PreferenciaXAdoptante.prefXado_adoptante.pers_id = '"+id+"'").getResultList();
+        AdoptanteBD adoptanteBD = em.find(AdoptanteBD.class,id);
 
         HashMap<String, String> res = new HashMap<String,String>();
 
-        unaLista.stream().map(p -> res.put(p.getPregunta(), p.getRespuesta())).collect(Collectors.toList());
+        adoptanteBD.getPreferencias().stream().map(preferenciaXAdoptante -> res.put(preferenciaXAdoptante.getPrefXado_pref().getPref_clave(), preferenciaXAdoptante.getPrefXado_valor())).collect(Collectors.toList());
 
         return res;
-
 
     }
 }

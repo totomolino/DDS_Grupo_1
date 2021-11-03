@@ -292,7 +292,7 @@ public class Sistema {
 
         //MascotaBD mascota = BDUtils.buscarMascota(Integer.parseInt(personaID));
 
-        Adoptante adoptante = BDUtils.buscarAdoptante(Integer.parseInt(personaID));
+        Adoptante adoptante = BDUtils.buscarAdoptante(Long.parseLong(personaID));
 
         List<PublicacionDarEnAdopcion> publicaciones = publicacionesAptasParaAdoptar(adoptante);
 
