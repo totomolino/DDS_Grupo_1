@@ -1,4 +1,4 @@
-
+var status 
 
 
 
@@ -24,4 +24,57 @@ function agarrarStatus(status){
     else{
         alert("Usuario o contrasenia incorrecto");
     }
+}
+
+
+
+    var app = new Vue({
+        el: "#appVue",
+        data: {
+            username: "",
+            password: ""
+        },
+        methods: {
+            login: function () {
+
+                var status;
+                
+                var req = {
+                    "usuario_Email": this.username,
+                    "contrasenia":this.password
+                }
+                if(req.usuario_Email == "" || req.password == ""){
+                    alert("Debes ingresar los campos")
+                    return;
+                }
+                fetch("http://localhost:4567/patitas/iniciarSesion", {
+
+                method: "POST",
+                body: JSON.stringify(req)
+            })
+            .then(Response =>{
+                status = Response.status;
+                return Response.json()
+            })
+            .then(datos => {
+                localStorage.setItem("IDSESION", datos.idSesion)
+                agarrarStatus(status)                
+            })
+            
+            }
+        },
+        created() {
+            fetch('http://localhost:8080/mascotas')
+                .then(response => response.json())
+                .then(data => {
+                    this.mascotas = data
+                })
+        }
+    })
+
+    
+function curtite(){
+    
+    alert("Bueno curtite gat@");
+    
 }

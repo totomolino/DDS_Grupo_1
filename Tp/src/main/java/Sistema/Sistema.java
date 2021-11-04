@@ -281,8 +281,27 @@ public class Sistema {
         Spark.post("/publicacion/adoptar",  Sistema::crearPublicacionAdoptar);
         Spark.post("/organizacion", Sistema::crearOrganizacion);
         Spark.get("/publicacion/adopcion/:id", Sistema::devolverPublicacionesDarAdopcion);
+        Spark.get("/misDatos", Sistema::DatosUsuario);
 
         //Spark.post("/publicacionPerdida", Sistema::crearPubPerdida);
+    }
+
+    private static String DatosUsuario(Request req, Response res) {
+
+        String idSesion =  req.headers("Authorization");
+
+        Map<String, Object> atributosSesion = SesionManager.get().obtenerAtributos(idSesion);
+        Usuario usuario = (Usuario) atributosSesion.get("usuario");
+
+        if(usuario == null){
+            res.status(400);
+            return new mensaje("No se valido el usuario").transformar();
+        }
+
+        res.status(200);
+
+        return new Gson().toJson(usuario);
+
     }
 
     private static String devolverPublicacionesDarAdopcion(Request req, Response res) {
@@ -341,16 +360,14 @@ public class Sistema {
             return (new mensaje("Contrasenia o usuario incorrecto!").transformar());
         }
 
+        Usuario usuarioFinal = BDUtils.dameUsuario(usuario.getUsuario_Email(),usuario.getContrasenia());
 
-//        Dueño dueño = repoDueños.obtenerJose(); //hardcode: siempre loguea a Jose
-//        System.out.println("Login: " + loginRequest);
-//        System.out.println("Login: " + dueño);
-//
         SesionManager sesionManager = SesionManager.get();
-        String idSesion = sesionManager.crear("usuario", usuario );
+        String idSesion = sesionManager.crear("usuario", usuarioFinal);
 
         res.status(200);
-        return idSesion;
+
+        return new loginResponse(idSesion).transformar();
     }
 
     public static String crearDuenio(Request req, Response res){

@@ -73,22 +73,28 @@
           </button>
           <p>MENU</p>
           <section class="conj-botones-menu">
-              <section>
-                  <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
-              </section>
-              <section>
-                  <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
-              </section>
-              <section>
-                  <a href="encontreUnaMascota.html" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
-              </section>
-              <section>
-                  <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
-              </section>
-              <section>
-                  <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
-              </section>
-          </section>
+            <section>
+              <a href="index.html" type="button" class="boton-menu">INICIO</a>
+            </section>
+            <section>
+                <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
+            </section>
+            <section>
+                <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
+            </section>
+            <section>
+                <a href="encontreUnaMascota.html" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
+            </section>
+            <section>
+                <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
+            </section>
+            <section>
+                <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
+            </section>
+            <section>
+              <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
+            </section>
+        </section>
       </div>
   </nav>
 
@@ -96,41 +102,104 @@
       <section>
         <br/>
         <h1>ESCANEA EL CODIGO QR DE LA CHAPITA</h1>
-        <br/>
-        <br/>
-        <br/>
+      
+      
 
-        
-
-
+      
         <section>
-            <div class="botonesEncontrar">            
 
-                <section class="codigoQr">
+          <div class="portada">
+                
+          </div>
+          <br>
+          <form
+            action="https://formspree.io/f/xwkawqpa"
+            method="post"
+            target="_blank"
+          >
+            <section class="datos-personales">
+              <fieldset>
+                <h3 class="titulos-form">Sobre la mascota perdida</h3>
+
+                <br>
+                <label>
+                    
+                  
+                  <input
+                    placeholder="Ingrese la ubicacion del encuentro"
+                    type="text"
+                    name="apodo"
+                  />
+                </label>  
+                </div>
+                <br>
+                <br>
+        
+                <div>
+                  <textarea name="descripcion mascota" rows="10" cols="40">Inserte la descripcion fisica de la mascota aqui ... </textarea>
+                </div>
+  
+                <br>
+              
+                <div>
+                  <textarea name="descripcion mascota encuantr" rows="10" cols="40">Inserte la descripcion del encuentro de la mascota aqui ... </textarea>
+                </div>
+              </fieldset>
+              <button class="boton-registrarse" type="submit">Notificar</button>
+            </section>
+
+
+      
+      </div>
+      
+
+            <div class="botonesEncontrar">   
+              
+
+                <section class="qrcode">
+
+                  <fieldset class="formulario-foto">
+                    <h3 class="titulos-form">Foto</h3>
+                    <input type="file" accept="image/png,image/jpg, image/jpeg" multiple>
+                  </fieldset>
+                </br>
+
+
+                <fieldset>
                   <div  >
-                     <p> ACA VA LO DEL CODIGOO QR QUE NOSE COMO SE HACEEE
-                     </p>
+                    <input type = "text" id="qr-data" onchange = "generateQR()"> 
+                    <!--div id=></div--> 
                    
                   </div>
                    
-               
-                 </section>
+                  
+                 
                 <section class="boton+foto">
                   <br>
                  <a type="submit" href="EscanearChapita.html" class="boton-encontrarMascota">Escanear codigo QR</a>
                  <br>
-                 <br>
-                 <br>
-                  <section >
-                  <div class="foto">
-                    <img src="../fotos/tres-gatitos-en-una-cesta-un-fondo-blanco-140770712.png" alt="dibujo" width="300px">
-                  </div>
-                  </section>
+                 
+                </fieldset>
+
+                  
                 </section>
-            </div>
-            <br/>
-            <br/>
-            <br/>
+
+              
+
+              </section>
+
+            </br>
+            
+              <section >
+
+                
+
+
+                <div class="foto">
+                  <img src="../fotos/tres-gatitos-en-una-cesta-un-fondo-blanco-140770712.png" alt="dibujo" width="300px">
+                </div>
+                </section>
+            
             
         </section>
       </section>
@@ -178,4 +247,16 @@
       </footer>
 
   </body>
+
+  <script type="text/javascript" src="../jscript/qrcode.min.js"></script>
+  <script>
+      var qrdata = document.getElementById('qr-data');
+      var qrcode = new QRCode(document.getElementById('qrcode'));
+
+      function generateQR(){
+        var data = qrdata.value; 
+        qrcode.makeCode("ACA VA EL LINK DEL QR!!!!");
+      }
+
+  </script>
 </html>

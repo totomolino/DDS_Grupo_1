@@ -165,18 +165,30 @@ h1{
   font-size: 60px;
   text-align: center;
 }
-
-
+/*
+.portada{
+  z-index: 1;
+  background-image: url("../fotos/portada3.jpeg");
+  background-blend-mode: darken;
+  height: 75vh;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+*/
 
 form{
   display: flex;
-  justify-content: center;  
+  justify-content: center;
+  gap: 10vh;
 }
 
 
 form fieldset{
-  border: none;
+  border: 2px solid #A632D4;
   border-radius: 15px;
+  padding: 25px;
+  
 }
 
 .titulos-form{
@@ -184,17 +196,42 @@ form fieldset{
   margin-bottom: 15px;
 }
 
-
 form input{
-  width: 400px;
+  width: 300px;
   height: 45px;
   border: none;
   background-color: #f5f5f5;
   color: #757575;
-  padding: 10px 50px 10px 20px;
   border-radius: 15px;
-  text-align: left;
+  padding: 10px 12px;
   font-size: 16px;
+}
+
+textarea{
+  width: 300px;
+  height: 75px;
+  border: none;
+  background-color: #f5f5f5;
+  color: #757575;
+  border-radius: 15px;
+  padding: 10px 12px;
+  font-size: 16px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.descripcion{
+  width: 300px;
+  height: 45px;
+  border: none;
+  background-color: #f5f5f5;
+  color: #757575;
+  border-radius: 15px;
+  padding: 10px 12px;
+  font-size: 16px;
+}
+
+.formulario-foto{
+  margin-top: 35px;
 }
 
 .boton-encontrarMascota{
@@ -251,6 +288,27 @@ form input{
 
 }
 
+.boton-registrarse{
+  margin-top: 35px;
+  border-radius: 7px;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Roboto Condensed', sans-serif;
+  border: none;
+  background-color: #C281EA;
+  color: white;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: color 0.5s ease-in-out;
+  transition: border 0.5s ease-in-out;
+}
+
+.boton-registrarse:hover{
+  color: rgb(220, 165, 236);
+}
+
+
+
 /* FIN FORMULARIOS */
 
 /* FOOTER */
@@ -275,19 +333,14 @@ form input{
   font-size: 40px;
 }
 
-
-
 footer{
-    background-color: #A632D4;
-    color: white;
-    display: flex;
-    justify-content: center;
-    padding: 15px;
-    margin-top: 50px;
-    font-family: 'Roboto Condensed', sans-serif;
-    flex-direction: column;
-    position: absolute;
-    gap: 20px;
-    bottom: 0;
-    width: 100%;
-  }
+  background-color: #A632D4;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  margin-top: 50px;
+  font-family: 'Roboto Condensed', sans-serif;
+  flex-direction: column;
+  gap: 20px;
+}

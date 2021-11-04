@@ -267,6 +267,7 @@ select option{
 
 .formulario-foto{
   margin-top: 35px;
+  height: 24vh;
 }
 
 .boton-registrarse{
@@ -287,6 +288,12 @@ select option{
 .boton-registrarse:hover{
   color: rgb(220, 165, 236);
 }
+/*
+.fotoPerrito{
+  position: absolute;
+  width: 55vh;
+  margin-right: 500vh;
+}*/
 
 #caracteristicas{
   display: flex;

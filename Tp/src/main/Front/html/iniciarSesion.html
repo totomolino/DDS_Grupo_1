@@ -34,8 +34,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="../jscript/menu.js"></script>
-    <script type="text/javascript" src="../jscript/iniciarSesion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+      
+
   </head>
   
   <body>
@@ -62,22 +63,24 @@
                 <form>
                     <section class="inicio-sesion">
                         <fieldset>
+                          <div id="appVue">
                             <label>
-                                <input placeholder="Ingrese nombre de usuario" type="text" name="usuario" id="usuario" required>
+                                <input placeholder="Ingrese nombre de usuario" v-model="username" type="text" name="usuario" id="usuario" value="" required>                                
                             </label>
                             <br> <br>
                             <label>
-                                <input placeholder="Ingrese contraseña" type="password" name="contrasenia" id="contrasenia" required>
+                                <input placeholder="Ingrese contraseña"  v-model="password" type="password" name="contrasenia" id="contrasenia" value="" required>
                             </label>
                             <br> <br>
                             <section>
-                              <button type= "button" class="boton-iniciarSesion" onclick="iniciarSesion(document.getElementById('usuario').value,document.getElementById('contrasenia').value)">Iniciar Sesion</button>
+                              <button type= "button" class="boton-iniciarSesion" v-on:click="login">Iniciar Sesion</button>
                               <a id="anchorID" href="adoptar.html" target = "_self"></a>
                             </section>
                             <section>
                                 <br>
-                                <button class="boton-olv-contraseña">¿Olvidaste tu contraseña?</button>
+                                <button class="boton-olv-contraseña" onclick="curtite()">¿Olvidaste tu contraseña?</button>
                             </section>
+                          </div>
                         </fieldset>
                         
                     </section>
@@ -131,5 +134,7 @@
             </section>
         </section>
       </footer>
+<script type="text/javascript" src="../jscript/menu.js"></script>
+<script type="text/javascript" src="../jscript/iniciarSesion.js"></script>
 </body>
 </html>

@@ -45,8 +45,7 @@
         <a href="iniciarSesion.html" type="button" class="header-button">Iniciar sesion</a>
         <a href="registro.html" type="button" class="header-button">Registrarse</a>
       </div-->
-      <input type = "text" id="qr-data" onchange = "generateQR()"> 
-      <div id="qrcode"></div> 
+      
       <div class="logo">
         <img src="../fotos/logoBlanco.png" alt="logo" width="5%">
         <h2>Patitas</h2>
@@ -75,22 +74,28 @@
           </button>
           <p>MENU</p>
           <section class="conj-botones-menu">
-              <section>
-                  <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
-              </section>
-              <section>
-                  <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
-              </section>
-              <section>
-                  <a href="encontreUnaMascota.html" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
-              </section>
-              <section>
-                  <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
-              </section>
-              <section>
-                  <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
-              </section>
-          </section>
+            <section>
+              <a href="index.html" type="button" class="boton-menu">INICIO</a>
+            </section>
+            <section>
+                <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
+            </section>
+            <section>
+                <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
+            </section>
+            <section>
+                <a href="encontreUnaMascota.html" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
+            </section>
+            <section>
+                <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
+            </section>
+            <section>
+                <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
+            </section>
+            <section>
+              <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
+            </section>
+        </section>
       </div>
   </nav>
 
@@ -156,17 +161,7 @@
       </footer>
 
   </body>
-  <script type="text/javascript" src="../jscript/qrcode.min.js"></script>
-  <script>
-      var qrdata = document.getElementById('qr-data');
-      var qrcode = new QRCode(document.getElementById('qrcode'));
-
-      function generateQR(){
-        var data = qrdata.value; 
-        qrcode.makeCode("ACA VA EL LINK DEL QR!!!!");
-      }
-
-  </script>
+  
 
   
 

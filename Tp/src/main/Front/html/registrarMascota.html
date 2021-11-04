@@ -66,6 +66,9 @@
             <p>MENU</p>
             <section class="conj-botones-menu">
                 <section>
+                  <a href="index.html" type="button" class="boton-menu">INICIO</a>
+                </section>
+                <section>
                     <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
                 </section>
                 <section>
@@ -79,6 +82,9 @@
                 </section>
                 <section>
                     <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
+                </section>
+                <section>
+                  <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
                 </section>
             </section>
         </div>
@@ -139,13 +145,13 @@
               <br>
               <br>
               <div>
-                <textarea name="descripcion mascota" rows="10" cols="40"> </textarea>
+                <textarea rows="10" cols="40" placeholder="Ingrese la descripcion de su mascota"></textarea>
               </div>
             </fieldset>
 
             <fieldset class="formulario-foto">
               <h3 class="titulos-form">Foto</h3>
-              <img src="../fotos/añadirFoto.jpeg" alt="añadirFoto" width="300px"></fieldset>
+              <input type="file" accept="image/png,image/jpg, image/jpeg" multiple>
           </section>
 
           <section class="usuario-foto">
@@ -219,6 +225,7 @@
             </fieldset>
             
             <button class="boton-registrarse" type="submit">Registrar</button>
+            <!-- <img src="../fotos/encontrarMascota.jpeg" class="fotoPerrito" alt="perrito"> -->
           </section>
         </form>
       </section>

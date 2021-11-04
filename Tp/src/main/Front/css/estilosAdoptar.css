@@ -190,7 +190,7 @@ background-color: rgba(0, 0, 0, 0.479);
 }
 
 .card{
-	background: rgb(225, 193, 235);
+	background: rgb(60, 122, 192);
 	margin-bottom: 2em;
 	width: 32%;
   border-radius: 5%;
@@ -248,6 +248,22 @@ ul{
 .card:hover{
   box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
   background-color: rgb(193, 149, 204);
+}
+
+.texto{
+  display: flex;
+  gap: 2vh;
+  padding-bottom: 3vh;
+}
+
+.texto p{
+  font-family: 'Abel', sans-serif;
+  color: white;
+}
+  
+.icon{
+  font-size: 2.5vh;
+  color: white;
 }
 
 span {

@@ -1,9 +1,6 @@
 package utils;
 
-import Business.Adoptante;
-import Business.Contacto;
-import Business.Foto;
-import Business.Mascota;
+import Business.*;
 import Business.publicaciones.PublicacionDarEnAdopcion;
 import Notificar.notificarStrategy;
 import dominioBD.*;
@@ -72,7 +69,7 @@ public class BDUtils {
 
         Query query1 = em.createQuery(consulta);
 
-        Object contra1 =  query1.getResultList().get(0);
+        Object contra1 = (String) query1.getResultList().get(0);
 
 
         return contra1.equals(contrasenia) ;
@@ -209,5 +206,15 @@ public class BDUtils {
 
         return res;
 
+    }
+
+    public static Usuario dameUsuario(String usuario_email, String contrasenia) {
+
+        EntityManager em = BDUtils.getEntityManager();
+
+        UsuarioBD usuarioBD = (UsuarioBD) em.createQuery("from UsuarioBD where usu_nombre = '" + usuario_email +"' or usu_email = '" + usuario_email +"' and usu_contrasena = '" + contrasenia + "'").getResultList().get(0);
+
+
+        return usuarioBD.transformar();
     }
 }

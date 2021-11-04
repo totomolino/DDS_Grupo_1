@@ -18,7 +18,8 @@
       src="https://kit.fontawesome.com/d1f11e4bbc.js"
       crossorigin="anonymous"
     ></script>
-    <script type="text/javascript" src="../jscript/menu.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 
 <body>
@@ -32,7 +33,10 @@
           <div class="usuario-icon">
               <i class="fas fa-user-circle"></i>
           </div>
-          <p>Juan Perez</p>
+          <div id= appVue>          
+          <p>{{nombre}}</p>          
+
+        </div>
         </div>
         <div id="menu2" class="menu2" onclick="openSidebar()">
           <button>
@@ -49,6 +53,9 @@
             <p>MENU</p>
             <section class="conj-botones-menu">
                 <section>
+                  <a href="index.html" type="button" class="boton-menu">INICIO</a>
+                </section>
+                <section>
                     <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
                 </section>
                 <section>
@@ -64,9 +71,8 @@
                     <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
                 </section>
                 <section>
-                    <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
+                  <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
                 </section>
-
             </section>
         </div>
     </nav>
@@ -95,8 +101,22 @@
 
                         <div class="card-body">
                             <ul>
-                                <li>Sexo</li>
-                                <li>Edad</li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </a>
@@ -115,8 +135,22 @@
 
                         <div class="card-body">
                             <ul>
-                                <li>Sexo</li>
-                                <li>Edad</li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
 
@@ -135,8 +169,22 @@
 
                         <div class="card-body">
                             <ul>
-                                <li>Sexo</li>
-                                <li>Edad</li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
 
@@ -155,8 +203,22 @@
 
                         <div class="card-body">
                             <ul>
-                                <li>Sexo</li>
-                                <li>Edad</li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
 
@@ -175,8 +237,22 @@
 
                         <div class="card-body">
                             <ul>
-                                <li>Sexo</li>
-                                <li>Edad</li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
 
@@ -195,8 +271,22 @@
 
                         <div class="card-body">
                             <ul>
-                                <li>Sexo</li>
-                                <li>Edad</li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
 
@@ -214,8 +304,22 @@
 
                         <div class="card-body">
                             <ul>
-                                <li>Sexo</li>
-                                <li>Edad</li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
 
@@ -234,10 +338,24 @@
                         
                           <div class="card-body">
                             <ul>
-                                <li>Sexo</li>
-                                <li>Edad</li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
                             </ul>
-                          </div>
+                        </div>
 
                       </a>
 
@@ -254,8 +372,22 @@
                       
                         <div class="card-body">
                             <ul>
-                                <li>Sexo</li>
-                                <li>Edad</li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
 
@@ -314,6 +446,7 @@
 
         </section>
       </footer>
-    
+      <script type="text/javascript" src="../jscript/menu.js"></script>
+      <script type="text/javascript" src="../jscript/adoptar.js"></script>
 </body>
 </html>
