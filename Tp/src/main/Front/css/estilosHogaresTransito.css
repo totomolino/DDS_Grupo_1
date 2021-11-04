@@ -169,7 +169,7 @@ background-color: rgba(0, 0, 0, 0.479);
 .portada section{
   position: relative; /*Para que el texto este adelante del fondo negro transparente*/
   color: white;
-  padding: 50vh 1vh 0 150vh;
+  padding: 30vh 1vh 0 25vh;
 }
 
 .portada h2{

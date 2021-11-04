@@ -217,4 +217,14 @@ public class BDUtils {
 
         return usuarioBD.transformar();
     }
+
+    public static DuenioBD dameDuenio(Long id) {
+
+        EntityManager em = BDUtils.getEntityManager();
+
+        DuenioBD duenio = (DuenioBD) em.createQuery("from DuenioBD where pers_usuario.usu_id = '"+id+"'").getResultList().get(0);
+
+        return duenio;
+
+    }
 }

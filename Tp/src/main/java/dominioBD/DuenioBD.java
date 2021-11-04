@@ -46,11 +46,11 @@ public class DuenioBD extends PersonaBD {
         return duenio;
     }
 
- /*   public List<MascotaBD> getMascotas() {
+    public List<MascotaBD> getMascotas() {
         return mascotas;
     }
 
     public void setMascotas(List<MascotaBD> mascotas) {
         this.mascotas = mascotas;
-    }*/
+    }
 }

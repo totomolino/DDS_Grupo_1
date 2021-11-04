@@ -282,16 +282,40 @@ public class Sistema {
         Spark.post("/organizacion", Sistema::crearOrganizacion);
         Spark.get("/publicacion/adopcion/:id", Sistema::devolverPublicacionesDarAdopcion);
         Spark.get("/misDatos", Sistema::DatosUsuario);
+        Spark.get("duenio/mascotas", Sistema::devolverMascotas);
 
         //Spark.post("/publicacionPerdida", Sistema::crearPubPerdida);
+    }
+
+    private static String devolverMascotas(Request req, Response res) {
+
+        String idSesion =  req.headers("Authorization");
+
+        Usuario usuario = SesionManager.get().dameUsuario(idSesion);
+
+        if(usuario == null){
+            res.status(400);
+            return new mensaje("No se valido el usuario").transformar();
+        }
+
+        DuenioBD duenio = BDUtils.dameDuenio(usuario.getId());
+
+        List<mascotaSimple> mascotas = duenio.getMascotas().stream().map(mascotaBD -> new mascotaSimple(mascotaBD.transformar())).collect(Collectors.toList());
+
+        if(mascotas.isEmpty()){
+            res.status(400);
+            return new mensaje("No hay mascotas para ese duenio").transformar();
+        }
+
+        res.status(200);
+        return new Gson().toJson(mascotas);
     }
 
     private static String DatosUsuario(Request req, Response res) {
 
         String idSesion =  req.headers("Authorization");
 
-        Map<String, Object> atributosSesion = SesionManager.get().obtenerAtributos(idSesion);
-        Usuario usuario = (Usuario) atributosSesion.get("usuario");
+        Usuario usuario = SesionManager.get().dameUsuario(idSesion);
 
         if(usuario == null){
             res.status(400);

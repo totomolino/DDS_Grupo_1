@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>llenarFormularioEncontrado</title>
+    <title>registrarMascota</title>
     <link rel="icon" href="../fotos/patitapro.png">
     <style> @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap');</style>
-    <link rel="stylesheet" href="../css/estilosSinChapita.css">
+    <link rel="stylesheet" href="../css/estilosRegistrarMascota.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -65,35 +65,35 @@
             </button>
             <p>MENU</p>
             <section class="conj-botones-menu">
-              <section>
-                <a href="index.html" type="button" class="boton-menu">INICIO</a>
-              </section>
-              <section>
-                  <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
-              </section>
-              <section>
-                  <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
-              </section>
-              <section>
-                  <a href="encontreUnaMascota.html" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
-              </section>
-              <section>
-                  <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
-              </section>
-              <section>
-                  <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
-              </section>
-              <section>
-                <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
-              </section>
-          </section>
+                <section>
+                  <a href="index.html" type="button" class="boton-menu">INICIO</a>
+                </section>
+                <section>
+                    <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
+                </section>
+                <section>
+                    <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
+                </section>
+                <section>
+                    <a href="encontreUnaMascota.html" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
+                </section>
+                <section>
+                    <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
+                </section>
+                <section>
+                    <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
+                </section>
+                <section>
+                  <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
+                </section>
+            </section>
         </div>
     </nav>
 
     <main>
       <section>
         <div class="portada">
-          <h1>LLENAR FORMULARIO DE MASCOTA PERDIDA</h1>
+          <h1>FORMULARIO PARA DAR EN ADOPCION</h1>
         </div>
         <br>
         <form
@@ -103,8 +103,26 @@
         >
           <section class="datos-personales">
             <fieldset>
-              <h3 class="titulos-form">Sobre la mascota perdida</h3>
-
+              <h3 class="titulos-form">Sobre tu mascota</h3>
+              <label>
+                <input
+                  placeholder="Ingrese nombre completo"
+                  type="text"
+                  name="nombre"
+                  required
+                />
+              </label>
+              <br>
+              <br>
+              <label>
+                <input
+                  placeholder="Ingrese el apodo"
+                  type="text"
+                  name="apodo"
+                />
+              </label>
+              <br>
+              <br>
               <div id="selectores">
                 <select name="selector">
                   <option value="Macho"> Macho</option>
@@ -117,10 +135,8 @@
               </div>
               <br>
               <label>
-                  
-                
                 <input
-                  placeholder="Ingrese la ubicacion del encuentro"
+                  placeholder="Ingrese la edad"
                   type="text"
                   name="apodo"
                 />
@@ -129,53 +145,13 @@
               <br>
               <br>
               <div>
-                <textarea name="descripcion mascota" rows="10" cols="40">Inserte la descripcion fisica de la mascota aqui ... </textarea>
+                <textarea rows="10" cols="40" placeholder="Ingrese la descripcion de su mascota"></textarea>
               </div>
-
-              <br>
-            
-              <div>
-                <textarea name="descripcion mascota encuantr" rows="10" cols="40">Inserte la descripcion del encuentro de la mascota aqui ... </textarea>
-              </div>
-            </fieldset>
-
-            <fieldset class="formulario-foto">
-              <h3 class="titulos-form">Foto</h3>
-              <input type="file" accept="image/png,image/jpg, image/jpeg" multiple>
             </fieldset>
           </section>
 
-          <section class="usuario-foto">
-            <fieldset>
-              <h3 class="titulos-form">Caracteristicas</h3>
-              <div id="caracteristicas">
-                <select name="selector">
-                  <option value="Color ojos">Color ojos</option>
-                  <option value="Color pelo">Color pelo</option>
-                </select>
-                <input
-                  placeholder="Especifique"
-                  type="text"
-                  name="caracteristicas"
-                />
-              </div>
-            
-              
-            </fieldset>
-            
-            <button class="boton-registrarse" type="submit">Publicar</button>
-            <br>
-          </br>
-        </br>
-
-         
-
-          </section>
-        
         </form>
-        
       </section>
-      
     </main>
 
     <footer>

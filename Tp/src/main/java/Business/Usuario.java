@@ -24,6 +24,9 @@ public class Usuario {
         this.email = email;
     }
 
+    public Long getId() {
+        return id;
+    }
 
     public String getNombre() {
         return nombre;

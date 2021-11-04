@@ -1,5 +1,7 @@
 package utils;
 
+import Business.Usuario;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -54,6 +56,11 @@ public class SesionManager {
     public Map<String, Object> eliminar(String id) {
         //esto no elimina la cookie del frontend
         return this.sesiones.remove(id);
+    }
+
+    public Usuario dameUsuario(String idSesion){
+        Map<String, Object> atributosSesion = SesionManager.get().obtenerAtributos(idSesion);
+        return (Usuario) atributosSesion.get("usuario");
     }
 
 }

@@ -15,8 +15,15 @@ var app = new Vue({
             }) //~(°-°~) ~(°-°)~ (~°-°)~
                 .then(response => response.json())
                 .then(objeto => {
+                    
                     this.nombre = objeto.nombre})
         }  
 })
 
 
+function agarrarStatus(status){
+    if(status == 400){    
+        alert("Debes iniciar sesion");
+        document.getElementById("volver").click();
+    }
+}
