@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/estilosDarEnAdopcion.css">
+    <title>Dar en adopcion</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap"
+      rel="stylesheet"
+    >
+    <!-- .ICO -->
+    <link rel="icon" href="../fotos/huella.ico">
+    <!-- PAG ICONOS -->
+    <script
+      src="https://kit.fontawesome.com/d1f11e4bbc.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../fotos/logoBlanco.png" alt="logo" width="5%">
+            <h2>Patitas</h2>
+        </div>
+
+        <div class="usuario">
+          <div class="usuario-icon">
+              <i class="fas fa-user-circle"></i>
+          </div>
+          <div id= appVue>          
+          <p>{{nombre}}</p>          
+
+        </div>
+        </div>
+        <div id="menu2" class="menu2" onclick="openSidebar()">
+          <button>
+              <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </header>
+  
+      <nav>
+        <div class="side-bar" id="side-bar">
+            <button class="cruz">
+                <i class="far fa-times-circle"></i>
+            </button>
+            <p>MENU</p>
+            <section class="conj-botones-menu">
+                <section>
+                  <a href="index.html" type="button" class="boton-menu">INICIO</a>
+                </section>
+                <section>
+                    <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
+                </section>
+                <section>
+                    <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
+                </section>
+                <section>
+                    <a href="encontreUnaMascota.html" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
+                </section>
+                <section>
+                    <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
+                </section>
+                <section>
+                    <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
+                </section>
+                <section>
+                  <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
+                </section>
+            </section>
+        </div>
+    </nav>
+
+    <main>
+        <section class="portada">
+            <section>
+                <div>
+                    <h2>Dar en adopcion</h2>
+                    <p>Seleccione la mascota que desea dar en adopcion: </p>
+                </div>
+            </section>
+        </section>
+
+        <div class="centered">
+
+            <section class="cards">
+
+                <article class="card">
+
+                    <a href="adoptarPerfil.html"> <!-- tarjeta 1 -->
+                        <span class="card-header" style="background-image: url(../fotos/categoriaPerros/perro1.jpg);">
+                            <span class="card-title">
+                                <h3>Nombre</h3>
+                            </span>
+                        </span>
+
+                        <div class="card-body">
+                            <ul>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </a>
+
+                </article>
+                
+
+                <article class="card">
+
+                    <a href="adoptarPerfil.html"> <!-- tarjeta 2 -->
+                        <span class="card-header" style="background-image: url(../fotos/categoriaPerros/perro2.jpg);">
+                            <span class="card-title">
+                                <h3>Nombre</h3>
+                            </span>
+                        </span>
+
+                        <div class="card-body">
+                            <ul>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </a>
+
+                </article>
+
+                <article class="card">
+
+                    <a href="adoptarPerfil.html"> <!-- tarjeta 3 -->
+                        <span class="card-header" style="background-image: url(../fotos/categoriaPerros/perro3.jpg);">
+                            <span class="card-title">
+                                <h3>Nombre</h3>
+                            </span>
+                        </span>
+
+                        <div class="card-body">
+                            <ul>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </a>
+
+                </article>
+
+                <article class="card">
+
+                    <a href="adoptarPerfil.html"> <!-- tarjeta 4 -->
+                        <span class="card-header" style="background-image: url(../fotos/categoriaPerros/perro4.jpg);">
+                            <span class="card-title">
+                                <h3>Nombre</h3>
+                            </span>
+                        </span>
+
+                        <div class="card-body">
+                            <ul>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </a>
+
+                </article>
+
+                <article class="card">
+
+                    <a href="adoptarPerfil.html"> <!-- tarjeta 5 -->
+                        <span class="card-header" style="background-image: url(../fotos/categoriaPerros/perro5.jpg);">
+                            <span class="card-title">
+                                <h3>Nombre</h3>
+                            </span>
+                        </span>
+
+                        <div class="card-body">
+                            <ul>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </a>
+
+                </article>
+              
+                <article class="card">
+
+                    <a href="adoptarPerfil.html"> <!-- tarjeta 6 -->
+                        <span class="card-header" style="background-image: url(../fotos/categoriaPerros/perro6.jpg);">
+                            <span class="card-title">
+                                <h3>Nombre</h3>
+                            </span>
+                        </span>
+
+                        <div class="card-body">
+                            <ul>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </a>
+
+                </article>
+                <article class="card">
+
+                    <a href="adoptarPerfil.html"> <!-- tarjeta 7 -->
+                        <span class="card-header" style="background-image: url(../fotos/categoriaPerros/perro7.jpg);">
+                            <span class="card-title">
+                                <h3>Nombre</h3>
+                            </span>
+                        </span>
+
+                        <div class="card-body">
+                            <ul>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </a>
+
+                  </article>
+
+                  <article class="card">
+
+                      <a href="adoptarPerfil.html"> <!-- tarjeta 8 -->
+                          <span class="card-header" style="background-image: url(../fotos/categoriaPerros/perro8.jpg);">
+                              <span class="card-title">
+                                  <h3>Nombre</h3>
+                              </span>
+                          </span>
+                        
+                          <div class="card-body">
+                            <ul>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                      </a>
+
+                  </article>
+
+                  <article class="card">
+
+                    <a href="adoptarPerfil.html"> <!-- tarjeta 8 -->
+                        <span class="card-header" style="background-image: url(../fotos/categoriaPerros/perro9.jpg);">
+                            <span class="card-title">
+                                <h3>Nombre</h3>
+                            </span>
+                        </span>
+                      
+                        <div class="card-body">
+                            <ul>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>Hembra</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">
+                                        <div class="icon">
+                                            <i class="fas fa-paw"></i>
+                                        </div>
+                                        <p>1 año</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </a>
+
+                </article>
+        
+            </section>
+        
+        </div>
+
+    </main>
+
+    <footer>
+        <section>
+            <div class="texto-contactanos">
+                <h3>CONTACTANOS!</h3>
+                <p>Ante cualquier duda no dude en consultarnos.</p>
+                <p>Estamos a su disposicion.</p>
+            </div>
+        </section>
+  
+        <section class="contacto-general">
+            <section class="contacto">
+                <div class="contacto-icon">
+                    <i class="fas fa-envelope-square"></i>
+                </div>
+
+                <div class="contacto-info">
+                    <p>MAIL</p>
+                    <p>patitas@gmail.com</p>
+                </div>
+            </section>
+
+            <section class="contacto">
+                <div class="contacto-icon">
+                    <i class="fab fa-facebook-square"></i>
+                </div>
+
+                <div class="contacto-info">
+                    <p>FACEBOOK</p>
+                    <p>PatitasOK</p>
+                </div>
+            </section>
+
+            <section class="contacto">
+                <div class="contacto-icon">
+                    <i class="fas fa-phone-square-alt"></i>
+                </div>
+
+                <div class="contacto-info">
+                    <p>TELEFONO</p>
+                    <p>11 2345-6789</p>
+                </div>
+            </section>
+
+        </section>
+      </footer>
+      <script type="text/javascript" src="../jscript/menu.js"></script>
+      <script type="text/javascript" src="../jscript/user.js"></script>
+      <script type="text/javascript" src="../jscript/darEnAdop.js"></script>
+</body>
+</html>

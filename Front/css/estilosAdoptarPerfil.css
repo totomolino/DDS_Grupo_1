@@ -1,0 +1,315 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+html{
+    width: 100%;
+}
+  
+/* HEADER */
+header{
+    background-color: #A632D4;
+    display: flex;
+    height: 85px;
+    color: white;
+    font-family: 'Balsamiq Sans', cursive;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 5vh;
+    padding-left: 40vh;
+  }
+  
+  
+.usuario{
+    display: flex;
+    gap: 20px;
+    padding-right: 25vh;
+    align-items: center;
+    
+}
+
+
+    
+.usuario-icon{
+    font-size: 30px;
+}
+    
+.header-button{
+    border-radius: 7px;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Roboto Condensed', sans-serif;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    padding: 2px 9px;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+    text-decoration: none;
+}
+    
+.header-button:hover{
+    background-color: rgb(11, 172, 172);
+}
+/* FIN HEADER*/
+    
+/* MENU */
+#menu2{
+    position: absolute;
+    left: 150px;
+}
+    
+#menu2 button{
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: color 0.5s ease-in-out;
+}
+    
+/*cuando pasamos el cursor por arriba cambia el color*/
+#menu2 button:hover{
+    color: #b3e5fc;
+}
+    
+#menu2 i{
+    font-size: 20px;
+}
+    
+.side-bar{
+    position: absolute; /*no ocupa espacio*/
+    background-color: rgb(69, 17, 90);
+    width: 280px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+    z-index: 2; /*Para que aparezca arriba de la portada, (cuanto mas adelante debe estar as grande es el num)*/
+}
+    
+.side-bar.open{
+    transform: translateX(0);
+}
+    
+nav p{
+    font-family: 'Fira Sans', sans-serif;
+    color: white;
+    font-size: 25px;
+    margin-top: 23px;
+    margin-left: 50px;
+}
+    
+.conj-botones-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+    padding: 100px 50px;
+    gap: 8vh;
+}
+    
+.boton-menu{
+    font-family: 'Fira Sans', sans-serif;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.5s ease-in-out;
+    text-decoration: none;
+
+}
+    
+  
+  
+.boton-menu:hover{
+    color: rgb(183, 116, 189);
+}
+    
+.boton-menu-seleccionado{
+    font-family: 'Fira Sans', sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.5s ease-in-out;
+    text-decoration: none;
+    text-decoration: underline;
+}
+    
+.cruz{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    color: white;
+    transition: color 0.5s ease-in-out;
+}
+    
+.cruz:hover{
+    color: black;
+}
+    
+.cruz i{
+    font-size: 30px;
+}
+/* FIN MENU */
+  
+/* MAIN */
+.portada{
+    z-index: 1;
+    background-image: url("../fotos/portadaPerfil.jpg");
+    background-blend-mode: darken;
+    height: 75vh;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+}
+
+/* PARA OSCURECER LA IMAGEN DEL FONDO */
+.portada::before{
+    content:''; /* existe contenido */
+	position: absolute; /* para poder estirarlo */ 
+    top: 0; /* lo estiramos a todos los extremos de la portada */
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.479);
+}
+
+.portada section{
+    position: relative; /*Para que el texto este adelante del fondo negro transparente*/
+    color: white;
+    padding: 35vh 10vh 0 120vh;
+}
+
+.portada h2{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 8vh;
+    margin-bottom: 3vh;
+}
+
+.portada p{
+    font-family: 'Abel', sans-serif;
+    font-size: 2.7vh;
+    text-align: end;
+    padding: 0 3vh 0 15vh;
+}
+
+.principal{
+    display: flex;
+    flex-direction: column;
+    padding: 13vh 20vh 5vh 20vh;
+}
+  
+.descripcionYFoto{
+    display: flex;
+    gap: 15vh;
+}
+  
+.descripcion{
+    width: 100%;
+}
+  
+.descripcion > h2{
+    font-size: 4vh;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: black;
+    margin-bottom: 5vh;
+}
+  
+.descripcion > p, .descripcion > b{
+    margin-top: 5vh;
+    font-family: 'Abel', sans-serif;
+    font-size: 3vh;
+}
+
+p{
+    margin-top: 2vh;
+    font-family: 'Abel', sans-serif;
+    font-size: 3vh;
+}
+  
+.imgDescripcion{
+    margin-top: 9vh;
+}
+
+table{
+    font-family: 'Abel', sans-serif;
+    font-size: 3vh;
+}
+
+td{
+  padding: 1vh 6vh;  
+}
+
+th{
+    text-align: left ;
+}
+
+h3{
+    font-family: 'Abel', sans-serif
+}
+
+.botonAdoptar{
+    border-radius: 7px;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Roboto Condensed', sans-serif;
+    border: 2px solid white;
+    background-color: #C281EA;
+    color: white;
+    padding: 2px 9px;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+    text-decoration: none;
+}
+    
+.botonAdoptar:hover{
+    background-color:rgb(206, 152, 240);
+}
+/* FIN MAIN */
+
+
+/* FOOTER */
+.contacto-general{
+    display: flex;
+    padding: 0px 350px;
+    justify-content: space-between;
+}
+  
+.contacto{
+    display: flex;
+    gap: 10px;
+}
+  
+.texto-contactanos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2vh;
+}
+
+.contacto-icon{
+    font-size: 40px;
+}
+  
+  footer{
+    background-color: #A632D4;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    margin-top: 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+    flex-direction: column;
+    gap: 20px;
+  }
+/*FIN FOOTER*/

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrar</title>
+    <link rel="icon" href="../fotos/patitapro.png">
+    <style> @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap');</style>
+    <link rel="stylesheet" href="../css/estilosRegistroPersona.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap"
+      rel="stylesheet"
+    >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap"
+      rel="stylesheet"
+    >
+    <script
+      src="https://kit.fontawesome.com/d1f11e4bbc.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Material Icon CDN -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="../jscript/menu.js"></script>
+  </head>
+  
+  <body>
+    <header>
+      <div class="logo">
+        <img src="../fotos/logoBlanco.png" alt="logo" width="10%">
+        <h2>Patitas</h2>
+      </div>
+      <div class="botones">
+        <a href="iniciarSesion.html" type="button" class="header-button">Iniciar sesion</a>
+        <a href="registrarPersona.html" type="button" class="header-button">Registrarse</a>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="titulo">
+          <h1>REGISTRO</h1>
+          <div class="icon-titulo">
+            <i class="fas fa-paw"></i>
+          </div>
+        </div>
+        
+        <br />
+        <form
+          action="https://formspree.io/f/xwkawqpa"
+          method="post"
+          target="_blank"
+        >
+          <section class="datos-personales">
+            <fieldset>
+              <h3 class="titulos-form">Datos personales</h3>
+              <label>
+                <input
+                  placeholder="Ingrese nombre completo"
+                  type="text"
+                  name="nombre"
+                  required
+                />
+              </label>
+              <br />
+              <br />
+              <label>
+                <input
+                  placeholder="Ingrese fecha de nacimiento:"
+                  type="text"
+                  name="fechaDeNacimiento"
+                  required
+                />
+              </label>
+              <br />
+              <br />
+              <div id="dni">
+                <select name="selector">
+                  <option value="DNI">DNI</option>
+                  <option value="Pasaporte">Pasaporte</option>
+                </select>
+                <input
+                  placeholder="Ingrese el número"
+                  type="text"
+                  name="numero"
+                />
+              </div>
+              <br>
+              <label>
+                <input
+                  placeholder="Ingrese su número de telefono"
+                  type="text"
+                  name="numero de telefono"
+                />
+              </label>
+              <br />
+              <br />
+              <label>
+                <input
+                  placeholder="Ingrese su email"
+                  type="text"
+                  name="email"
+                />
+              </label>
+              <br />
+              <br />
+              <div class="formaNotif">
+                <p> Seleccione las formas de notificacion:</p>
+                  <br>
+                  <label class="container">SMS
+                    <input
+                        type = "checkbox"
+                        name = "sms"
+                        value = "SMS"
+                    />
+                    <span class="checkmark"></span>
+                  </label>
+                  <br>
+                  <label class="container">E-Mail
+                    <input
+                    type = "checkbox"
+                    name = "email"
+                    value = "email"
+                    />
+                    <span class="checkmark"></span>
+                  </label>
+                  <br>
+                  <label class="container"> Whatsapp
+                    <input
+                    type = "checkbox"
+                    name = "whatsapp"
+                    value = "Whatsapp"
+                    />
+                    <span class="checkmark"></span>
+                  </label>
+            </div>
+            </fieldset>
+
+            <section>
+              
+                <img src="../fotos/undraw_decorative_friends_q2np.png" alt="dibujo" width="350px">
+            </section>
+          </section>
+
+          <section class="usuario-foto">
+            <fieldset>
+              <h3 class="titulos-form">Usuario</h3>
+              <input
+                placeholder="Ingrese su usuario"
+                type="text"
+                name="usuario"
+              />
+              <br />
+              <br />
+              <label>
+                <input
+                  placeholder="Ingrese su contraseña"
+                  type="password"
+                  name="contraseña"
+                />
+              </label>
+              <br />
+              <br />
+              <label>
+                <input
+                  placeholder="Ingrese nuevamente su contraseña"
+                  type="password"
+                  name="contraseña repetida"
+                />
+              </label>
+            </fieldset>
+            <br />
+            <fieldset>
+              <h3 class="titulos-form">Contacto</h3>
+              <label>
+                <input
+                  placeholder="Ingrese nombre completo"
+                  type="text"
+                  name="nombre"
+                  required
+                />
+              </label>
+              <br />
+              <br />
+              <div id="dni">
+                <select name="selector">
+                  <option value="DNI">DNI</option>
+                  <option value="Pasaporte">Pasaporte</option>
+                </select>
+                <input
+                  placeholder="Ingrese el número"
+                  type="text"
+                  name="numero"
+                />
+              </div>
+              <br />
+              <label>
+                <input
+                  placeholder="Ingrese el numero de telefono"
+                  type="text"
+                  name="telefono"
+                  required
+                />
+              </label>
+              <br />
+              <br />
+              <label>
+                <input
+                  placeholder="Ingrese email"
+                  type="text"
+                  name="email"
+                  required
+                />
+              </label>
+              <br />
+              <br />
+              <div class="formaNotif">
+                <p> Seleccione las formas de notificacion:</p>
+                  <br>
+                  <label class="container">SMS
+                    <input
+                        type = "checkbox"
+                        name = "sms"
+                        value = "SMS"
+                    />
+                    <span class="checkmark"></span>
+                  </label>
+                  <br>
+                  <label class="container">E-Mail
+                    <input
+                    type = "checkbox"
+                    name = "email"
+                    value = "email"
+                    />
+                    <span class="checkmark"></span>
+                  </label>
+                  <br>
+                  <label class="container"> Whatsapp
+                    <input
+                    type = "checkbox"
+                    name = "whatsapp"
+                    value = "Whatsapp"
+                    />
+                    <span class="checkmark"></span>
+                  </label>
+            </div>
+              
+            </fieldset>
+            <button class="boton-registrarse" type="submit">Registrarse</button>
+          </section>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <section>
+        <div class="texto-contactanos">
+          <h3>CONTACTANOS!</h3>
+          <p>Ante cualquier duda no dude en consultarnos.</p>
+          <p>Estamos a su disposicion.</p>
+        </div>
+      </section>
+
+      <section class="contacto-general">
+        <section class="contacto">
+          <div class="contacto-icon">
+            <i class="fas fa-envelope-square"></i>
+          </div>
+          <div class="contacto-info">
+            <p>MAIL</p>
+            <p>patitas@gmail.com</p>
+            <p></p>
+          </div>
+        </section>
+          <section class="contacto">
+              <div class="contacto-icon">
+                  <i class="fab fa-facebook-square"></i>
+              </div>
+              <div class="contacto-info">
+                  <p>FACEBOOK</p>
+                  <p>PatitasOk</p>
+              </div>
+          </section>
+        <section class="contacto">
+            <div class="contacto-icon">
+              <i class="fas fa-phone-square-alt"></i>
+            </div>
+            <div class="contacto-info">
+              <p>TELEFONO</p>
+              <p>11 2345-6789</p>
+            </div>
+          </section>
+      </section>
+    </footer>
+
+  </body>
+</html>
