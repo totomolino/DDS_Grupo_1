@@ -206,6 +206,18 @@
               </label>
               <br />
               <br />
+              <label>
+                <input
+                  placeholder="Ingrese otra vez contraseña"
+                  type="password"
+                  name="contraseña"
+                  v-model="password2"
+                  value=""
+                />
+              </label>
+
+              <br />
+              <br />
               <div class="preguntaDuenioRescatista">
                 <b class="formaNotif">Es duenio o rescatista: </b>
                 <br>
@@ -259,21 +271,6 @@
                 />
               </label>
               <br />
-              <br />
-              <div id="dni">
-                <select name="selector" v-model="documentoCon">
-                  <option disabled value="">Seleccione un elemento</option>
-                  <option value="DNI">DNI</option>
-                  <option value="Pasaporte">Pasaporte</option>
-                </select>
-                <input
-                  placeholder="Ingrese el número"
-                  type="text"
-                  name="numero"
-                  v-model="numeroCon"
-                  value=""
-                />
-              </div>
               <br />
               <label>
                 <input
