@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="../jscript/menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   </head>
   
   <body>
@@ -64,14 +64,18 @@
           method="post"
           target="_blank"
         >
+
           <section class="datos-personales">
             <fieldset>
+              <div id="appVueRegistro">
               <h3 class="titulos-form">Datos personales</h3>
               <label>
                 <input
-                  placeholder="Ingrese nombre completo"
+                  placeholder="Ingrese su nombre "
                   type="text"
                   name="nombre"
+                  v-model="apellido"
+                  value=""
                   required
                 />
               </label>
@@ -79,23 +83,40 @@
               <br />
               <label>
                 <input
-                  placeholder="Ingrese fecha de nacimiento:"
+                  placeholder="Ingrese su apellido "
+                  type="text"
+                  name="apellido"
+                  v-model="apellido"
+                  value=""
+                  required
+                />
+              </label>
+              <br />
+              <br />
+              <label>
+                <input
+                  placeholder="Ingrese fecha de nacimiento"
                   type="text"
                   name="fechaDeNacimiento"
+                  v-model="fechaDeNacimiento"
+                  value=""
                   required
                 />
               </label>
               <br />
               <br />
               <div id="dni">
-                <select name="selector">
-                  <option value="DNI">DNI</option>
+                <select name="selector" v-model="documento">
+                  <option disabled value="">Seleccione un elemento</option>
+                  <option value="DNI" >DNI</option>
                   <option value="Pasaporte">Pasaporte</option>
                 </select>
                 <input
                   placeholder="Ingrese el número"
                   type="text"
                   name="numero"
+                  v-model="numero"
+                  value=""
                 />
               </div>
               <br>
@@ -104,6 +125,8 @@
                   placeholder="Ingrese su número de telefono"
                   type="text"
                   name="numero de telefono"
+                  v-model="telefono"
+                  value=""
                 />
               </label>
               <br />
@@ -113,18 +136,21 @@
                   placeholder="Ingrese su email"
                   type="text"
                   name="email"
+                  v-model="email"
+                  value=""
                 />
               </label>
               <br />
               <br />
               <div class="formaNotif">
                 <p> Seleccione las formas de notificacion:</p>
-                  <br>
+                  <br>                
                   <label class="container">SMS
                     <input
                         type = "checkbox"
                         name = "sms"
                         value = "SMS"
+                        v-model = "formasNotif"
                     />
                     <span class="checkmark"></span>
                   </label>
@@ -134,6 +160,7 @@
                     type = "checkbox"
                     name = "email"
                     value = "email"
+                    v-model = "formasNotif"
                     />
                     <span class="checkmark"></span>
                   </label>
@@ -143,17 +170,20 @@
                     type = "checkbox"
                     name = "whatsapp"
                     value = "Whatsapp"
+                    v-model = "formasNotif"
                     />
                     <span class="checkmark"></span>
-                  </label>
-            </div>
-            </fieldset>
-
+                    
+                  </label>                                  
+              </div>     
+            </div>                    
+            </fieldset>          
+            
             <section>
-              
                 <img src="../fotos/undraw_decorative_friends_q2np.png" alt="dibujo" width="350px">
             </section>
           </section>
+
 
           <section class="usuario-foto">
             <fieldset>
@@ -305,6 +335,8 @@
           </section>
       </section>
     </footer>
-
+  
+    <script type="text/javascript" src="../jscript/menu.js"></script>
+    <script type="text/javascript" src="../jscript/registrarPersona.js"></script>
   </body>
 </html>

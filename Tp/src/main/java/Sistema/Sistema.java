@@ -391,7 +391,7 @@ public class Sistema {
 
         res.status(200);
 
-        return new loginResponse(idSesion).transformar();
+        return new loginResponse(idSesion, usuarioFinal.getTipoDeUsuario().toString()).transformar();
     }
 
     public static String crearDuenio(Request req, Response res){

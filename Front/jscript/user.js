@@ -2,7 +2,8 @@
 var app = new Vue({
     el: "#appVue",
     data: {
-        nombre:""
+        nombre:"",
+        formasNotif2: [],
     },
     methods: {
     },

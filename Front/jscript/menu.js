@@ -49,3 +49,8 @@ window.onclick = function(event) {
     }
   }
 }
+
+
+function esAdmin(){
+  return localStorage.getItem("TIPO") == "ADMIN"
+}
