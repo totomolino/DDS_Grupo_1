@@ -59,7 +59,7 @@
         </div>
         
         <br />
-        <form id = "appVueRegistro">
+        <form id = "appVueRegistro" onsubmit="return false">
         
 
           <section class="datos-personales">
@@ -337,6 +337,8 @@
               
             </fieldset>
             <!-- <button class="boton-registrarse" type="submit">Registrarse</button> -->
+            <button class="boton-registrarse" v-on:click="registrarse">Registrarse</button>
+            <a id="anchorID" href="adoptar.html" target = "_self"></a>
           </section>
         
         </form>
