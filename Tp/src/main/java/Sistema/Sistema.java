@@ -404,7 +404,7 @@ public class Sistema {
 
         res.status(200);
 
-        return (new mensaje("Duenio creado").transformar());
+        return new Gson().toJson(duenio);
     }
 
     public static String crearOrganizacion(Request req, Response res){

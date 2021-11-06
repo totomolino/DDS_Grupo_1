@@ -140,8 +140,9 @@
               <br />
               <br />
               <div class="formaNotif">
-                <p> Seleccione las formas de notificacion:</p>
+                <b> Seleccione las formas de notificacion:</b>
                   <br>                
+                  <br>
                   <label class="container">SMS
                     <input
                         type = "checkbox"
@@ -170,9 +171,8 @@
                     v-model = "formasNotif"
                     />
                     <span class="checkmark"></span>
-                    
-                    
-                  </label>                                  
+                  </label>                         
+                  <br>         
               </div>     
                             
             </fieldset>          
@@ -206,21 +206,31 @@
               </label>
               <br />
               <br />
-              <p>Es duenio o rescatista:<br>                
+              <div class="preguntaDuenioRescatista">
+                <b class="formaNotif">Es duenio o rescatista: </b>
+                <br>
+                <br>
                 <label class="container">Duenio
-                <input type="radio" name="tipo" value="DUENIO" v-model= "tipo">
+                  <input type="radio" 
+                    class="radio" 
+                    name="tipo" 
+                    value="DUENIO" 
+                    v-model= "tipo">
+                  <span class="checkmark"></span>
                 </label>
                 <br>
                 <label class="container"> Rescatista
-                <input type="radio"  name="tipo" value="RESCATISTA" v-model= "tipo">
+                  <input 
+                    type="radio" 
+                    class="radio" 
+                    name="tipo" 
+                    value="RESCATISTA" 
+                    v-model= "tipo">
+                  <span class="checkmark"></span>
                 </label>
-              </p>               
-                    
-                    
-                  
+                <br>
               </div>
               
-
 
             </fieldset>
             <br />
@@ -290,7 +300,8 @@
               <br />
               <br />
               <div class="formaNotif">
-                <p> Seleccione las formas de notificacion:</p>
+                <b> Seleccione las formas de notificacion:</b>
+                  <br>
                   <br>
                   <label class="container">SMS
                     <input
@@ -321,6 +332,7 @@
                     />
                     <span class="checkmark"></span>
                   </label>
+                  <br>
             </div>
               
             </fieldset>

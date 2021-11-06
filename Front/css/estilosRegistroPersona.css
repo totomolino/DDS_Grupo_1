@@ -216,7 +216,7 @@ textarea{
 .radio{
   border: 0px;
   width: 100%;
-  height: 2em;
+  height: 1em;
 }
 
 #dni select{
@@ -275,7 +275,7 @@ textarea{
 }
 
 
-.formaNotif{
+.formaNotif, .preguntaDuenioRescatista{
   font-size: 16px;
   font-family: 'Fira Sans', sans-serif;
 }
