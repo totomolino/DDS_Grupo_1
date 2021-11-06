@@ -22,7 +22,8 @@ var app = new Vue({
         telefonoCon: "",
         emailCon:"",
         formasNotifCon: [],
-        idDuenio: ""
+        idDuenio: "",
+        idCont: ""
     },
     methods:{
         registrarse: function(){
@@ -57,13 +58,13 @@ var app = new Vue({
             })
             .then(Response => {
                 errorDuenio(Response.status)
-                Response.json()})
+                return Response.json()})
             .then(data => {
                 this.idDuenio = data.pers_id
             })
             
-            fetch("http://localhost:4567/patitas/notifPers", {
-                
+            this.formasNotif.forEach(function(notif) {
+                agregarNotificacionPersona(this.idDuenio, notif)
             })
 
             var reqCon = {
@@ -80,14 +81,60 @@ var app = new Vue({
                 method: "POST",
                 body: JSON.stringify(reqCon)
             })
+            .then(Response => {
+                error(Response.status, "No se pudo crear el contacto")
+                return Response.json()
+            })
+            .then(data => {
+                this.idCont = data.cont_id
+            } )
             
-            
+            this.formasNotifCon.forEach(function(notif) {
+                agregarNotificacionContacto(this.idDuenio, notif)
+            })
 
 
 
         }
     }
 })
+
+function agregarNotificacionPersona(id, notif){
+
+    var reqNotifPers = {
+        "fonop_persona":{
+            "pers_id": id
+        },
+        "fonop_forma": notif 
+    }
+
+    fetch("http://localhost:4567/patitas/notifPers", {
+        method: "POST",
+        body: JSON.stringify(req)
+    }).then(Response => {
+        error(Response.status, "No se pudo agregar el tipo de notif")
+    })
+
+}
+
+function agregarNotificacionContacto(id, notif){
+
+    var reqNotifPers = {
+        "fonoc_contacto":{
+            "cont_id": id
+        },
+        "fonoc_forma":notif
+    }
+
+    fetch("http://localhost:4567/patitas/notifCont", {
+        method: "POST",
+        body: JSON.stringify(req)
+    }).then(Response => {
+        error(Response.status, "No se pudo agregar el tipo de notif")
+    })
+
+}
+
 
 function errorUser(status){
     error(status, "El usuario no fue creado")    
@@ -119,7 +166,7 @@ function crearUsuario(usuario, email, contrasenia, tipo){
     })
     .then(Response => {
         errorUser(Response.status)
-        Response.json()})
+        return Response.json()})
     .then(data => {
         return data.usuario.usu_id
     })

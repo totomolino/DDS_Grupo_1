@@ -439,7 +439,7 @@ public class Sistema {
 
         BDUtils.agregarObjeto(contacto);
 
-        return (new mensaje("Contacto agregado")).transformar();
+        return new Gson().toJson(contacto);
     }
 
     public static String agregarNotificacionCont(Request req, Response res){
