@@ -27,7 +27,8 @@ var app = new Vue({
         registrarse: function(){
             
             //primero se crea el usuario
-
+            
+            crearUsuario(this.username, this.email, this.contrasenia, this.tipo);
 
 
 
