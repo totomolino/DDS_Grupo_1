@@ -59,22 +59,19 @@
         </div>
         
         <br />
-        <form
-          action="https://formspree.io/f/xwkawqpa"
-          method="post"
-          target="_blank"
-        >
+        <form id = "appVueRegistro">
+        
 
           <section class="datos-personales">
             <fieldset>
-              <div id="appVueRegistro">
+              
               <h3 class="titulos-form">Datos personales</h3>
               <label>
                 <input
                   placeholder="Ingrese su nombre "
                   type="text"
                   name="nombre"
-                  v-model="apellido"
+                  v-model="nombre"
                   value=""
                   required
                 />
@@ -174,9 +171,10 @@
                     />
                     <span class="checkmark"></span>
                     
+                    
                   </label>                                  
               </div>     
-            </div>                    
+                            
             </fieldset>          
             
             <section>
@@ -192,6 +190,8 @@
                 placeholder="Ingrese su usuario"
                 type="text"
                 name="usuario"
+                v-model="username"
+                value=""
               />
               <br />
               <br />
@@ -200,33 +200,59 @@
                   placeholder="Ingrese su contraseña"
                   type="password"
                   name="contraseña"
+                  v-model="password"
+                  value=""
                 />
               </label>
               <br />
               <br />
-              <label>
-                <input
-                  placeholder="Ingrese nuevamente su contraseña"
-                  type="password"
-                  name="contraseña repetida"
-                />
-              </label>
+              <p>Es duenio o rescatista:<br>                
+                <label class="container">Duenio
+                <input type="radio" name="tipo" value="DUENIO" v-model= "tipo">
+                </label>
+                <br>
+                <label class="container"> Rescatista
+                <input type="radio"  name="tipo" value="RESCATISTA" v-model= "tipo">
+                </label>
+              </p>               
+                    
+                    
+                  
+              </div>
+              
+
+
             </fieldset>
             <br />
             <fieldset>
               <h3 class="titulos-form">Contacto</h3>
               <label>
                 <input
-                  placeholder="Ingrese nombre completo"
+                  placeholder="Ingrese su nombre "
                   type="text"
                   name="nombre"
+                  v-model="nombreCon"
+                  value=""
+                  required
+                />
+              </label>
+              <br />
+              <br />
+              <label>
+                <input
+                  placeholder="Ingrese su apellido "
+                  type="text"
+                  name="apellido"
+                  v-model="apellidoCon"
+                  value=""
                   required
                 />
               </label>
               <br />
               <br />
               <div id="dni">
-                <select name="selector">
+                <select name="selector" v-model="documentoCon">
+                  <option disabled value="">Seleccione un elemento</option>
                   <option value="DNI">DNI</option>
                   <option value="Pasaporte">Pasaporte</option>
                 </select>
@@ -234,6 +260,8 @@
                   placeholder="Ingrese el número"
                   type="text"
                   name="numero"
+                  v-model="numeroCon"
+                  value=""
                 />
               </div>
               <br />
@@ -242,6 +270,8 @@
                   placeholder="Ingrese el numero de telefono"
                   type="text"
                   name="telefono"
+                  v-model="telefonoCon"
+                  value=""
                   required
                 />
               </label>
@@ -252,6 +282,8 @@
                   placeholder="Ingrese email"
                   type="text"
                   name="email"
+                  v-model="emailCon"
+                  value=""
                   required
                 />
               </label>
@@ -265,32 +297,36 @@
                         type = "checkbox"
                         name = "sms"
                         value = "SMS"
+                        v-model = "formasNotifCon"
                     />
                     <span class="checkmark"></span>
                   </label>
                   <br>
                   <label class="container">E-Mail
                     <input
-                    type = "checkbox"
-                    name = "email"
-                    value = "email"
+                        type = "checkbox"
+                        name = "email"
+                        value = "email"
+                        v-model = "formasNotifCon"
                     />
                     <span class="checkmark"></span>
                   </label>
                   <br>
                   <label class="container"> Whatsapp
                     <input
-                    type = "checkbox"
-                    name = "whatsapp"
-                    value = "Whatsapp"
+                        type = "checkbox"
+                        name = "whatsapp"
+                        value = "Whatsapp"
+                        v-model = "formasNotifCon"
                     />
                     <span class="checkmark"></span>
                   </label>
             </div>
               
             </fieldset>
-            <button class="boton-registrarse" type="submit">Registrarse</button>
+            <!-- <button class="boton-registrarse" type="submit">Registrarse</button> -->
           </section>
+        
         </form>
       </section>
     </main>
