@@ -357,11 +357,15 @@ public class Sistema {
         res.type("application/json");
 
         if(!BDUtils.puedoEsteNombre(usuario.getUsu_nombre())) {
-            res.status(404);
+            res.status(400);
             return (new mensaje("El nombre de usuario no esta disponible")).transformar();
         }
+        if(!BDUtils.puedoEsteMail(usuario.getUsu_mail())) {
+            res.status(400);
+            return (new mensaje("El email no esta disponible")).transformar();
+        }
         if(!(Sistema.validarContrasenia(usuario.getUsu_contrasena(), usuario.getUsu_nombre()))) {
-            res.status(404);
+            res.status(400);
             return (new mensaje("La contrasenia ingresada no es valida")).transformar();
         }
 

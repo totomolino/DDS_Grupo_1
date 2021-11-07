@@ -59,7 +59,7 @@
         </div>
         
         <br />
-        <form id = "appVueRegistro" onsubmit="return false">
+        <form id = "appVueRegistro" onsubmit="return false" autocomplete="on">
         
 
           <section class="datos-personales">
@@ -73,6 +73,7 @@
                   name="nombre"
                   v-model="nombre"
                   value=""
+                  autocomplete="on"
                   required
                 />
               </label>
@@ -85,6 +86,7 @@
                   name="apellido"
                   v-model="apellido"
                   value=""
+                  autocomplete="on"
                   required
                 />
               </label>
@@ -97,6 +99,7 @@
                   name="fechaDeNacimiento"
                   v-model="fechaDeNacimiento"
                   value=""
+                  autocomplete="on"
                   required
                 />
               </label>
@@ -114,6 +117,7 @@
                   name="numero"
                   v-model="numero"
                   value=""
+                  autocomplete="on"
                 />
               </div>
               <br>
@@ -124,6 +128,7 @@
                   name="numero de telefono"
                   v-model="telefono"
                   value=""
+                  autocomplete="on"
                 />
               </label>
               <br />
@@ -135,6 +140,7 @@
                   name="email"
                   v-model="email"
                   value=""
+                  autocomplete="on"
                 />
               </label>
               <br />
@@ -149,6 +155,7 @@
                         name = "sms"
                         value = "SMS"
                         v-model = "formasNotif"
+                        autocomplete="on"
                     />
                     <span class="checkmark"></span>
                   </label>
@@ -159,6 +166,7 @@
                     name = "email"
                     value = "email"
                     v-model = "formasNotif"
+                    autocomplete="on"
                     />
                     <span class="checkmark"></span>
                   </label>
@@ -169,6 +177,7 @@
                     name = "whatsapp"
                     value = "Whatsapp"
                     v-model = "formasNotif"
+                    autocomplete="on"
                     />
                     <span class="checkmark"></span>
                   </label>                         
@@ -192,6 +201,7 @@
                 name="usuario"
                 v-model="username"
                 value=""
+                autocomplete="on"
               />
               <br />
               <br />
@@ -202,6 +212,7 @@
                   name="contraseña"
                   v-model="password"
                   value=""
+                  autocomplete="on"
                 />
               </label>
               <br />
@@ -213,6 +224,7 @@
                   name="contraseña"
                   v-model="password2"
                   value=""
+                  autocomplete="on"
                 />
               </label>
 
@@ -227,7 +239,8 @@
                     class="radio" 
                     name="tipo" 
                     value="DUENIO" 
-                    v-model= "tipo">
+                    v-model= "tipo"
+                    autocomplete="on">
                   <span class="checkmark"></span>
                 </label>
                 <br>
@@ -237,7 +250,8 @@
                     class="radio" 
                     name="tipo" 
                     value="RESCATISTA" 
-                    v-model= "tipo">
+                    v-model= "tipo"
+                    autocomplete="on">
                   <span class="checkmark"></span>
                 </label>
                 <br>
@@ -255,6 +269,7 @@
                   name="nombre"
                   v-model="nombreCon"
                   value=""
+                  autocomplete="on"
                   required
                 />
               </label>
@@ -268,6 +283,7 @@
                   v-model="apellidoCon"
                   value=""
                   required
+                  autocomplete="on"
                 />
               </label>
               <br />
@@ -280,6 +296,7 @@
                   v-model="telefonoCon"
                   value=""
                   required
+                  autocomplete="on"
                 />
               </label>
               <br />
@@ -292,6 +309,7 @@
                   v-model="emailCon"
                   value=""
                   required
+                  autocomplete="on"
                 />
               </label>
               <br />
@@ -306,6 +324,7 @@
                         name = "sms"
                         value = "SMS"
                         v-model = "formasNotifCon"
+                        autocomplete="on"
                     />
                     <span class="checkmark"></span>
                   </label>
@@ -316,6 +335,7 @@
                         name = "email"
                         value = "email"
                         v-model = "formasNotifCon"
+                        autocomplete="on"
                     />
                     <span class="checkmark"></span>
                   </label>
@@ -326,6 +346,7 @@
                         name = "whatsapp"
                         value = "Whatsapp"
                         v-model = "formasNotifCon"
+                        autocomplete="on"
                     />
                     <span class="checkmark"></span>
                   </label>

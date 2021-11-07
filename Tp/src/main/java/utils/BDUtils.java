@@ -227,4 +227,13 @@ public class BDUtils {
         return duenio;
 
     }
+
+    public static boolean puedoEsteMail(String email) {
+
+        EntityManager em = BDUtils.getEntityManager();
+
+        String hola = "select usu_email from UsuarioBD where usu_email = '" + email + "'";
+
+        return em.createQuery(hola).getResultList().isEmpty();
+    }
 }

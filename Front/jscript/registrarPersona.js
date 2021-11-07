@@ -23,7 +23,8 @@ var app = new Vue({
         emailCon:"",
         formasNotifCon: [],
         idDuenio: "",
-        idCont: ""
+        idCont: "",
+        usuId:""
     },
     methods:{
         registrarse: function(){
@@ -35,8 +36,17 @@ var app = new Vue({
                 return;
             }
             
-            var id = crearUsuario(this.username, this.email, this.password, this.tipo);
+            
+            crearUsuario(this.username, this.email, this.password, this.tipo);
 
+            this.crearDuenio
+            
+            this.crearContacto          
+
+
+
+        },
+        crearDuenio: async function(){
             var req = {
                 "pers_nombre": this.nombre,
                 "pers_apellido": this.apellido,
@@ -45,7 +55,7 @@ var app = new Vue({
                 "pers_tipoDocumento": this.documento,
                 "pers_telefono": this.telefono,
                 "pers_usuario":{
-                    "usu_id": id
+                    "usu_id": parseInt(usuId)
                 },
                 "resc_organizacion":{
                     "orga_id": 1
@@ -62,18 +72,20 @@ var app = new Vue({
             .then(data => {
                 this.idDuenio = data.pers_id
             })
-            
+
             this.formasNotif.forEach(function(notif) {
                 agregarNotificacionPersona(this.idDuenio, notif)
             })
 
+        },
+        crearContacto: async function(){
             var reqCon = {
                 "cont_nombre": this.nombreCon,
                 "cont_apellido": this.apellido,
                 "cont_telefono": this.telefonoCon,
                 "cont_email": this.emailCon,
                 "cont_persona":{
-                    "pers_id": this.idDuenio
+                    "pers_id": parseInt(this.idDuenio)
                 }
             }
 
@@ -90,45 +102,42 @@ var app = new Vue({
             } )
             
             this.formasNotifCon.forEach(function(notif) {
-                agregarNotificacionContacto(this.idDuenio, notif)
+                agregarNotificacionContacto(this.idCont, notif)
             })
-
-
-
         }
     }
 })
 
-function agregarNotificacionPersona(id, notif){
+async function agregarNotificacionPersona(id, notif){
 
     var reqNotifPers = {
         "fonop_persona":{
-            "pers_id": id
+            "pers_id": parseInt(id)
         },
         "fonop_forma": notif 
     }
 
     fetch("http://localhost:4567/patitas/notifPers", {
         method: "POST",
-        body: JSON.stringify(req)
+        body: JSON.stringify(reqNotifPers)
     }).then(Response => {
         error(Response.status, "No se pudo agregar el tipo de notif")
     })
 
 }
 
-function agregarNotificacionContacto(id, notif){
+async function agregarNotificacionContacto(id, notif){
 
-    var reqNotifPers = {
+    var reqNotifCon = {
         "fonoc_contacto":{
-            "cont_id": id
+            "cont_id": parseInt(id)
         },
         "fonoc_forma":notif
     }
 
     fetch("http://localhost:4567/patitas/notifCont", {
         method: "POST",
-        body: JSON.stringify(req)
+        body: JSON.stringify(reqNotifCon)
     }).then(Response => {
         error(Response.status, "No se pudo agregar el tipo de notif")
     })
@@ -145,14 +154,13 @@ function errorDuenio(status){
 }
 
 function error(status, mensaje){
-    if(status == 400){
+    if(status == 400 || status == 500){
         alert(mensaje)
         return;
     }
 }
 
-function crearUsuario(usuario, email, contrasenia, tipo){
-
+async function crearUsuario(usuario, email, contrasenia, tipo){
     var req = {
         "usu_email": email,
         "usu_contrasena":contrasenia,
@@ -165,10 +173,11 @@ function crearUsuario(usuario, email, contrasenia, tipo){
         body: JSON.stringify(req)
     })
     .then(Response => {
-        errorUser(Response.status)
+        error(Response.status,Response.json().mensaje)
         return Response.json()})
     .then(data => {
-        return data.usuario.usu_id
+        this.usuId = data.usuario.usu_id
     })
+ 
 }
 
