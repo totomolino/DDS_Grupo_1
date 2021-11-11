@@ -1,4 +1,4 @@
-
+let dea;
 var app = new Vue({
     el: "#appVueRegistro",
     data: {
@@ -27,26 +27,8 @@ var app = new Vue({
         usuId:""
     },
     methods:{
-        registrarse: function(){
-            
-            //primero se crea el usuario
-
-            if(this.password != this.password2){
-                alert("La contrasenia debe coincidir")
-                return;
-            }
-            
-            
-            crearUsuario(this.username, this.email, this.password, this.tipo);
-
-            this.crearDuenio
-            
-            this.crearContacto          
-
-
-
-        },
-        crearDuenio: async function(){
+        registrarse: function(){funcionRegistrarse()},
+        crearDuenio: async () => {
             var req = {
                 "pers_nombre": this.nombre,
                 "pers_apellido": this.apellido,
@@ -72,13 +54,14 @@ var app = new Vue({
             .then(data => {
                 this.idDuenio = data.pers_id
             })
-
-            this.formasNotif.forEach(function(notif) {
-                agregarNotificacionPersona(this.idDuenio, notif)
+            .then(() => {
+                return this.formasNotif.forEach(function(notif) {
+                    agregarNotificacionPersona(this.idDuenio, notif);
+                })
             })
-
+            .then((casa) => dea = casa)         
         },
-        crearContacto: async function(){
+        crearContacto: async () => {
             var reqCon = {
                 "cont_nombre": this.nombreCon,
                 "cont_apellido": this.apellido,
@@ -100,15 +83,37 @@ var app = new Vue({
             .then(data => {
                 this.idCont = data.cont_id
             } )
-            
-            this.formasNotifCon.forEach(function(notif) {
-                agregarNotificacionContacto(this.idCont, notif)
+            .then(() => {
+                return this.formasNotifCon.forEach(function(notif) {
+                    agregarNotificacionContacto(this.idCont, notif);
+                })
             })
+            .then((casa) => dea = casa)
+        },
+        crearUsuario: function(){
+            var req = {
+                "usu_email": this.email,
+                "usu_contrasena": this.password,
+                "usu_nombre": this.username,
+                "usu_tipo": this.tipo
+            }
+        
+            fetch("http://localhost:4567/patitas/user", {
+                method: "POST",
+                body: JSON.stringify(req)
+            })
+            .then(Response => {
+                error(Response.status,Response.json().mensaje)
+                return Response.json()})
+            .then(data => {
+                this.usuId = data.usuario.usu_id
+            })
+            
         }
     }
 })
 
-async function agregarNotificacionPersona(id, notif){
+const agregarNotificacionPersona = async (id, notif) => {
 
     var reqNotifPers = {
         "fonop_persona":{
@@ -117,13 +122,11 @@ async function agregarNotificacionPersona(id, notif){
         "fonop_forma": notif 
     }
 
-    fetch("http://localhost:4567/patitas/notifPers", {
+    const resp = await fetch("http://localhost:4567/patitas/notifPers", {
         method: "POST",
         body: JSON.stringify(reqNotifPers)
-    }).then(Response => {
-        error(Response.status, "No se pudo agregar el tipo de notif")
     })
-
+    error(resp.status, "No se pudo agregar el tipo de notif");
 }
 
 async function agregarNotificacionContacto(id, notif){
@@ -135,13 +138,12 @@ async function agregarNotificacionContacto(id, notif){
         "fonoc_forma":notif
     }
 
-    fetch("http://localhost:4567/patitas/notifCont", {
+    return fetch("http://localhost:4567/patitas/notifCont", {
         method: "POST",
         body: JSON.stringify(reqNotifCon)
     }).then(Response => {
         error(Response.status, "No se pudo agregar el tipo de notif")
     })
-
 }
 
 
@@ -160,24 +162,19 @@ function error(status, mensaje){
     }
 }
 
-async function crearUsuario(usuario, email, contrasenia, tipo){
-    var req = {
-        "usu_email": email,
-        "usu_contrasena":contrasenia,
-        "usu_nombre": usuario,
-        "usu_tipo": tipo   
+
+
+const funcionRegistrarse = async () => {
+            
+    //primero se crea el usuario
+    var vue = document.getElementById("app")
+    if(vue.data.password != vue.data.password2){ //TODO HAY QUE VER COMO ENTRAR A ESTAS VARIABLES XD
+        alert("La contrasenia debe coincidir")
+        return;
     }
+    
+    await vue.methods.crearUsuario();
+    await vue.methods.crearDuenio();
+    await vue.methods.crearContacto();
 
-    fetch("http://localhost:4567/patitas/user", {
-        method: "POST",
-        body: JSON.stringify(req)
-    })
-    .then(Response => {
-        error(Response.status,Response.json().mensaje)
-        return Response.json()})
-    .then(data => {
-        this.usuId = data.usuario.usu_id
-    })
- 
 }
-
