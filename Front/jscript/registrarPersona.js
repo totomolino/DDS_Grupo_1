@@ -27,8 +27,17 @@ var app = new Vue({
         usuId:""
     },
     methods:{
-        registrarse: function(){funcionRegistrarse()},
-        crearDuenio: async () => {
+        registrarse: function() {
+            if(this.password != this.password2){ //TODO HAY QUE VER COMO ENTRAR A ESTAS VARIABLES XD
+                alert("La contrasenia debe coincidir")
+                return;
+            }
+            
+            this.crearUsuario()
+            
+            
+        },
+        crearDuenio: function() {
             var req = {
                 "pers_nombre": this.nombre,
                 "pers_apellido": this.apellido,
@@ -37,7 +46,7 @@ var app = new Vue({
                 "pers_tipoDocumento": this.documento,
                 "pers_telefono": this.telefono,
                 "pers_usuario":{
-                    "usu_id": parseInt(usuId)
+                    "usu_id": parseInt(this.usuId)
                 },
                 "resc_organizacion":{
                     "orga_id": 1
@@ -61,7 +70,7 @@ var app = new Vue({
             })
             .then((casa) => dea = casa)         
         },
-        crearContacto: async () => {
+        crearContacto: function() {
             var reqCon = {
                 "cont_nombre": this.nombreCon,
                 "cont_apellido": this.apellido,
@@ -90,22 +99,23 @@ var app = new Vue({
             })
             .then((casa) => dea = casa)
         },
-        crearUsuario: function(){
+        crearUsuario: function() {
             var req = {
                 "usu_email": this.email,
                 "usu_contrasena": this.password,
                 "usu_nombre": this.username,
                 "usu_tipo": this.tipo
             }
-        
+            var status
             fetch("http://localhost:4567/patitas/user", {
                 method: "POST",
                 body: JSON.stringify(req)
             })
             .then(Response => {
-                error(Response.status,Response.json().mensaje)
+                status = Response.status
                 return Response.json()})
             .then(data => {
+                error(status,data.mensaje)
                 this.usuId = data.usuario.usu_id
             })
             

@@ -161,8 +161,8 @@ header{
   position: absolute; /* para poder estirarlo */ 
   top: 0; /* lo estiramos a todos los extremos de la portada */
   bottom: 0;
-left: 0;
-right: 0;
+  left: 0;
+  right: 0;
 background-color: rgba(0, 0, 0, 0.479);
 }
 
