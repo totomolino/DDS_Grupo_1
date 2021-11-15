@@ -27,16 +27,16 @@ var app = new Vue({
         usuId:""
     },
     methods:{
-        registrarse: function() {
+        registrarse: function(){
+
             if(this.password != this.password2){ //TODO HAY QUE VER COMO ENTRAR A ESTAS VARIABLES XD
                 alert("La contrasenia debe coincidir")
                 return;
             }
-            
-            this.crearUsuario()
-            
-            
-        },
+            await app.crearUsuario()
+            await app.crearDuenio()
+            await app.crearContacto()
+        },        
         crearDuenio: function() {
             var req = {
                 "pers_nombre": this.nombre,
