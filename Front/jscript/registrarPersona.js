@@ -27,7 +27,7 @@ var app = new Vue({
         usuId:""
     },
     methods:{
-        registrarse: async function(){
+        registrarse: async function(){            
 
             if(this.password != this.password2){ //TODO HAY QUE VER COMO ENTRAR A ESTAS VARIABLES XD
                 alert("La contrasenia debe coincidir")
@@ -47,7 +47,18 @@ var app = new Vue({
                 await agregarNotificacionContacto(this.idCont, notif);
              }
 
-             document.getElementById("anchorID").click();
+             
+
+             var val = confirm("Queres agregar otro contacto?")
+
+             if(val == true){ //APRETA OKAY
+                localStorage.setItem("personaID", this.idDuenio)
+                document.getElementById("agregarContacto").click();
+             }else{
+                document.getElementById("index").click();
+             }
+
+             
 
         },        
         crearDuenio: function() {
@@ -204,18 +215,3 @@ function error(status, mensaje){
 }
 
 
-
-const funcionRegistrarse = async () => {
-            
-    //primero se crea el usuario
-    var vue = document.getElementById("app")
-    if(vue.data.password != vue.data.password2){ //TODO HAY QUE VER COMO ENTRAR A ESTAS VARIABLES XD
-        alert("La contrasenia debe coincidir")
-        return;
-    }
-    
-    await vue.methods.crearUsuario();
-    await vue.methods.crearDuenio();
-    await vue.methods.crearContacto();
-
-}

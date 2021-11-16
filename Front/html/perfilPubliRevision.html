@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edgar</title>
+    <link rel="stylesheet" href="../css/estilosPerfilRevision.css">
+    <!-- .ICO -->
+    <link rel="icon" href="../fotos/huella.ico">
+    <style> @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap');</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap"
+      rel="stylesheet"
+    >
+    <!--link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap"
+      rel="stylesheet"
+    -->
+    <!-- PAGINAS ICONOS -->
+    <script
+      src="https://kit.fontawesome.com/d1f11e4bbc.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Material Icon CDN -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    >
+
+    <!--link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap" 
+    rel="stylesheet"-->
+    
+   
+  
+    <!-- FONT DE REFUGIO DE MASCOTAS -->
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" 
+    rel="stylesheet">
+
+     <!--FONT TEXTO LARGO -->
+    
+     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Roboto+Condensed:ital,wght@0,300;1,400&display=swap" 
+     rel="stylesheet">
+
+    <!-- FONT DE MENU -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="../jscript/menu.js"></script>
+  </head>
+  
+  <body>
+    <header>
+        <div class="logo">
+          <img src="../fotos/logoBlanco.png" alt="logo" width="5%">
+          <h2>Patitas</h2>
+        </div>
+
+        <div class="usuario">
+          <div class="usuario-icon">
+              <i class="fas fa-user-circle"></i>
+          </div>
+          <div class="nombre">
+              <p>Juan Perez</p>
+          </div>
+        </div>
+
+        <div id="menu2" class="menu2" onclick="openSidebar()">
+          <button>
+              <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </header>
+  
+      <nav>
+        <div class="side-bar" id="side-bar">
+            <button class="cruz">
+                <i class="far fa-times-circle"></i>
+            </button>
+            <p>MENU</p>
+            <section class="conj-botones-menu">
+              <section>
+                <a href="index.html" type="button" class="boton-menu">INICIO</a>
+              </section>
+              <section>
+                  <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
+              </section>
+              <section>
+                  <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
+              </section>
+              <section>
+                  <a href="encontreUnaMascota.html" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
+              </section>
+              <section>
+                  <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
+              </section>
+              <section>
+                  <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
+              </section>
+              <section>
+                <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
+              </section>
+          </section>
+        </div>
+    </nav>
+
+    <main>
+        <section class="portada">
+            <section>
+                <div>
+                    <h2>Hola! Mi nombre es Edgar</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                </div>
+            </section>
+        </section>
+      <section class="principal">
+        <section class="descripcionYFoto">
+          <div class="imgDescripcion">
+            <img src="../fotos/golden.jpg" alt="fotoDescripcion" width="100%">
+          </div>
+          <div class="descripcion">
+            <h2>SOBRE EDGAR</h2>
+            <p>Rem necessitatibus atque vitae excepturi eum esse minus nulla ad corporis obcaecati perferendis porro dignissimos repellat debitis maiores. At vel explicabo praesentium dignissimos nulla laboriosam.
+            Est consequatur, autem aut voluptas.</p>
+            <br>
+            <br>
+            <table>
+                <tr>
+                    <th>Apodo:</th>
+                    <td>Edgar</td>
+                </tr>
+                <tr>
+                    <th>Sexo:</th>
+                    <td>Macho</td>
+                </tr>
+                <tr>
+                    <th>Edad:</th>
+                    <td>7 meses</td>
+                </tr>
+                <tr>
+                    <th>Especie:</th>
+                    <td>Gato</td>
+                </tr>
+            </table>
+            <br>
+            <div>
+              <h3>Otras caracteristicas:</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non esse magnam labore ab ex aperiam voluptate dicta cupiditate et quasi.</p>
+            </div>
+            <br>
+            <br>
+            <!--a href="formularioAdopcion.html" type="button" class="botonAdoptar">Adoptar</a-->
+            <button class="boton-aceptar" v-on:click="aceptar">Aceptar</button>
+            <button class="boton-denegar" v-on:click="denegar">Denegar</button>
+        </div>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+        <section>
+          <div class="texto-contactanos">
+            <h3>CONTACTANOS!</h3>
+            <p>Ante cualquier duda no dude en consultarnos.</p>
+            <p>Estamos a su disposicion.</p>
+          </div>
+        </section>
+  
+        <section class="contacto-general">
+          <section class="contacto">
+            <div class="contacto-icon">
+              <i class="fas fa-envelope-square"></i>
+            </div>
+            <div class="contacto-info">
+              <p>MAIL</p>
+              <p>patitas@gmail.com</p>
+              <p></p>
+            </div>
+          </section>
+          <section class="contacto">
+            <div class="contacto-icon">
+                <i class="fab fa-facebook-square"></i>
+            </div>
+            <div class="contacto-info">
+              <p>FACEBOOK</p>
+              <p>PatitasOK</p>
+            </div>
+          </section>
+          <section class="contacto">
+              <div class="contacto-icon">
+                <i class="fas fa-phone-square-alt"></i>
+              </div>
+              <div class="contacto-info">
+                <p>TELEFONO</p>
+                <p>11 2345-6789</p>
+              </div>
+            </section>
+        </section>
+      </footer>
+</body>
+</html>

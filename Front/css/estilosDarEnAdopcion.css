@@ -147,7 +147,7 @@ header{
 /* MAIN */
 .portada{
   z-index: 1;
-  background-image: url("../fotos/portadaAdoptar.jpg");
+  background-image: url("../fotos/a77a9162d1b7e505245397a534ba5171.png");
   background-blend-mode: darken;
   height: 75vh;
   background-position: center -50px;
@@ -190,7 +190,7 @@ background-color: rgba(0, 0, 0, 0.479);
 }
 
 .card{
-	background: rgb(166, 196, 97);
+	background: rgb(190, 233, 232);
 	margin-bottom: 2em;
 	width: 32%;
   border-radius: 5%;
@@ -219,7 +219,7 @@ ul{
 }
 
 .card-title{
-  background: rgba(199, 233, 120, 0.85);
+  background: rgba(98, 182, 203, 0.719);
   padding: 3.5% 0 2.5% 0;
   color: white;
   font-family: 'Roboto Condensed', sans-serif;
@@ -247,7 +247,7 @@ ul{
 
 .card:hover{
   box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
-  background-color: rgb(161, 211, 138);
+  background-color: rgb(98, 182, 203);
 }
 
 .texto{

@@ -274,6 +274,23 @@ textarea{
   color: rgb(220, 165, 236);
 }
 
+.cajitaBotonAgregar{
+  padding-left: 230px;
+}
+
+.boton-agregar{
+  border-radius: 7px;
+  text-align: center;
+  font-size: 21px;
+  font-family: 'Roboto Condensed', sans-serif;
+  border: none;
+  background-color: #C281EA;
+  color: white;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: color 0.5s ease-in-out;
+  transition: border 0.5s ease-in-out;
+}
 
 .formaNotif, .preguntaDuenioRescatista{
   font-size: 16px;

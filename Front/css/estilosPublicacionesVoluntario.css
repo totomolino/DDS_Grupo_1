@@ -147,12 +147,13 @@ header{
 /* MAIN */
 .portada{
   z-index: 1;
-  background-image: url("../fotos/portadaAdoptar.jpg");
+  background-image: url("../fotos/2e05c119f1491a3c96e826d6981c8c35.png");
   background-blend-mode: darken;
   height: 75vh;
-  background-position: center -50px;
+  background-position: center ;
   background-size: cover;
   position: relative;
+  
 }
 
 /* PARA OSCURECER LA IMAGEN DEL FONDO */
@@ -169,7 +170,7 @@ background-color: rgba(0, 0, 0, 0.479);
 .portada section{
   position: relative; /*Para que el texto este adelante del fondo negro transparente*/
   color: white;
-  padding: 50vh 1vh 0 150vh;
+  padding: 30vh 1vh 0 100vh;
 }
 
 .portada h2{
@@ -182,7 +183,6 @@ background-color: rgba(0, 0, 0, 0.479);
 	margin: 0 auto;
 	padding: 0 0.8em;
 }
-
 @media screen and (min-width: 52em){
 	.centered{
 		max-width: 52em;
@@ -190,7 +190,7 @@ background-color: rgba(0, 0, 0, 0.479);
 }
 
 .card{
-	background: rgb(166, 196, 97);
+	background: rgb(236, 188, 253);
 	margin-bottom: 2em;
 	width: 32%;
   border-radius: 5%;
@@ -219,7 +219,7 @@ ul{
 }
 
 .card-title{
-  background: rgba(199, 233, 120, 0.85);
+  background: rgba(229, 179, 254, 0.582);
   padding: 3.5% 0 2.5% 0;
   color: white;
   font-family: 'Roboto Condensed', sans-serif;
@@ -247,7 +247,7 @@ ul{
 
 .card:hover{
   box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
-  background-color: rgb(161, 211, 138);
+  background-color: rgb(226, 175, 255);
 }
 
 .texto{
@@ -278,6 +278,8 @@ figure{
 img{
   max-width: 100%; /* stop images from breaking out of their bounding boxes. */
 }
+
+
 /* FIN MAIN */
 
 /* FOOTER */
