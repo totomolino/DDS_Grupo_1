@@ -113,6 +113,8 @@
                   placeholder="Ingrese nombre completo"
                   type="text"
                   name="nombre"
+                  v-model="nombre"
+                  value=""
                   required
                 />
               </label>
@@ -123,16 +125,20 @@
                   placeholder="Ingrese el apodo"
                   type="text"
                   name="apodo"
+                  v-model="apodo"
+                  value=""
                 />
               </label>
               <br>
               <br>
               <div id="selectores">
-                <select name="selector">
+                <select name="selector" v-model="sexo">
+                  <option disabled value="">Sexo</option>
                   <option value="Macho"> Macho</option>
                   <option value="Hembra">Hembra</option>
                 </select>
-                <select name="selector">
+                <select name="selector"  v-model="especie">
+                  <option disabled value="">Edad</option>
                   <option value="Perro">Perro</option>
                   <option value="Gato">Gato</option>
                 </select>
@@ -142,14 +148,16 @@
                 <input
                   placeholder="Ingrese la edad"
                   type="text"
-                  name="apodo"
+                  name="edad"
+                  v-model="edad"
+                  value=""
                 />
               </label>  
               </div>
               <br>
               <br>
               <div>
-                <textarea rows="10" cols="40" placeholder="Ingrese la descripcion de su mascota"></textarea>
+                <textarea rows="10" cols="40" placeholder="Ingrese la descripcion de su mascota" v-model="descripcion" value=""></textarea>
               </div>
             </fieldset>
 
