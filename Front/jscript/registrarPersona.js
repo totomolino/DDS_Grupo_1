@@ -47,6 +47,8 @@ var app = new Vue({
                 await agregarNotificacionContacto(this.idCont, notif);
              }
 
+             document.getElementById("anchorID").click();
+
         },        
         crearDuenio: function() {
     return new Promise(resolve => {            

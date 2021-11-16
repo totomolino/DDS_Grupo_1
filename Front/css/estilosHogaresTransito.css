@@ -180,6 +180,7 @@ background-color: rgba(0, 0, 0, 0.479);
 
 .centered{
 	padding: 0 30vh;
+  
 }
 
 .card{
@@ -192,7 +193,7 @@ background-color: rgba(0, 0, 0, 0.479);
 .cards {
   display: flex;
   justify-content: space-between;
-
+  flex-wrap: wrap;
   margin-top: 5%;
   padding: 1.5%;
   box-sizing: border-box;
