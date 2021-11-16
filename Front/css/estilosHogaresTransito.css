@@ -179,30 +179,25 @@ background-color: rgba(0, 0, 0, 0.479);
 }
 
 .centered{
-	margin: 0 auto;
-	padding: 0 0.8em;
-}
-
-@media screen and (min-width: 52em){
-	.centered{
-		max-width: 52em;
-	}
+	padding: 0 30vh;
 }
 
 .card{
 	background: rgb(166, 196, 97);
-	margin-bottom: 2em;
-	width: 32%;
+	width: 40%;
+  height: 300px;
   border-radius: 5%;
 }
 
 .cards {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+
   margin-top: 5%;
   padding: 1.5%;
   box-sizing: border-box;
+  gap: 10vh;
+  background-color: #A632D4;
 }
 
 a{
@@ -232,13 +227,8 @@ ul{
 
 .card-header {
   position: relative;
-  height: 175px;
+  height: 6vh;
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-color: rgba(white,.15);
-  background-blend-mode: overlay;
 }
 
 .card-body ul{

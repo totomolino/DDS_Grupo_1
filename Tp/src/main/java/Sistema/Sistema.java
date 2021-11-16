@@ -443,6 +443,8 @@ public class Sistema {
 
         BDUtils.agregarObjeto(contacto);
 
+        res.status(200);
+
         return new Gson().toJson(contacto);
     }
 

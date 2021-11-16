@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../css/estilosDarEnAdopcion.css">
-    <title>Dar en adopcion</title>
+    <link rel="stylesheet" href="../css/estilosMascotasPerdidas.css">
+    <title>MASCOTAS PERDIDAS</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap"
       rel="stylesheet"
@@ -33,9 +33,9 @@
           <div class="usuario-icon">
               <i class="fas fa-user-circle"></i>
           </div>
-          <div id= appVue>          
-          <p>{{nombre}}</p>          
-
+          <div id= appVue> 
+          <a id="volver" href="iniciarSesion.html" target = "_self"></a>
+          <p>{{nombre}}</p>  
         </div>
         </div>
         <div id="menu2" class="menu2" onclick="openSidebar()">
@@ -44,7 +44,8 @@
           </button>
         </div>
       </header>
-  
+
+
       <nav>
         <div class="side-bar" id="side-bar">
             <button class="cruz">
@@ -52,9 +53,6 @@
             </button>
             <p>MENU</p>
             <section class="conj-botones-menu">
-                <section>
-                    <a href="hogaresDeTransito.html" type="button" class="boton-menu">HOGAR DE TRANSITO</a>
-                </section>
                 <section>
                   <a href="index.html" type="button" class="boton-menu">INICIO</a>
                 </section>
@@ -70,12 +68,21 @@
                 <section>
                     <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
                 </section>
+                
+
+                <section>
+                    <a href="hogaresDeTransito.html" type="button" class="boton-menu"> HOGARES DE TRANSITO</a>
+                  </section>
+
+                <section>                                                               
+                    <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>                                                            
+                </section>
+
                 <section>
                     <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
                 </section>
-                <section>
-                  <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
-                </section>
+               
+                
             </section>
         </div>
     </nav>
@@ -84,8 +91,7 @@
         <section class="portada">
             <section>
                 <div>
-                    <h2>Dar en adopcion</h2>
-                    <p>Seleccione la mascota que desea dar en adopcion: </p>
+                    <h2>Encontrá tu mascota!</h2>
                 </div>
             </section>
         </section>
@@ -451,7 +457,6 @@
         </section>
       </footer>
       <script type="text/javascript" src="../jscript/menu.js"></script>
-      <script type="text/javascript" src="../jscript/user.js"></script>
-      <script type="text/javascript" src="../jscript/darEnAdop.js"></script>
+      <script type="text/javascript" src="../jscript/user.js"></script>      
 </body>
 </html>

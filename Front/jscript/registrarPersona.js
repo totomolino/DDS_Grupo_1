@@ -27,17 +27,29 @@ var app = new Vue({
         usuId:""
     },
     methods:{
-        registrarse: function(){
+        registrarse: async function(){
 
             if(this.password != this.password2){ //TODO HAY QUE VER COMO ENTRAR A ESTAS VARIABLES XD
                 alert("La contrasenia debe coincidir")
                 return;
             }
-            await app.crearUsuario()
-            await app.crearDuenio()
-            await app.crearContacto()
+            await this.crearUsuario()
+            
+            await this.crearDuenio()
+
+            for(const notif of this.formasNotif){
+                await agregarNotificacionPersona(this.idDuenio, notif);
+             }
+
+            await this.crearContacto()
+
+            for(const notif of this.formasNotifCon){
+                await agregarNotificacionContacto(this.idCont, notif);
+             }
+
         },        
         crearDuenio: function() {
+    return new Promise(resolve => {            
             var req = {
                 "pers_nombre": this.nombre,
                 "pers_apellido": this.apellido,
@@ -48,7 +60,7 @@ var app = new Vue({
                 "pers_usuario":{
                     "usu_id": parseInt(this.usuId)
                 },
-                "resc_organizacion":{
+                "due_organizacion":{
                     "orga_id": 1
                 } 
             }
@@ -62,18 +74,20 @@ var app = new Vue({
                 return Response.json()})
             .then(data => {
                 this.idDuenio = data.pers_id
+                resolve('se creo el duenio')
             })
-            .then(() => {
-                return this.formasNotif.forEach(function(notif) {
-                    agregarNotificacionPersona(this.idDuenio, notif);
-                })
+            
+
+
+
             })
-            .then((casa) => dea = casa)         
+                    
         },
         crearContacto: function() {
-            var reqCon = {
+            return new Promise(resolve => {
+                var reqCon = {
                 "cont_nombre": this.nombreCon,
-                "cont_apellido": this.apellido,
+                "cont_apellido": this.apellidoCon,
                 "cont_telefono": this.telefonoCon,
                 "cont_email": this.emailCon,
                 "cont_persona":{
@@ -91,16 +105,18 @@ var app = new Vue({
             })
             .then(data => {
                 this.idCont = data.cont_id
+                resolve('se creo el contacto')
             } )
-            .then(() => {
-                return this.formasNotifCon.forEach(function(notif) {
-                    agregarNotificacionContacto(this.idCont, notif);
-                })
+            
+
+
             })
-            .then((casa) => dea = casa)
+            
+            
         },
         crearUsuario: function() {
-            var req = {
+            return new Promise(resolve => { 
+                var req = {
                 "usu_email": this.email,
                 "usu_contrasena": this.password,
                 "usu_nombre": this.username,
@@ -117,43 +133,56 @@ var app = new Vue({
             .then(data => {
                 error(status,data.mensaje)
                 this.usuId = data.usuario.usu_id
-            })
+                resolve('se creo el usuario')
+            })})
+           
             
         }
     }
 })
 
-const agregarNotificacionPersona = async (id, notif) => {
-
-    var reqNotifPers = {
+function agregarNotificacionPersona(id, notif){
+    return new Promise(resolve => {
+        var reqNotifPers = {
         "fonop_persona":{
             "pers_id": parseInt(id)
         },
         "fonop_forma": notif 
     }
 
-    const resp = await fetch("http://localhost:4567/patitas/notifPers", {
+    fetch("http://localhost:4567/patitas/notifPers", {
         method: "POST",
         body: JSON.stringify(reqNotifPers)
-    })
-    error(resp.status, "No se pudo agregar el tipo de notif");
+    }).then(resp => {
+        error(resp.status, "No se pudo agregar el tipo de notif")
+        if(Response.status = 200){
+            resolve('se agrego la notificacion al duenio')
+        }
+    });
+})
+    
 }
 
-async function agregarNotificacionContacto(id, notif){
+function agregarNotificacionContacto(id, notif){
 
-    var reqNotifCon = {
+    return new Promise(resolve => {    
+        var reqNotifCon = {
         "fonoc_contacto":{
             "cont_id": parseInt(id)
         },
         "fonoc_forma":notif
     }
 
-    return fetch("http://localhost:4567/patitas/notifCont", {
+    fetch("http://localhost:4567/patitas/notifCont", {
         method: "POST",
         body: JSON.stringify(reqNotifCon)
     }).then(Response => {
         error(Response.status, "No se pudo agregar el tipo de notif")
-    })
+        if(Response.status = 200){
+            resolve('se agrego la notificacion al contacto')
+        }
+    })})
+
 }
 
 
