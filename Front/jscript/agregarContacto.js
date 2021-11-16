@@ -29,9 +29,7 @@ var app = new Vue({
                 }
             } else {
                 alert("TENES QUE COMPLETAR TODOS LOS CAMPOS")
-            }
-            
-
+            };
         },        
         crearContacto: function() {
             return new Promise(resolve => {

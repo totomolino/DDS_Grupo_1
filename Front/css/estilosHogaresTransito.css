@@ -246,11 +246,6 @@ ul{
   color: white;
   text-transform: uppercase;
 }
-  
-.textoCaracteristica{
-
-  font-size: 95%;
-}
 
 .icon{
   font-size: 2.5vh;
@@ -259,6 +254,10 @@ ul{
 
 td{
   padding: 1vh 6vh;  
+}
+
+.caracteristicaTD{
+  padding: 0vh;
 }
 
 th{

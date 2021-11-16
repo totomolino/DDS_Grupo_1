@@ -258,6 +258,11 @@ h3{
     font-family: 'Abel', sans-serif
 }
 
+.botonesAprobacion{
+    display: flex;
+    gap: 3vh;
+}
+
 .boton-aceptar{
     margin-top: 35px;
     border-radius: 7px;
@@ -305,7 +310,7 @@ h3{
     font-size: 21px;
     font-family: 'Roboto Condensed', sans-serif;
     border: none;
-    background-color: #C281EA;
+    background-color: rgb(223, 111, 101);
     color: white;
     padding: 6px 10px;
     cursor: pointer;
@@ -314,7 +319,7 @@ h3{
   }
   
   .boton-denegar:hover{
-    color: rgb(220, 165, 236);
+    color: rgb(255, 166, 158);
   }
 /* FIN MAIN */
 

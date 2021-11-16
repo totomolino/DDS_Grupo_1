@@ -162,15 +162,15 @@ header{
   position: absolute; /* para poder estirarlo */ 
   top: 0; /* lo estiramos a todos los extremos de la portada */
   bottom: 0;
-left: 0;
-right: 0;
-background-color: rgba(0, 0, 0, 0.479);
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.479);
 }
 
 .portada section{
   position: relative; /*Para que el texto este adelante del fondo negro transparente*/
   color: white;
-  padding: 30vh 1vh 0 100vh;
+  padding: 10vh 1vh 0 45vh;
 }
 
 .portada h2{

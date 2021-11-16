@@ -23,7 +23,7 @@ public class MascotaBD {
     private String masc_especie;
     private String masc_descripcion;
     private Boolean masc_tieneChapita;
-    private String masc_tamanio;
+
 
     @ManyToOne
     @JoinColumn(name = "orga_id")
