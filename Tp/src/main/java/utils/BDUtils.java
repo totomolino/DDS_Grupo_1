@@ -236,4 +236,14 @@ public class BDUtils {
 
         return em.createQuery(hola).getResultList().isEmpty();
     }
+
+    public static PersonaBD dameIdPersona(Long id) {
+
+        EntityManager em = BDUtils.getEntityManager();
+
+        PersonaBD persona = (PersonaBD) em.createQuery("from PersonaBD where pers_usuario = '" + id + "'").getResultList().get(0);
+
+        return persona;
+
+    }
 }

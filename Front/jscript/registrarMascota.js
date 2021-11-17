@@ -1,4 +1,7 @@
-let dea;
+
+//import appU from '../jscript/user'
+
+
 var app = new Vue({
     el: "#appVueRegistroMasc",
     data: {
@@ -7,189 +10,127 @@ var app = new Vue({
         sexo:"",
         especie:"",
         edad:"",
-        descripcion:""
+        descripcion:"",
+        fotos:[],
+        idPers:"",
+        idMasc:""
     },
     methods:{
-        registrarse: async function(){            
+        registrar: async function(){
+            this.idPers = localStorage.getItem("IDPERSONA")
+            await this.crearMascota()
+            await this.agregarFotos()
 
-            if(this.password != this.password2){ //TODO HAY QUE VER COMO ENTRAR A ESTAS VARIABLES XD
-                alert("La contrasenia debe coincidir")
-                return;
-            }
-            await this.crearUsuario()
-            
-            await this.crearDuenio()
+            alert("SE CREO LA MASCOTA GIL")
 
-            for(const notif of this.formasNotif){
-                await agregarNotificacionPersona(this.idDuenio, notif);
-             }
-
-            await this.crearContacto()
-
-            for(const notif of this.formasNotifCon){
-                await agregarNotificacionContacto(this.idCont, notif);
-             }
-
-             
-
-             var val = confirm("Queres agregar otro contacto?")
-
-             if(val == true){ //APRETA OKAY
-                localStorage.setItem("personaID", this.idDuenio)
-                document.getElementById("agregarContacto").click();
-             }else{
-                document.getElementById("index").click();
-             }
-
-             
-
-        },        
-        crearDuenio: function() {
-    return new Promise(resolve => {            
-            var req = {
-                "pers_nombre": this.nombre,
-                "pers_apellido": this.apellido,
-                "pers_fechaNacimiento": this.fechaDeNacimiento,
-                "pers_documento": this.numero,
-                "pers_tipoDocumento": this.documento,
-                "pers_telefono": this.telefono,
-                "pers_usuario":{
-                    "usu_id": parseInt(this.usuId)
-                },
-                "due_organizacion":{
-                    "orga_id": 1
-                } 
-            }
-
-            fetch("http://localhost:4567/patitas/duenio", {
-                method: "POST",
-                body: JSON.stringify(req)
-            })
-            .then(Response => {
-                errorDuenio(Response.status)
-                return Response.json()})
-            .then(data => {
-                this.idDuenio = data.pers_id
-                resolve('se creo el duenio')
-            })
-            
-
-
-
-            })
-                    
         },
-        crearContacto: function() {
-            return new Promise(resolve => {
-                var reqCon = {
-                "cont_nombre": this.nombreCon,
-                "cont_apellido": this.apellidoCon,
-                "cont_telefono": this.telefonoCon,
-                "cont_email": this.emailCon,
-                "cont_persona":{
-                    "pers_id": parseInt(this.idDuenio)
+        guardarFotos: function (event){
+            
+            // Array.from(event.target.files).forEach(foto => this.getBase64(foto))
+            // this.fotos = event.target.files
+            for(var i = 0; i < event.target.files.length; i++)
+            {           
+                var file = event.target.files[i]
+                this.getBase64(file)
+                .then(img => {
+                    this.fotos.push(img)
+                })
+            }
+            console.log(this)
+
+        },
+        getBase64: function (file) {
+            return new Promise((resolve, reject) => {
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function () {
+                    resolve(reader.result)
+                };
+                reader.onerror = function (error) {
+                    reject('Error: ', error);
                 }
-            }
-
-            fetch("http://localhost:4567/patitas/contacto", {
-                method: "POST",
-                body: JSON.stringify(reqCon)
             })
-            .then(Response => {
-                error(Response.status, "No se pudo crear el contacto")
-                return Response.json()
-            })
-            .then(data => {
-                this.idCont = data.cont_id
-                resolve('se creo el contacto')
-            } )
-            
-
-
-            })
-            
-            
         },
-        crearUsuario: function() {
-            return new Promise(resolve => { 
+        crearMascota: function () {
+            return new Promise(resolve => {  
+
                 var req = {
-                "usu_email": this.email,
-                "usu_contrasena": this.password,
-                "usu_nombre": this.username,
-                "usu_tipo": this.tipo
-            }
-            var status
-            fetch("http://localhost:4567/patitas/user", {
-                method: "POST",
-                body: JSON.stringify(req)
-            })
-            .then(Response => {
-                status = Response.status
-                return Response.json()})
-            .then(data => {
-                error(status,data.mensaje)
-                this.usuId = data.usuario.usu_id
-                resolve('se creo el usuario')
-            })})
-           
-            
-        }
-    }
-})
-
-function agregarNotificacionPersona(id, notif){
-    return new Promise(resolve => {
-        var reqNotifPers = {
-        "fonop_persona":{
-            "pers_id": parseInt(id)
-        },
-        "fonop_forma": notif 
-    }
-
-    fetch("http://localhost:4567/patitas/notifPers", {
-        method: "POST",
-        body: JSON.stringify(reqNotifPers)
-    }).then(resp => {
-        error(resp.status, "No se pudo agregar el tipo de notif")
-        if(Response.status = 200){
-            resolve('se agrego la notificacion al duenio')
-        }
-    });
-})
+                    "masc_nombre":this.nombre,
+                    "masc_apodo":this.apodo,
+                    "masc_edad":parseInt(this.edad),
+                    "masc_sexo":this.sexo,
+                    "masc_especie":this.especie,
+                    "masc_descripcion":this.descripcion,
+                    "masc_tieneChapita":true,
+                    "masc_organizacion":{
+                        "orga_id":1
+                    },
+                    "masc_duenio":{
+                        "pers_id":parseInt(this.idPers)
+                    }    
+                }
     
-}
-
-function agregarNotificacionContacto(id, notif){
-
-    return new Promise(resolve => {    
-        var reqNotifCon = {
-        "fonoc_contacto":{
-            "cont_id": parseInt(id)
+                fetch("http://localhost:4567/patitas/mascotas", {
+                    method: "POST",
+                    body: JSON.stringify(req)
+                })
+                .then(Response => {
+                    errorMascota(Response.status)
+                    return Response.json()})
+                .then(data => {
+                    this.idMasc = data.masc_id
+                    resolve('se creo la mascota')
+                })
+                
+    
+    
+    
+                })
         },
-        "fonoc_forma":notif
-    }
+        agregarFotos: function () {
+            return new Promise(resolve => {  
+                this.transformarFotos()
+                var req = {
+                    "fotos": this.fotos   
+                }
+    
+                fetch("http://localhost:4567/patitas/mascotas/fotos", {
+                    method: "POST",
+                    body: JSON.stringify(req)
+                })
+                .then(Response => {
+                    errorFotos(Response.status)
+                    return Response.json()})
+                .then(data => {                    
+                    resolve('se agregaron las fotos')
+                })
+                
+    
+    
+    
+                })
+        },
+        transformarFotos(){            
+            this.fotos.map(foto => {
+                var req = {
+                    "fani_direccion": foto,
+                    "fani_masc":{
+                        "masc_id": parseInt(this.idMasc)
+                    } 
+                }
+            })
 
-    fetch("http://localhost:4567/patitas/notifCont", {
-        method: "POST",
-        body: JSON.stringify(reqNotifCon)
-    }).then(Response => {
-        error(Response.status, "No se pudo agregar el tipo de notif")
-        if(Response.status = 200){
-            resolve('se agrego la notificacion al contacto')
         }
-    })})
+    }
+    
+})
 
+function errorMascota(status){
+    error(status, "La mascota no fue creada")
 }
-
-
-function errorUser(status){
-    error(status, "El usuario no fue creado")    
+function errorFotos(status){
+    error(status, "Las fotos no fueron cargadas")
 }
-
-function errorDuenio(status){
-    error(status, "El duenio no fue creado")
-}
-
 function error(status, mensaje){
     if(status == 400 || status == 500){
         alert(mensaje)

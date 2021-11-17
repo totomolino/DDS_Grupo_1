@@ -1,9 +1,10 @@
 
-var app = new Vue({
+var appU = new Vue({
     el: "#appVue",
     data: {
         nombre:"",
         formasNotif2: [],
+        persId:""
     },
     methods: {
     },
@@ -17,7 +18,9 @@ var app = new Vue({
                 .then(response => response.json())
                 .then(objeto => {
                     
-                    this.nombre = objeto.nombre})
+                    this.nombre = objeto.nombre
+                    localStorage.setItem("IDPERSONA", objeto.persId)})
+            
         }  
 })
 

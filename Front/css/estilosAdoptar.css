@@ -43,75 +43,75 @@ header{
   
   /* MENU */
   #menu2{
-  position: absolute;
-  left: 150px;
+    position: absolute;
+    left: 150px;
   }
-  
+    
   #menu2 button{
-  border: none;
-  background-color: transparent;
-  color: white;
-  cursor: pointer;
-  transition: color 0.5s ease-in-out;
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: color 0.5s ease-in-out;
   }
-  
+    
   /*cuando pasamos el cursor por arriba cambia el color*/
   #menu2 button:hover{
-  color: #b3e5fc;
+    color: #b3e5fc;
   }
-  
+    
   #menu2 i{
-  font-size: 20px;
+    font-size: 20px;
   }
-  
+    
   .side-bar{
-  position: absolute; /*no ocupa espacio*/
-  background-color: rgb(69, 17, 90);
-  width: 280px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  transform: translateX(-100%);
-  transition: transform 0.5s ease-in-out;
-  z-index: 2
+    position: absolute; /*no ocupa espacio*/
+    background-color: rgba(69, 17, 90, 0.89);
+    width: 280px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+    z-index: 2; /*Para que aparezca arriba de la portada, (cuanto mas adelante debe estar as grande es el num)*/
   }
-  
+    
   .side-bar.open{
-  transform: translateX(0);
+    transform: translateX(0);
   }
-  
+    
   nav p{
-  font-family: 'Fira Sans', sans-serif;
-  color: white;
-  font-size: 25px;
-  margin-top: 23px;
-  margin-left: 50px;
+    font-family: 'Fira Sans', sans-serif;
+    color: white;
+    font-size: 20px;
+    margin-top: 28px;
+    margin-left: 50px;
   }
-  
+    
   .conj-botones-menu{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: space-between;
-  padding: 100px 50px;
-  gap: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+    padding: 50px 50px;
+    gap: 5vh;
   }
-  
+    
   .boton-menu{
-  font-family: 'Fira Sans', sans-serif;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  transition: color 0.5s ease-in-out;
-  text-decoration: none;
+    font-family: 'Fira Sans', sans-serif;
+    color: white;
+    font-size: 2.8vh;
+    cursor: pointer;
+    transition: color 0.4s ease-in-out;
+    text-decoration: none;
   }
+    
   
-
-
+  
   .boton-menu:hover{
-  color: rgb(183, 116, 189);
+    color: rgb(216, 148, 223);
   }
-  
+    
   .boton-menu-seleccionado{
     font-family: 'Fira Sans', sans-serif;
     color: rgb(0, 0, 0);
@@ -121,27 +121,25 @@ header{
     text-decoration: none;
     text-decoration: underline;
   }
-  
+    
   .cruz{
-  position: absolute;
-  background-color: transparent;
-  border: none;
-  right: 20px;
-  top: 20px;
-  cursor: pointer;
-  color: white;
-  transition: color 0.5s ease-in-out;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    color: white;
+    transition: color 0.5s ease-in-out;
   }
-  
+    
   .cruz:hover{
-  color: black;
+    color: rgb(211, 138, 218);
   }
-  
+    
   .cruz i{
-  font-size: 30px;
-  
+    font-size: 30px;
   }
-  
   /* FIN MENU */
 
 /* MAIN */

@@ -41,88 +41,86 @@ header{
 
 /* FIN HEADER*/
   
-  /* MENU */
-  #menu2{
+ /* MENU */
+ #menu2{
   position: absolute;
   left: 150px;
-  }
+}
   
-  #menu2 button{
+#menu2 button{
   border: none;
   background-color: transparent;
   color: white;
   cursor: pointer;
   transition: color 0.5s ease-in-out;
-  }
+}
   
-  /*cuando pasamos el cursor por arriba cambia el color*/
-  #menu2 button:hover{
+/*cuando pasamos el cursor por arriba cambia el color*/
+#menu2 button:hover{
   color: #b3e5fc;
-  }
+}
   
-  #menu2 i{
+#menu2 i{
   font-size: 20px;
-  }
+}
   
-  .side-bar{
+.side-bar{
   position: absolute; /*no ocupa espacio*/
-  background-color: rgb(69, 17, 90);
+  background-color: rgba(69, 17, 90, 0.89);
   width: 280px;
   top: 0;
   bottom: 0;
   left: 0;
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
-  z-index: 2
-  }
+  z-index: 2; /*Para que aparezca arriba de la portada, (cuanto mas adelante debe estar as grande es el num)*/
+}
   
-  .side-bar.open{
+.side-bar.open{
   transform: translateX(0);
-  }
+}
   
-  nav p{
+nav p{
   font-family: 'Fira Sans', sans-serif;
   color: white;
-  font-size: 25px;
-  margin-top: 23px;
+  font-size: 20px;
+  margin-top: 28px;
   margin-left: 50px;
-  }
+}
   
-  .conj-botones-menu{
+.conj-botones-menu{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: space-between;
-  padding: 100px 50px;
-  gap: 8vh;
-  }
+  padding: 50px 50px;
+  gap: 5vh;
+}
   
-  .boton-menu{
+.boton-menu{
   font-family: 'Fira Sans', sans-serif;
   color: white;
+  font-size: 2.8vh;
+  cursor: pointer;
+  transition: color 0.4s ease-in-out;
+  text-decoration: none;
+}
+  
+.boton-menu:hover{
+  color: rgb(216, 148, 223);
+}
+  
+.boton-menu-seleccionado{
+  font-family: 'Fira Sans', sans-serif;
+  color: rgb(0, 0, 0);
   font-size: 20px;
   cursor: pointer;
   transition: color 0.5s ease-in-out;
   text-decoration: none;
-  }
+  text-decoration: underline;
+}
   
-
-
-  .boton-menu:hover{
-  color: rgb(183, 116, 189);
-  }
-  
-  .boton-menu-seleccionado{
-    font-family: 'Fira Sans', sans-serif;
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    cursor: pointer;
-    transition: color 0.5s ease-in-out;
-    text-decoration: none;
-    text-decoration: underline;
-  }
-  
-  .cruz{
+.cruz{
   position: absolute;
   background-color: transparent;
   border: none;
@@ -131,18 +129,16 @@ header{
   cursor: pointer;
   color: white;
   transition: color 0.5s ease-in-out;
-  }
+}
   
-  .cruz:hover{
-  color: black;
-  }
+.cruz:hover{
+  color: rgb(211, 138, 218);
+}
   
-  .cruz i{
+.cruz i{
   font-size: 30px;
-  
-  }
-  
-  /* FIN MENU */
+}
+/* FIN MENU */
 
 /* MAIN */
 .portada{
@@ -150,7 +146,7 @@ header{
   background-image: url("../fotos/371fdbaaeddc587ddd4781a2297c5279.png");
   background-blend-mode: darken;
   height: 75vh;
-  background-position: center -50px;
+  background-position: center -18vh;
   background-size: cover;
   position: relative;
 }
@@ -161,15 +157,15 @@ header{
   position: absolute; /* para poder estirarlo */ 
   top: 0; /* lo estiramos a todos los extremos de la portada */
   bottom: 0;
-left: 0;
-right: 0;
-background-color: rgba(0, 0, 0, 0.479);
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.479);
 }
 
 .portada section{
   position: relative; /*Para que el texto este adelante del fondo negro transparente*/
   color: white;
-  padding: 15vh 1vh 0 25vh;
+  padding: 10vh 1vh 0 25vh;
 }
 
 .portada h2{
@@ -182,10 +178,10 @@ background-color: rgba(0, 0, 0, 0.479);
 }
 
 .card{
-	background: rgb(91, 192, 190);
+	background: rgb(21, 134, 132);
 	width: 45%;
-  height: 380px;
   border-radius: 5%;
+  cursor: pointer;
 }
 
 .cards {
@@ -231,7 +227,7 @@ ul{
 
 .card:hover{
   box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
-  background-color: rgb(107, 224, 222);
+  background-color: rgb(50, 139, 138);
 }
 
 .texto{

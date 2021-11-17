@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import dominioBD.*;
 
 
+import mappers.fotosMascota;
 import mappers.usuarioIniciarSesion;
 import respuestas.*;
 import seguridad.register;
@@ -272,6 +273,7 @@ public class Sistema {
         Spark.post("/mascotas", Sistema::crearMascota);
         Spark.get("/mascotas/:id", Sistema::devolverMascota);
         Spark.post("/mascotaCarac", Sistema::agregarCaracteristicaMascota);
+        Spark.post("/mascotas/fotos", Sistema::agregarFotosMascota);
         Spark.post("/rescate", Sistema::encontrarMascota);
         Spark.post("/rescatista", Sistema::crearRescatista);
         Spark.post("/caracAdmin", Sistema::agregarCaracteristicaAdmin);
@@ -285,6 +287,20 @@ public class Sistema {
         Spark.get("duenio/mascotas", Sistema::devolverMascotas);
 
         //Spark.post("/publicacionPerdida", Sistema::crearPubPerdida);
+    }
+
+    private static String agregarFotosMascota(Request req, Response res) {
+
+        fotosMascota fotos = new Gson().fromJson(req.body(), fotosMascota.class);
+
+        res.type("application/json");
+
+        fotos.getFotos().forEach(foto -> BDUtils.agregarObjeto(foto));
+
+        res.status(200);
+
+        return new mensaje("Se agregaron las fotos").transformar();
+
     }
 
     private static String devolverMascotas(Request req, Response res) {
@@ -317,14 +333,16 @@ public class Sistema {
 
         Usuario usuario = SesionManager.get().dameUsuario(idSesion);
 
-        if(usuario == null){
+        PersonaBD persona = BDUtils.dameIdPersona(usuario.getId());
+
+        if(usuario == null || persona == null){
             res.status(400);
             return new mensaje("No se valido el usuario").transformar();
         }
 
         res.status(200);
 
-        return new Gson().toJson(usuario);
+        return new Gson().toJson(new userName(usuario.getNombre(), persona.getPers_id()));
 
     }
 
@@ -464,14 +482,14 @@ public class Sistema {
     
         MascotaBD mascotaBD =  new Gson().fromJson(req.body(), MascotaBD.class);
 
-        System.out.println(mascotaBD);
+        //System.out.println(mascotaBD);
         
         res.type("application/json");
 
         BDUtils.agregarObjeto(mascotaBD);
 
         res.status(200);
-        return (new mensaje("Mascota agregada")).transformar();
+        return new Gson().toJson(mascotaBD);
     }
 
     public static String devolverMascota(Request req, Response res){

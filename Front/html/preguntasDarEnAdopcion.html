@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>registrarMascota</title>
+    <title>formulario dar en adopcion</title>
     <link rel="icon" href="../fotos/patitapro.png">
     <style> @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap');</style>
-    <link rel="stylesheet" href="../css/estilosRegistrarMascota.css">
+    <link rel="stylesheet" href="../css/estilosPreguntasDarEnAdopcion.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="../jscript/menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   </head>
   
   <body>
@@ -48,7 +48,10 @@
           <div class="usuario-icon">
               <i class="fas fa-user-circle"></i>
           </div>
-          <p>Juan Perez</p>
+          <div id= appVue>          
+            <p>{{nombre}}</p>          
+  
+          </div>
         </div>
 
         <div id="menu2" class="menu2" onclick="openSidebar()">
@@ -81,10 +84,19 @@
                     <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
                 </section>
                 <section>
-                    <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
+                    <a href="hogaresDeTransito.html" type="button" class="boton-menu"> HOGARES DE TRANSITO</a>
+                </section>
+                <section>
+                    <a href="mascotasPerdidasPubli.html" type="button" class="boton-menu">MASCOTAS PERDIDAS</a>
+                </section>
+                <!-- <section>
+                    <a href="aprobarPublicaciones.html" type="button" class="boton-menu">APROBAR PUBLICACIONES</a>
                 </section>
                 <section>
                   <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
+                </section> -->
+                <section>
+                    <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
                 </section>
             </section>
         </div>
@@ -93,22 +105,51 @@
     <main>
       <section>
         <div class="portada">
-          <h1>FORMULARIO PARA DAR EN ADOPCION</h1>
+          <h1>DAR EN ADOPCION</h1>
         </div>
         <br>
         <form
-          action="https://formspree.io/f/xwkawqpa"
-          method="post"
+          id = "appVueRegistroMasc" 
+          onsubmit="return false" 
+          autocomplete="on"
           target="_blank"
         >
           <section class="datos-personales">
             <fieldset>
               <h3 class="titulos-form">Sobre tu mascota</h3>
+              <div class="preguntaSiNo">
+                <p> Su mascota suele salir a pasear?</p>         
+                  <br>
+                  <label class="container">Si
+                    <input
+                        type = "radio"
+                        name = "respuesta"
+                        value = "respuesta"
+                        v-model = "formasNotif"
+                        autocomplete="on"
+                    />
+                    <span class="checkmark"></span>
+                  </label>
+                  <br>
+                  <label class="container">No
+                    <input
+                    type = "radio"
+                    name = "respuesta"
+                    value = "respuesta"
+                    v-model = "formasNotif"
+                    autocomplete="on"
+                    />
+                    <span class="checkmark"></span>
+                  </label>      
+                  <br>         
+              </div>
               <label>
                 <input
-                  placeholder="Ingrese nombre completo"
-                  type="text"
+                  placeholder="Cauntas veces al dia?"
+                  type="number"
                   name="nombre"
+                  v-model="cantVeces"
+                  value=""
                   required
                 />
               </label>
@@ -116,37 +157,97 @@
               <br>
               <label>
                 <input
-                  placeholder="Ingrese el apodo"
+                  placeholder="Si respondio que si, donde?"
                   type="text"
-                  name="apodo"
+                  name="lugarPaseo"
+                  v-model="nombre"
+                  value=""
+                  required
                 />
               </label>
               <br>
               <br>
-              <div id="selectores">
-                <select name="selector">
-                  <option value="Macho"> Macho</option>
-                  <option value="Hembra">Hembra</option>
-                </select>
-                <select name="selector">
-                  <option value="Perro">Perro</option>
-                  <option value="Gato">Gato</option>
-                </select>
+              <div class="preguntaSiNo">
+                <p> Su mascota toma medicamentos?</p>         
+                  <br>
+                  <label class="container">Si
+                    <input
+                        type = "radio"
+                        name = "afirmatvio"
+                        value = "respuesta"
+                        v-model = "formasNotif"
+                        autocomplete="on"
+                    />
+                    <span class="checkmark"></span>
+                  </label>
+                  <br>
+                  <label class="container">No
+                    <input
+                    type = "radio"
+                    name = "negativo"
+                    value = "respuesta"
+                    v-model = "formasNotif"
+                    autocomplete="on"
+                    />
+                    <span class="checkmark"></span>
+                  </label>      
+                  <br>         
               </div>
+              
+              <br>
+              <br>
+              <label>
+                <input
+                  placeholder="Si toma medicamentos, cuales toma?"
+                  type="text"
+                  name="apodo"
+                  v-model="apodo"
+                  value=""
+                />
+              </label>
+
+
+              <br>
+              <br>
+              <div id="selectores">
+                <select name="selector" v-model="sexo">
+                  <option disabled value="">Comida</option>
+                  <option value="Balanceada"> Balanceada </option>
+                  <option value="Casera">Casera</option>
+                </select>
+                
+              </div>
+
+              <br>
+              <br>
+              <label>
+                <input
+                  placeholder="Cual es su comida favorita?"
+                  type="text"
+                  name="tipoBalanceada"
+                  v-model="apodo"
+                  value=""
+                />
+              </label>
+              
+              <br>
               <br>
               <label>
                 <input
                   placeholder="Ingrese la edad"
                   type="text"
-                  name="apodo"
+                  name="edad"
+                  v-model="edad"
+                  value=""
                 />
               </label>  
               </div>
               <br>
               <br>
               <div>
-                <textarea rows="10" cols="40" placeholder="Ingrese la descripcion de su mascota"></textarea>
+                <textarea rows="10" cols="40" placeholder="Quiere realizar alguna aclaración? Escríbala acá" v-model="descripcion" value=""></textarea>
               </div>
+              <button class="boton-enviar" type="submit">Enviar</button>
             </fieldset>
           </section>
 
@@ -194,6 +295,8 @@
           </section>
       </section>
     </footer>
-
+    <script type="text/javascript" src="../jscript/menu.js"></script>
+    <script type="text/javascript" src="../jscript/registrarMascota.js"></script>
+    <script type="text/javascript" src="../jscript/user.js"></script>
   </body>
 </html>

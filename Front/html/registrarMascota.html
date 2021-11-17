@@ -84,10 +84,19 @@
                     <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
                 </section>
                 <section>
-                    <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
+                    <a href="hogaresDeTransito.html" type="button" class="boton-menu"> HOGARES DE TRANSITO</a>
+                </section>
+                <section>
+                    <a href="mascotasPerdidasPubli.html" type="button" class="boton-menu">MASCOTAS PERDIDAS</a>
+                </section>
+                <!-- <section>
+                    <a href="aprobarPublicaciones.html" type="button" class="boton-menu">APROBAR PUBLICACIONES</a>
                 </section>
                 <section>
                   <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
+                </section> -->
+                <section>
+                    <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
                 </section>
             </section>
         </div>
@@ -138,7 +147,7 @@
                   <option value="Hembra">Hembra</option>
                 </select>
                 <select name="selector"  v-model="especie">
-                  <option disabled value="">Edad</option>
+                  <option disabled value="">Especie</option>
                   <option value="Perro">Perro</option>
                   <option value="Gato">Gato</option>
                 </select>
@@ -163,7 +172,7 @@
 
             <fieldset class="formulario-foto">
               <h3 class="titulos-form">Foto</h3>
-              <input type="file" accept="image/png,image/jpg, image/jpeg" multiple>
+              <input type="file" @change="guardarFotos($event)" accept="image/png,image/jpg, image/jpeg" multiple >
           </section>
 
           <section class="usuario-foto">
@@ -236,7 +245,7 @@
               <br>
             </fieldset>
             
-            <button class="boton-registrarse" type="submit">Registrar</button>
+            <button class="boton-registrarse" type="submit" v-on:click="registrar">Registrar</button>
             <!-- <img src="../fotos/encontrarMascota.jpeg" class="fotoPerrito" alt="perrito"> -->
           </section>
         </form>

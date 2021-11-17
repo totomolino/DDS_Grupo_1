@@ -60,8 +60,8 @@ header{
 }
 /* FIN HEADER*/
   
-/* MENU */
-#menu2{
+ /* MENU */
+ #menu2{
   position: absolute;
   left: 150px;
 }
@@ -85,7 +85,7 @@ header{
   
 .side-bar{
   position: absolute; /*no ocupa espacio*/
-  background-color: rgb(69, 17, 90);
+  background-color: rgba(69, 17, 90, 0.89);
   width: 280px;
   top: 0;
   bottom: 0;
@@ -102,8 +102,8 @@ header{
 nav p{
   font-family: 'Fira Sans', sans-serif;
   color: white;
-  font-size: 25px;
-  margin-top: 23px;
+  font-size: 20px;
+  margin-top: 28px;
   margin-left: 50px;
 }
   
@@ -112,24 +112,23 @@ nav p{
   flex-direction: column;
   justify-content: center;
   align-content: space-between;
-  padding: 100px 50px;
-  gap: 8vh;
+  padding: 50px 50px;
+  gap: 5vh;
 }
   
 .boton-menu{
   font-family: 'Fira Sans', sans-serif;
   color: white;
-  font-size: 20px;
+  font-size: 2.8vh;
   cursor: pointer;
-  transition: color 0.5s ease-in-out;
+  transition: color 0.4s ease-in-out;
   text-decoration: none;
-
 }
   
 
 
 .boton-menu:hover{
-  color: rgb(183, 116, 189);
+  color: rgb(216, 148, 223);
 }
   
 .boton-menu-seleccionado{
@@ -154,7 +153,7 @@ nav p{
 }
   
 .cruz:hover{
-  color: black;
+  color: rgb(211, 138, 218);
 }
   
 .cruz i{
