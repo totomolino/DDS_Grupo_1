@@ -1,4 +1,3 @@
-
 var appU = new Vue({
     el: "#appVue",
     data: {
@@ -31,3 +30,4 @@ function agarrarStatus(status){
         document.getElementById("volver").click();
     }
 }
+

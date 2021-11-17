@@ -1,7 +1,4 @@
 
-//import appU from '../jscript/user'
-
-
 var app = new Vue({
     el: "#appVueRegistroMasc",
     data: {
@@ -89,9 +86,9 @@ var app = new Vue({
         },
         agregarFotos: function () {
             return new Promise(resolve => {  
-                this.transformarFotos()
+                const lista = this.transformarFotos()
                 var req = {
-                    "fotos": this.fotos   
+                    "fotos": lista
                 }
     
                 fetch("http://localhost:4567/patitas/mascotas/fotos", {
@@ -104,22 +101,19 @@ var app = new Vue({
                 .then(data => {                    
                     resolve('se agregaron las fotos')
                 })
-                
-    
-    
-    
                 })
         },
-        transformarFotos(){            
-            this.fotos.map(foto => {
-                var req = {
-                    "fani_direccion": foto,
-                    "fani_masc":{
-                        "masc_id": parseInt(this.idMasc)
+        transformarFotos: function(){            
+            const lista = this.fotos.map(foto => 
+                ({
+                    fani_direccion: foto,
+                    fani_masc:
+                    {
+                        masc_id: parseInt(this.idMasc)
                     } 
-                }
-            })
-
+                })
+            )
+            return lista
         }
     }
     

@@ -17,6 +17,7 @@ public class FotoAnimales {
     @JoinColumn(name = "masc_id")
     private MascotaBD fani_masc;
 
+    @Column(columnDefinition="longtext")
     private String fani_direccion;
 
     public Long getFani_id() {
