@@ -180,8 +180,8 @@
               <h3 class="titulos-form">Caracteristicas</h3>
               <div id="caracteristicas">
                 <select name="selector">
-                  <option value="Color ojos">Color ojos</option>
-                  <option value="Color pelo">Color pelo</option>
+                  <option disabled value="">Caracteristica</option>
+                  <option v-for="clave in preguntas" :value="clave">{{clave}}</option>
                   option
                 </select>
                 <input

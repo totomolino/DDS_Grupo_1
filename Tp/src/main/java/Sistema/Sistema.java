@@ -10,6 +10,7 @@ import dominioBD.*;
 
 
 import mappers.fotosMascota;
+import mappers.listaCarac;
 import mappers.usuarioIniciarSesion;
 import respuestas.*;
 import seguridad.register;
@@ -285,8 +286,21 @@ public class Sistema {
         Spark.get("/publicacion/adopcion/:id", Sistema::devolverPublicacionesDarAdopcion);
         Spark.get("/misDatos", Sistema::DatosUsuario);
         Spark.get("duenio/mascotas", Sistema::devolverMascotas);
+        Spark.get("/orga/caracteristicas/:id", Sistema::dameCaracteristicas);
 
         //Spark.post("/publicacionPerdida", Sistema::crearPubPerdida);
+    }
+
+    private static String dameCaracteristicas(Request req, Response res) {
+        String orgaId =  req.params(":id");
+
+        List<CaracteristicaOrg> preguntas = BDUtils.dameCarateristicasOrg(Integer.parseInt(orgaId));
+
+        res.type("application/json");
+
+        res.status(200);
+
+        return new Gson().toJson(new listaCarac(preguntas));
     }
 
     private static String agregarFotosMascota(Request req, Response res) {

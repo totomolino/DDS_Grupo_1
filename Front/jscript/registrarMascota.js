@@ -10,7 +10,8 @@ var app = new Vue({
         descripcion:"",
         fotos:[],
         idPers:"",
-        idMasc:""
+        idMasc:"",
+        preguntas:[]
     },
     methods:{
         registrar: async function(){
@@ -18,7 +19,7 @@ var app = new Vue({
             await this.crearMascota()
             await this.agregarFotos()
 
-            alert("SE CREO LA MASCOTA GIL")
+            alert("SE CREO LA MASCOTA")
 
         },
         guardarFotos: function (event){
@@ -115,6 +116,13 @@ var app = new Vue({
             )
             return lista
         }
+    },
+    created(){
+        fetch("http://localhost:4567/patitas/orga/caracteristicas/1" )
+        .then(Response => Response.json())
+        .then(data => {
+            this.preguntas = data.caracteristicas
+        })
     }
     
 })

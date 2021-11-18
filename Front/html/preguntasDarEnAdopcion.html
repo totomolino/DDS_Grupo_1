@@ -104,154 +104,156 @@
 
     <main>
       <section>
+
         <div class="portada">
           <h1>DAR EN ADOPCION</h1>
         </div>
-        <br>
+
         <form
           id = "appVueRegistroMasc" 
           onsubmit="return false" 
           autocomplete="on"
           target="_blank"
         >
-          <section class="datos-personales">
-            <fieldset>
-              <h3 class="titulos-form">Sobre tu mascota</h3>
-              <div class="preguntaSiNo">
-                <p> Su mascota suele salir a pasear?</p>         
-                  <br>
-                  <label class="container">Si
-                    <input
-                        type = "radio"
-                        name = "respuesta"
-                        value = "respuesta"
-                        v-model = "formasNotif"
-                        autocomplete="on"
-                    />
-                    <span class="checkmark"></span>
-                  </label>
-                  <br>
-                  <label class="container">No
-                    <input
-                    type = "radio"
-                    name = "respuesta"
-                    value = "respuesta"
-                    v-model = "formasNotif"
-                    autocomplete="on"
-                    />
-                    <span class="checkmark"></span>
-                  </label>      
-                  <br>         
-              </div>
-              <label>
-                <input
-                  placeholder="Cauntas veces al dia?"
-                  type="number"
-                  name="nombre"
-                  v-model="cantVeces"
-                  value=""
-                  required
-                />
-              </label>
-              <br>
-              <br>
-              <label>
-                <input
-                  placeholder="Si respondio que si, donde?"
-                  type="text"
-                  name="lugarPaseo"
-                  v-model="nombre"
-                  value=""
-                  required
-                />
-              </label>
-              <br>
-              <br>
-              <div class="preguntaSiNo">
-                <p> Su mascota toma medicamentos?</p>         
-                  <br>
-                  <label class="container">Si
-                    <input
-                        type = "radio"
-                        name = "afirmatvio"
-                        value = "respuesta"
-                        v-model = "formasNotif"
-                        autocomplete="on"
-                    />
-                    <span class="checkmark"></span>
-                  </label>
-                  <br>
-                  <label class="container">No
-                    <input
-                    type = "radio"
-                    name = "negativo"
-                    value = "respuesta"
-                    v-model = "formasNotif"
-                    autocomplete="on"
-                    />
-                    <span class="checkmark"></span>
-                  </label>      
-                  <br>         
-              </div>
+        <section class="datos-personales">
+
+          <fieldset>
+           
+            <h3 class="titulos-form">Sobre tu mascota</h3>
+           
+
+            <div class="preguntaSiNo">
+              <p> Su mascota suele salir a pasear?</p>         
+                <br>
+                <label class="container">Si
+                  <input
+                      type = "radio"
+                      name = "respuesta"
+                      value = "respuesta"
+                      v-model = "formasNotif"
+                      autocomplete="on"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+                <br>
+                <label class="container">No
+                  <input
+                  type = "radio"
+                  name = "respuesta"
+                  value = "respuesta"
+                  v-model = "formasNotif"
+                  autocomplete="on"
+                  />
+                  <span class="checkmark"></span>
+                </label>      
+                <br>         
+            </div>
+            <label>
+              <input
+                placeholder="Si respondio si, cuantas veces al dia?"
+                type="number"
+                name="nombre"
+                v-model="cantVeces"
+                value=""
+                required
+              />
+            </label>
+            <br>
+            <br>
+            <label>
+              <input placeholder="Si respondio si, a donde?" type="text" name="lugarPaseo"
+                v-model="nombre"
+                value=""
+                required/>
+            </label>
+            <br><br>
+            <div id="selectores">
+              <select name="selector" v-model="sexo">
+                <option disabled value="">Comida</option>
+                <option value="Balanceada"> Balanceada </option>
+                <option value="Casera">Casera</option>
+              </select>
               
-              <br>
-              <br>
-              <label>
-                <input
-                  placeholder="Si toma medicamentos, cuales toma?"
-                  type="text"
-                  name="apodo"
-                  v-model="apodo"
-                  value=""
-                />
-              </label>
+            </div>
+            <br>
+            <label>
+              <input
+                placeholder="Cual es su comida favorita?"
+                type="text"
+                name="tipoBalanceada"
+                v-model="apodo"
+                value=""
+              />
+            </label>
 
+          </fieldset>
 
-              <br>
-              <br>
-              <div id="selectores">
-                <select name="selector" v-model="sexo">
-                  <option disabled value="">Comida</option>
-                  <option value="Balanceada"> Balanceada </option>
-                  <option value="Casera">Casera</option>
-                </select>
-                
-              </div>
+        </section>
 
-              <br>
-              <br>
-              <label>
-                <input
-                  placeholder="Cual es su comida favorita?"
-                  type="text"
-                  name="tipoBalanceada"
-                  v-model="apodo"
-                  value=""
-                />
-              </label>
-              
-              <br>
-              <br>
-              <label>
-                <input
-                  placeholder="Ingrese la edad"
-                  type="text"
-                  name="edad"
-                  v-model="edad"
-                  value=""
-                />
-              </label>  
-              </div>
-              <br>
-              <br>
-              <div>
-                <textarea rows="10" cols="40" placeholder="Quiere realizar alguna aclaración? Escríbala acá" v-model="descripcion" value=""></textarea>
-              </div>
-              <button class="boton-enviar" type="submit">Enviar</button>
-            </fieldset>
-          </section>
+        <section class="datos-personales">
+        
+          <fieldset>
+            <div class="preguntaSiNo">
+              <p> Su mascota toma medicamentos?</p>         
+                <br>
+                <label class="container">Si
+                  <input
+                      type = "radio"
+                      name = "afirmatvio"
+                      value = "respuesta"
+                      v-model = "formasNotif"
+                      autocomplete="on"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+                <br>
+                <label class="container">No
+                  <input
+                  type = "radio"
+                  name = "negativo"
+                  value = "respuesta"
+                  v-model = "formasNotif"
+                  autocomplete="on"
+                  />
+                  <span class="checkmark"></span>
+                </label>      
+                <br>         
+            </div>
+            <br>
+            <label>
+              <input
+                placeholder="Si toma medicamentos, cuales toma?"
+                type="text"
+                name="apodo"
+                v-model="apodo"
+                value=""
+              />
+            </label>
 
-        </form>
+            <br>
+            <br>
+            <label>
+              <input
+                placeholder="Ingrese la edad"
+                type="text"
+                name="edad"
+                v-model="edad"
+                value=""
+              />
+            </label> 
+            <br>
+            <br>
+            </div>
+            <div>
+              <textarea rows="40" cols="40" placeholder="Quiere realizar alguna aclaración? Escríbala acá" v-model="descripcion" value=""></textarea>
+            </div>
+            <br>
+            <!--button class="boton-enviar" type="submit">Enviar</button-->
+            <a href="adoptar.html" type="submit" class="boton-enviar"> Enviar</a>
+          </fieldset>
+
+        </section>
+
       </section>
     </main>
 

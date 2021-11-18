@@ -216,17 +216,18 @@ ul{
   list-style-type: none;
 }
 
+/*
 .card-title{
   background: rgba(229, 179, 254, 0.582);
   padding: 3.5% 0 2.5% 0;
   color: white;
   font-family: 'Roboto Condensed', sans-serif;
-  text-transform: uppercase; /* Mayusculas */
+  text-transform: uppercase; /* Mayusculas 
   position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
-}
+}*/
 
 .card-header {
   position: relative;
@@ -245,7 +246,7 @@ ul{
 
 .card:hover{
   box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
-  background-color: rgb(226, 175, 255);
+  background-color: rgb(204, 121, 251);
 }
 
 .texto{

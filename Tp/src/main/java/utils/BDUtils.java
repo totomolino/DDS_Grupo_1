@@ -4,7 +4,6 @@ import Business.*;
 import Business.publicaciones.PublicacionDarEnAdopcion;
 import Notificar.notificarStrategy;
 import dominioBD.*;
-import mappers.hashmapMapper;
 
 
 import javax.persistence.*;
@@ -244,6 +243,16 @@ public class BDUtils {
         PersonaBD persona = (PersonaBD) em.createQuery("from PersonaBD where pers_usuario = '" + id + "'").getResultList().get(0);
 
         return persona;
+
+    }
+
+    public static List<CaracteristicaOrg> dameCarateristicasOrg(int id) {
+
+        EntityManager em = BDUtils.getEntityManager();
+
+        List<CaracteristicaOrg> caracteristicas = em.createQuery("from CaracteristicaOrg where caor_organizacion = '" + id + "'").getResultList();
+
+        return caracteristicas;
 
     }
 }

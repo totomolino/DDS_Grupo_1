@@ -57,7 +57,7 @@ header{
     
   /*cuando pasamos el cursor por arriba cambia el color*/
   #menu2 button:hover{
-    color: #b3e5fc;
+    color: rgb(216, 177, 221);
   }
     
   #menu2 i{
