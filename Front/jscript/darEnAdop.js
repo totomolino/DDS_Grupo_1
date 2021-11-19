@@ -13,7 +13,10 @@ var app = new Vue({
             }
         }) //~(°-°~) ~(°-°)~ (~°-°)~
             .then(response => response.json())
-            .then(data => this.mascotas = data.mascotas)
-            console.log(this.mascotas)
+            .then(data => {
+                this.mascotas = data.mascotas
+                console.log(this.mascotas)
+            })
+            
     }     
 })
