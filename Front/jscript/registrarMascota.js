@@ -23,7 +23,8 @@ var app = new Vue({
                 await this.crearMascota()
                 await this.agregarFotos()
                 await this.cargarCaracteristicas()
-                alert("SE CREO LA MASCOTA")         
+                alert("SE CREO LA MASCOTA")
+                document.getElementById("volverInicio").click();
                 
             } else {
                 alert("TENES QUE COMPLETAR TODOS LOS CAMPOS")

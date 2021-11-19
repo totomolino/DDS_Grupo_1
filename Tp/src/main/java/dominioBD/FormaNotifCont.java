@@ -1,5 +1,10 @@
 package dominioBD;
 
+import Notificar.EMAIL;
+import Notificar.SMS;
+import Notificar.WHATSAPP;
+import Notificar.notificarStrategy;
+
 import javax.persistence.*;
 
 @Table(name = "forma_notif_cont")
@@ -39,4 +44,14 @@ public class FormaNotifCont {
     public void setFonoc_forma(String fonoc_forma) {
         this.fonoc_forma = fonoc_forma;
     }
+
+    public notificarStrategy transformar() {
+        if(fonoc_forma.equalsIgnoreCase("SMS"))
+            return new SMS();
+        else if(fonoc_forma.equalsIgnoreCase("EMAIL"))
+            return new EMAIL();
+        else
+            return new WHATSAPP();
+    }
+
 }

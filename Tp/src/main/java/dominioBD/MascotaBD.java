@@ -6,6 +6,7 @@ import utils.BDUtils;
 import javax.persistence.*;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Table(name = "mascota_bd")
@@ -54,7 +55,7 @@ public class MascotaBD {
         String apodo = this.getMasc_apodo();
         Integer edad = this.getMasc_edad();
         String sexo = this.getMasc_sexo();
-        Especie especie = Especie.valueOf(this.getMasc_especie());
+        Especie especie = Especie.valueOf(this.getMasc_especie().toUpperCase(Locale.ROOT));
         String descripcion = this.getMasc_descripcion();
         Boolean tieneChapita = this.getMasc_tieneChapita();
         List<Foto> fotos = BDUtils.dameFotosMasc(id);

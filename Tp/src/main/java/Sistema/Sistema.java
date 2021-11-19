@@ -9,10 +9,7 @@ import com.google.gson.Gson;
 import dominioBD.*;
 
 
-import mappers.caracMascota;
-import mappers.fotosMascota;
-import mappers.listaCarac;
-import mappers.usuarioIniciarSesion;
+import mappers.*;
 import respuestas.*;
 import seguridad.register;
 import spark.Request;
@@ -286,7 +283,7 @@ public class Sistema {
         Spark.post("/organizacion", Sistema::crearOrganizacion);
         Spark.get("/publicacion/adopcion/:id", Sistema::devolverPublicacionesDarAdopcion);
         Spark.get("/misDatos", Sistema::DatosUsuario);
-        Spark.get("duenio/mascotas", Sistema::devolverMascotas);
+        Spark.get("/duenio/mascotas", Sistema::devolverMascotas);
         Spark.get("/orga/caracteristicas/:id", Sistema::dameCaracteristicas);
 
         //Spark.post("/publicacionPerdida", Sistema::crearPubPerdida);
@@ -339,7 +336,7 @@ public class Sistema {
         }
 
         res.status(200);
-        return new Gson().toJson(mascotas);
+        return new Gson().toJson(new listaMasc(mascotas));
     }
 
     private static String DatosUsuario(Request req, Response res) {

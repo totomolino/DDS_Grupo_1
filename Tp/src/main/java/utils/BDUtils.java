@@ -123,9 +123,9 @@ public class BDUtils {
 
         EntityManager em = BDUtils.getEntityManager();
 
-        List<FormaNotifPers> formaNotifPers = em.createQuery("from FormaNotifCont where fonoc_contacto.cont_id = '"+id+"'").getResultList();
+        List<FormaNotifCont> formaNotifCont = em.createQuery("from FormaNotifCont where fonoc_contacto.cont_id = '"+id+"'").getResultList();
 
-        return formaNotifPers.stream().map(forma -> forma.transformar()).collect(Collectors.toList());
+        return formaNotifCont.stream().map(forma -> forma.transformar()).collect(Collectors.toList());
 
 
     }
