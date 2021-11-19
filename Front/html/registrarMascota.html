@@ -179,67 +179,72 @@
             <fieldset>
               <h3 class="titulos-form">Caracteristicas</h3>
               <div id="caracteristicas">
-                <select name="selector">
-                  <option disabled value="">Caracteristica</option>
-                  <option v-for="clave in preguntas" :value="clave">{{clave}}</option>
+                <select name="selector" v-on:change="agregarPreguntas($event, 0)">
+                  <option value="">Ninguna</option>
+                  <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
                   option
                 </select>
                 <input
                   placeholder="Especifique"
                   type="text"
                   name="caracteristicas"
+                  v-on:change="agregarCaracteristica($event, 0)"
                 />
               </div>
               <br>
               <div id="caracteristicas">
-                <select name="selector">
-                  <option value="Color ojos">Color ojos</option>
-                  <option value="Color pelo">Color pelo</option>
+                <select name="selector" v-on:change="agregarPreguntas($event, 1)">
+                  <option value="">Ninguna</option>
+                  <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
                   option
                 </select>
                 <input
                   placeholder="Especifique"
                   type="text"
                   name="caracteristicas"
+                  v-on:change="agregarCaracteristica($event, 1)"
                 />
               </div>
               <br>
               <div id="caracteristicas">
-                <select name="selector">
-                  <option value="Color ojos">Color ojos</option>
-                  <option value="Color pelo">Color pelo</option>
+                <select name="selector" v-on:change="agregarPreguntas($event, 2)">
+                  <option value="">Ninguna</option>
+                  <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
                   option
                 </select>
                 <input
                   placeholder="Especifique"
                   type="text"
                   name="caracteristicas"
+                  v-on:change="agregarCaracteristica($event, 2)"
                 />
               </div>
               <br>
               <div id="caracteristicas">
-                <select name="selector">
-                  <option value="Color ojos">Color ojos</option>
-                  <option value="Color pelo">Color pelo</option>
+                <select name="selector" v-on:change="agregarPreguntas($event, 3)">
+                  <option value="">Ninguna</option>
+                  <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
                   option
                 </select>
                 <input
                   placeholder="Especifique"
                   type="text"
                   name="caracteristicas"
+                  v-on:change="agregarCaracteristica($event, 3)"
                 />
               </div>
               <br>
               <div id="caracteristicas">
-                <select name="selector">
-                  <option value="Color ojos">Color ojos</option>
-                  <option value="Color pelo">Color pelo</option>
+                <select name="selector" v-on:change="agregarPreguntas($event, 4)">
+                  <option value="">Ninguna</option>
+                  <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
                   option
                 </select>
                 <input
                   placeholder="Especifique"
                   type="text"
                   name="caracteristicas"
+                  v-on:change="agregarCaracteristica($event, 4)"
                 />
               </div>
               <br>

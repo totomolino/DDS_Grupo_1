@@ -35,6 +35,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
     <script type="text/javascript" src="../jscript/menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
      
   </head>
   
@@ -55,8 +56,13 @@
         <div class="usuario-icon">
             <i class="fas fa-user-circle"></i>
         </div>
-        <p>Juan Perez</p>
+        <div id= appVue>          
+          <p>{{nombre}}</p>          
+
+        </div>
       </div>
+
+
 
       <div id="menu2" class="menu2" onclick="openSidebar()">
         <button>

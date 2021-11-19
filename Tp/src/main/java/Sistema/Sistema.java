@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import dominioBD.*;
 
 
+import mappers.caracMascota;
 import mappers.fotosMascota;
 import mappers.listaCarac;
 import mappers.usuarioIniciarSesion;
@@ -524,13 +525,16 @@ public class Sistema {
 
     public static String agregarCaracteristicaMascota(Request req, Response res){
 
-        CarMasXMas caracteristicas = new Gson().fromJson(req.body(), CarMasXMas.class);
+        caracMascota caracteristicas = new Gson().fromJson(req.body(), caracMascota.class);
 
         res.type("application/json");
 
-        BDUtils.agregarObjeto(caracteristicas);
+        caracteristicas.getCaracteristicas().forEach(carac -> BDUtils.agregarObjeto(carac.getCarMasMas_carmas()));
+
+        caracteristicas.getCaracteristicas().forEach(carac -> BDUtils.agregarObjeto(carac));
 
         res.status(200);
+
         return (new mensaje("Se agrego las caracteristicas a la mascota")).transformar();
     }
 
