@@ -4,6 +4,19 @@ var app = new Vue({
         mascotas:[]
     },
     methods: {
+        getFoto: function(index){
+
+            var mascota = this.mascotas[index]
+
+            var foto = mascota.fotoAnimales[0]
+
+
+            if(foto == null){
+                return "../fotos/caraPerrito.jpeg"
+            }else
+            return 'background-image: url("' + foto.direccion + '")'
+
+        }
     },
     created(){
         var idSesion = localStorage.getItem("IDSESION") //recupera ID
